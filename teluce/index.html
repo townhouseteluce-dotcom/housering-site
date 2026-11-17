@@ -699,10 +699,10 @@ button.price-figure:hover img{transform:scale(1.015)}
       <img src="assets/photos/teluce-sunset-garden.jpg" alt="노을이 드는 텔루체 단지의 잔디 마당" width="672" height="378" loading="lazy" decoding="async">
     </div>
     <div class="hero-shot" data-kicker="야간 · 벙커주차" data-label="구경하는 집, 밤의 표정" data-kb="b">
-      <img src="assets/photos/teluce-twilight.jpg" alt="해질녘 텔루체 6호 모델하우스와 벙커주차장" width="768" height="1238" loading="lazy" decoding="async">
+      <img src="assets/photos/teluce-twilight.jpg" alt="해질녘 텔루체 6호 모델하우스와 벙커주차장" width="768" height="1238" loading="lazy" decoding="async" style="object-position:50% 56%">
     </div>
     <div class="hero-shot" data-kicker="주차 · 진입" data-label="114-5, 단지 입구와 벙커주차" data-kb="a">
-      <img src="assets/photos/teluce-day-bunker.jpg" alt="낮에 본 텔루체 6호 벙커주차장과 구경하는 집 배너" width="768" height="1230" loading="lazy" decoding="async">
+      <img src="assets/photos/teluce-day-bunker.jpg" alt="낮에 본 텔루체 6호 벙커주차장과 구경하는 집 배너" width="768" height="1230" loading="lazy" decoding="async" style="object-position:50% 52%">
     </div>
     <div class="hero-shot" data-kicker="마당 · 잔디" data-label="맑은 날의 잔디마당과 테라스" data-kb="c">
       <img src="assets/photos/teluce-lawn-day.jpg" alt="맑은 날 텔루체 단지 안쪽 잔디 마당과 테라스" width="382" height="450" loading="lazy" decoding="async">
@@ -714,7 +714,7 @@ button.price-figure:hover img{transform:scale(1.015)}
       <img src="assets/teluce-kitchen.jpg" alt="텔루체 주방과 아일랜드 식탁" width="694" height="391" loading="lazy" decoding="async">
     </div>
     <div class="hero-shot" data-kicker="마당 · 테라스" data-label="파라솔과 바비큐 테이블" data-kb="c">
-      <img src="assets/teluce-terrace.jpg" alt="텔루체 마당과 테라스, 파라솔" width="694" height="900" loading="lazy" decoding="async">
+      <img src="assets/teluce-terrace.jpg" alt="텔루체 마당과 테라스, 파라솔" width="694" height="900" loading="lazy" decoding="async" style="object-position:50% 45%">
     </div>
     <div class="hero-shot" data-kicker="루프탑" data-label="아파트 숲과 산이 함께 보이는 조망" data-kb="a">
       <img src="assets/teluce-rooftop.jpg" alt="텔루체 루프탑에서 본 단지와 조망" width="694" height="391" loading="lazy" decoding="async">
@@ -941,7 +941,7 @@ button.price-figure:hover img{transform:scale(1.015)}
         </div>
       </article>
     </div>
-    <p class="type-note" data-reveal><svg aria-hidden="true"><use href="#i-info"/></svg>세대별 대지·건축 면적과 마당·테라스 구성이 조금씩 다릅니다. 희망하시는 구조가 있으면 맞춤 설계 상담도 가능합니다. 표시된 면적과 분양가는 상담 시점의 현황으로 확인해 주세요.</p>
+    <p class="type-note" data-reveal><svg aria-hidden="true"><use href="#i-info"/></svg>세대별 대지·건축 면적과 마당·테라스 구성이 조금씩 다릅니다. 희망하시는 구조가 있으면 맞춤 설계 상담도 가능합니다. 표시된 면적과 분양가는 상담 시점의 현황으로 확인해 주세요. <b>세대별 전용·공용·공급·건축면적과 예상분양가는 분양 현황의 공식 분양가표</b>에서 확인하실 수 있습니다.</p>
   </div>
 </section>
 
@@ -1569,7 +1569,7 @@ button.price-figure:hover img{transform:scale(1.015)}
   var heroLabelEl = document.getElementById('heroLabel');
 
   if (heroEl && heroDotsBox && heroShots.length){
-    var cuts = [{video:true, kicker:'현장 영상', label:'드론으로 본 3층 · 다락 주택', dur:9000}];
+    var cuts = [{video:true, kicker:'현장 영상', label:'드론으로 본 3층 · 다락 주택', dur:11000}];
     heroShots.forEach(function(s){
       cuts.push({video:false, el:s, kicker:s.getAttribute('data-kicker') || '', label:s.getAttribute('data-label') || '', dur:7200});
     });
