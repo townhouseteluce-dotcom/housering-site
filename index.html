@@ -2287,26 +2287,43 @@ html.js [data-reveal].in{opacity:1;transform:none}
   quickLinks.forEach(function(a){
     a.addEventListener('click', function(){ centerQuick(a); });
   });
-  var sections = ['lineup','properties','estimate','press','channel','booking','contact','showroom','compare','services','process'].map(function(id){
+  var sections = ['showroom','lineup','properties','compare','estimate','services','process','press','channel','booking','contact'].map(function(id){
     return document.getElementById(id);
   }).filter(Boolean);
-  if ('IntersectionObserver' in window && sections.length){
-    var navObs = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (!en.isIntersecting) return;
-        var href = '#' + en.target.id;
-        navLinks.forEach(function(a){
-          a.classList.toggle('active', a.getAttribute('href') === href);
-        });
-        quickLinks.forEach(function(a){
-          var on = a.getAttribute('href') === href;
-          a.classList.toggle('is-active', on);
-          if (on) centerQuick(a);
-        });
+  function paintActive(){
+    if (!sections.length) return;
+    var line = (header ? header.offsetHeight : 0) + (quickbarEl && quickbarEl.offsetHeight ? quickbarEl.offsetHeight : 0) + 48;
+    var best = null, bestTop = -1e9;
+    sections.forEach(function(s){
+      var r = s.getBoundingClientRect();
+      if (r.top <= line && r.bottom > line) best = s;   /* 더 안쪽 섹션이 뒤에 오므로 마지막 매치가 이긴다 */
+    });
+    if (!best){
+      sections.forEach(function(s){
+        var r = s.getBoundingClientRect();
+        if (r.top <= line && r.top > bestTop){ bestTop = r.top; best = s; }
       });
-    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
-    sections.forEach(function(s){ navObs.observe(s); });
+    }
+    var href = best ? '#' + best.id : '';
+    navLinks.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === href); });
+    quickLinks.forEach(function(a){
+      var on = a.getAttribute('href') === href;
+      a.classList.toggle('is-active', on);
+      if (on) centerQuick(a);
+    });
   }
+  var activeTick = false;
+  function queueActive(){
+    if (activeTick) return;
+    activeTick = true;
+    window.requestAnimationFrame(function(){ activeTick = false; paintActive(); });
+  }
+  paintActive();
+  window.addEventListener('scroll', queueActive, {passive:true});
+  window.addEventListener('resize', queueActive);
+  window.addEventListener('load', queueActive);
+  /* 사진이 늦게 로드돼 레이아웃이 밀린 경우까지 한 번 더 맞춤 */
+  [300, 1200, 2600].forEach(function(t){ setTimeout(paintActive, t); });
 
   /* reveal */
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
