@@ -175,13 +175,19 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
 .bk-phone a{color:var(--navy);font-weight:600;border-bottom:1px solid var(--line-gold);padding-bottom:1px}
 .sm-tag{font-size:11px;color:rgba(255,255,255,.42)}
 /* ---------- direct / viva / news ---------- */
-.hero-punch{display:inline-flex;align-items:baseline;flex-wrap:wrap;gap:9px;margin-top:14px;padding:8px 13px;border:1px solid rgba(220,196,155,.42);background:rgba(10,19,41,.46);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.hero-punch span{font-size:12px;color:rgba(255,255,255,.7);letter-spacing:-.01em}
-.hero-punch b{font-family:var(--ff-serif);font-size:clamp(17px,2vw,21px);color:var(--gold-pale);letter-spacing:.01em}
+.hero-punch{display:block;margin-top:14px;padding:9px 14px 10px;border:1px solid rgba(220,196,155,.42);background:rgba(10,19,41,.46);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hero-punch .hp-label{display:block;font-size:11.5px;color:rgba(255,255,255,.68);letter-spacing:-.01em}
+.hero-punch .hp-row{display:flex;align-items:baseline;flex-wrap:wrap;gap:7px;margin-top:3px;line-height:1.24}
+.hero-punch b{font-family:var(--ff-serif);font-size:clamp(16.5px,1.85vw,21px);font-weight:400;color:var(--gold-pale);letter-spacing:.01em}
+.hero-punch .hp-key{color:#F8CE9C}
+.hero-punch .hp-dot{color:rgba(255,255,255,.38)}
+.hero-punch .hp-note{display:block;font-size:10.5px;color:rgba(255,255,255,.46);margin-top:2px}
 .hero-badge.is-urgent{border-color:rgba(232,150,110,.55);background:rgba(232,150,110,.15);color:#F4CBAF}
 .hero-badge.is-urgent .dot{background:#E8966E;box-shadow:0 0 0 3px rgba(232,150,110,.2)}
 .hero-badge.is-gift{border-color:rgba(232,150,110,.5);background:rgba(232,150,110,.16);color:#F7D6BE}
 .hero-badge.is-gift .dot{background:#E8966E;box-shadow:0 0 0 3px rgba(232,150,110,.2)}
+.hero-badge.is-key{border-color:rgba(201,160,99,.8);background:rgba(201,160,99,.22);color:#F8DDBA;font-weight:600}
+.hero-badge.is-key .dot{background:#F0C38A;box-shadow:0 0 0 3px rgba(240,195,138,.22)}
 .talk-note{display:flex;align-items:flex-start;gap:9px;margin-top:14px;padding:12px 14px;border:1px solid var(--line-gold);background:rgba(201,160,99,.08);font-size:12.5px;line-height:1.7;color:var(--ink-2)}
 .dark .talk-note,.on-dark .talk-note{border-color:rgba(220,196,155,.34);background:rgba(201,160,99,.1);color:rgba(255,255,255,.78)}
 .talk-note svg{width:15px;height:15px;flex:none;margin-top:2px;color:#9A7A45}
@@ -405,6 +411,16 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
 .price-head h3{font-size:clamp(18px,2.2vw,23px);font-weight:700;letter-spacing:-.03em;line-height:1.4}
 .price-head p{margin-top:8px;font-size:12.5px;color:var(--muted);line-height:1.75}
 .price-head p b{color:var(--ink);font-weight:600}
+.price-sum{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:clamp(14px,2vw,20px)}
+.ps-item{border:1px solid var(--line);padding:14px 16px 15px;background:var(--cream)}
+.ps-item>span{display:block;font-family:var(--ff-serif);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#9A7A45}
+.ps-item b{display:block;font-size:clamp(18px,2.1vw,23px);font-weight:700;letter-spacing:-.035em;margin-top:5px;color:var(--ink);line-height:1.3}
+.ps-item small{display:block;font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.6}
+.ps-item.is-key{background:var(--navy-900);border-color:rgba(220,196,155,.42)}
+.ps-item.is-key>span{color:var(--gold-soft)}
+.ps-item.is-key b{color:#F8CE9C}
+.ps-item.is-key small{color:rgba(255,255,255,.58)}
+@media (max-width:640px){.price-sum{grid-template-columns:1fr}}
 .price-cols{display:grid;grid-template-columns:1.45fr .55fr;gap:clamp(16px,2.4vw,26px);align-items:start}
 .price-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line)}
 table.price-table{width:100%;min-width:660px;border-collapse:collapse;font-size:12px;font-variant-numeric:tabular-nums}
@@ -692,35 +708,32 @@ button.price-figure:hover img{transform:scale(1.015)}
     <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/photos/hero-video-poster.jpg">
       <source src="assets/hero-video.mp4" type="video/mp4">
     </video>
-    <div class="hero-shot" data-kicker="외관 · 정원" data-label="철근콘크리트 3층 + 다락" data-kb="a">
-      <img src="assets/teluce-exterior.jpg" alt="용인 고림동 텔루체 타운하우스 외관과 개별 정원" width="1338" height="754" fetchpriority="high" decoding="async">
+    <div class="hero-shot" data-kicker="단지 외관 · 정원" data-label="철근콘크리트 3층 + 다락" data-kb="a">
+      <img src="assets/photos/hero-01-exterior.jpg" alt="용인 고림동 텔루체 타운하우스 외관과 개별 정원" width="1600" height="900" fetchpriority="high" decoding="async">
     </div>
     <div class="hero-shot" data-kicker="마당 · 조경" data-label="노을이 드는 개별 정원" data-kb="c">
-      <img src="assets/photos/teluce-sunset-garden.jpg" alt="노을이 드는 텔루체 단지의 잔디 마당" width="672" height="378" loading="lazy" decoding="async">
+      <img src="assets/photos/hero-02-sunset.jpg" alt="노을이 드는 텔루체 단지의 잔디 마당" width="1600" height="900" loading="lazy" decoding="async">
     </div>
     <div class="hero-shot" data-kicker="야간 · 벙커주차" data-label="구경하는 집, 밤의 표정" data-kb="b">
-      <img src="assets/photos/teluce-twilight.jpg" alt="해질녘 텔루체 6호 모델하우스와 벙커주차장" width="768" height="1238" loading="lazy" decoding="async" style="object-position:50% 60%">
+      <img src="assets/photos/hero-03-twilight.jpg" alt="해질녘 텔루체 6호 모델하우스와 벙커주차장" width="1600" height="900" loading="lazy" decoding="async">
     </div>
     <div class="hero-shot" data-kicker="주차 · 진입" data-label="114-5, 단지 입구와 벙커주차" data-kb="a">
-      <img src="assets/photos/teluce-day-bunker.jpg" alt="낮에 본 텔루체 6호 벙커주차장과 구경하는 집 배너" width="768" height="1230" loading="lazy" decoding="async" style="object-position:50% 70%">
-    </div>
-    <div class="hero-shot" data-kicker="마당 · 잔디" data-label="맑은 날의 잔디마당과 테라스" data-kb="c">
-      <img src="assets/photos/teluce-lawn-day.jpg" alt="맑은 날 텔루체 단지 안쪽 잔디 마당과 테라스" width="382" height="450" loading="lazy" decoding="async">
+      <img src="assets/photos/hero-04-day-bunker.jpg" alt="낮에 본 텔루체 6호 벙커주차장과 구경하는 집 배너" width="1600" height="900" loading="lazy" decoding="async">
     </div>
     <div class="hero-shot" data-kicker="1층 거실" data-label="아일랜드 주방과 다이닝" data-kb="c">
-      <img src="assets/teluce-living.jpg" alt="텔루체 1층 거실과 아일랜드 주방" width="694" height="391" loading="lazy" decoding="async">
+      <img src="assets/photos/hero-05-living.jpg" alt="텔루체 1층 거실과 아일랜드 주방" width="1600" height="900" loading="lazy" decoding="async">
     </div>
     <div class="hero-shot" data-kicker="주방" data-label="아치형 수납과 아일랜드 식탁" data-kb="b">
-      <img src="assets/teluce-kitchen.jpg" alt="텔루체 주방과 아일랜드 식탁" width="694" height="391" loading="lazy" decoding="async">
+      <img src="assets/photos/hero-06-kitchen.jpg" alt="텔루체 주방과 아일랜드 식탁" width="1600" height="900" loading="lazy" decoding="async">
     </div>
     <div class="hero-shot" data-kicker="마당 · 테라스" data-label="파라솔과 바비큐 테이블" data-kb="c">
-      <img src="assets/teluce-terrace.jpg" alt="텔루체 마당과 테라스, 파라솔" width="694" height="900" loading="lazy" decoding="async" style="object-position:50% 78%">
+      <img src="assets/photos/hero-07-terrace.jpg" alt="텔루체 마당과 테라스, 파라솔" width="1600" height="900" loading="lazy" decoding="async">
     </div>
     <div class="hero-shot" data-kicker="루프탑" data-label="아파트 숲과 산이 함께 보이는 조망" data-kb="a">
-      <img src="assets/teluce-rooftop.jpg" alt="텔루체 루프탑에서 본 단지와 조망" width="694" height="391" loading="lazy" decoding="async">
+      <img src="assets/photos/hero-08-rooftop.jpg" alt="텔루체 루프탑에서 본 단지와 조망" width="1600" height="900" loading="lazy" decoding="async">
     </div>
     <div class="hero-shot" data-kicker="다락" data-label="약 11평, 창으로 들어오는 채광" data-kb="b">
-      <img src="assets/teluce-attic.jpg" alt="텔루체 다락, 큰 창과 채광" width="694" height="391" loading="lazy" decoding="async">
+      <img src="assets/photos/hero-09-attic.jpg" alt="텔루체 다락, 큰 창과 채광" width="1600" height="900" loading="lazy" decoding="async">
     </div>
   </div>
   <div class="hero-veil" aria-hidden="true"></div>
@@ -729,9 +742,14 @@ button.price-figure:hover img{transform:scale(1.015)}
       <span class="eyebrow">Yongin · Gorim-dong / Teluce</span>
       <h1>보평역 도보권,<br>17세대뿐인<br><em>철근콘크리트 타운하우스</em></h1>
       <p class="hero-sub">경기도 용인시 처인구 고림동 458-9. <b>보평역 도보권 도심권</b>에 도시가스·상하수도 직관을 갖춘 <b>대지 약 100평대</b> 단독형 17세대. <b>반도체 클러스터 직주근접</b>, 보평3지구 개발 호재를 그대로 누리는 자리에서 6호 신규 모델하우스가 <b>‘구경하는 집’</b>으로 문을 열었습니다.</p>
-      <p class="hero-punch"><span>철근콘크리트 3층 + 다락, 실사용 45평형</span><b>6억 5천만 원대~</b></p>
+      <p class="hero-punch">
+        <span class="hp-label">철근콘크리트 3층 + 다락, 실사용 45평형</span>
+        <span class="hp-row"><b>분양가 6억 5천만 원대~</b><span class="hp-dot" aria-hidden="true">·</span><b class="hp-key">실입주금 3억 원대~</b></span>
+        <span class="hp-note">실입주금은 대출 조건에 따라 상이</span>
+      </p>
       <div class="hero-badges">
         <span class="hero-badge"><span class="dot"></span>시행사 직영 분양 · 김경민 실장</span>
+        <span class="hero-badge is-key"><span class="dot"></span>실입주금 3억 원대~</span>
         <span class="hero-badge"><span class="dot"></span>즉시 입주 · 6호 구경하는 집</span>
         <span class="hero-badge">17세대 중 6세대 분양 완료</span>
         <span class="hero-badge is-urgent"><span class="dot"></span>잔여 세대 마감 임박</span>
@@ -755,7 +773,7 @@ button.price-figure:hover img{transform:scale(1.015)}
       <div class="hero-nav">
         <div class="hero-dots" id="heroDots"></div>
         <div class="hero-arrows">
-          <button class="hero-toggle" type="button" id="heroToggle" aria-label="자동 넘김 일시정지">
+          <button class="hero-toggle" type="button" id="heroToggle" aria-label="자동 넘김 일시정지" aria-pressed="false">
             <svg class="i-pause" aria-hidden="true"><use href="#i-pause"/></svg>
             <svg class="i-play" aria-hidden="true"><use href="#i-play"/></svg>
           </button>
@@ -770,7 +788,7 @@ button.price-figure:hover img{transform:scale(1.015)}
       <li><span>Location</span><b>경기 용인 처인구 고림동 458-9</b><small>보평역 도보권 · 보평3지구</small></li>
       <li><span>Scale</span><b>철근콘크리트 단독형 17세대</b><small>대지 약 100평대</small></li>
       <li><span>Type</span><b>실사용 45평 · 51평</b><small>본동 + 다락 11평 서비스</small></li>
-      <li><span>Price</span><b>6억 5천만 원대~</b><small>세대별 조건 상담</small></li>
+      <li><span>Price</span><b>6억 5천만 원대~</b><small>실입주금 3억 원대~ · 조건 상담</small></li>
     </ul>
   </div>
 </section>
@@ -1098,6 +1116,18 @@ button.price-figure:hover img{transform:scale(1.015)}
           <span class="eyebrow on-light">Official price</span>
           <h3>공식 분양가표 — 17세대 전체</h3>
           <p>텔루체타운하우스 분양사무실 공식 분양가표입니다. 예상분양가 <b>6억 5천만 원 ~ 7억 4천만 원</b>, <b>상기 분양가는 정찰제</b>로 운영됩니다.</p>
+        </div>
+      </div>
+      <div class="price-sum">
+        <div class="ps-item">
+          <span>분양가</span>
+          <b>6억 5천만 원 ~ 7억 4천만 원</b>
+          <small>세대별 예상분양가 · 상기 분양가는 정찰제</small>
+        </div>
+        <div class="ps-item is-key">
+          <span>실입주금</span>
+          <b class="ps-key">3억 원대~</b>
+          <small>대출 조건에 따라 상이 · 세대별 상담으로 안내</small>
         </div>
       </div>
       <div class="price-cols">
@@ -1567,6 +1597,7 @@ button.price-figure:hover img{transform:scale(1.015)}
   var heroIdxEl = document.getElementById('heroIdx');
   var heroKickerEl = document.getElementById('heroKicker');
   var heroLabelEl = document.getElementById('heroLabel');
+  var heroToggleEl = document.getElementById('heroToggle');
 
   if (heroEl && heroDotsBox && heroShots.length){
     var cuts = [{video:true, kicker:'현장 영상', label:'드론으로 본 3층 · 다락 주택', dur:11000}];
@@ -1604,6 +1635,10 @@ button.price-figure:hover img{transform:scale(1.015)}
       if (heroLabelEl) heroLabelEl.textContent = c.label;
       heroShots.forEach(function(s){ s.classList.toggle('is-on', !c.video && s === c.el); });
       heroEl.classList.toggle('is-paused', hUserPaused);
+      if (heroToggleEl){
+        heroToggleEl.setAttribute('aria-label', hUserPaused ? '자동 넘김 다시 시작' : '자동 넘김 일시정지');
+        heroToggleEl.setAttribute('aria-pressed', hUserPaused ? 'true' : 'false');
+      }
       if (heroVideo){
         if (c.video && !hUserPaused && !reduced && !hOffscreen){
           var pr = heroVideo.play();
