@@ -400,7 +400,9 @@ h2.title{
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .tags span{font-size:11.5px;padding:4px 9px;background:var(--cream);color:var(--ink-2);border:1px solid rgba(20,33,61,.08)}
 .card-foot{margin-top:auto;padding-top:18px}
-.card-link{
+.card-foot.is-split{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px}
+.card-link.is-detail{color:#8E6C36}
+.card-link{</work>
   display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--navy);
   border-bottom:1px solid var(--line-gold);padding-bottom:3px;transition:.2s ease;
 }
@@ -1249,8 +1251,9 @@ html.js [data-reveal].in{opacity:1;transform:none}
             <div><dt>가격</dt><dd>6억대~</dd></div>
           </dl>
           <div class="tags"><span>마당</span><span>테라스</span><span>루프탑</span><span>일부 벙커주차</span></div>
-          <div class="card-foot">
+          <div class="card-foot is-split">
             <a class="card-link" href="#contact" data-interest="용인 고림동 텔루체 타운하우스">이 현장 상담하기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="card-link is-detail" href="teluce/">자세히 보기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </div>
       </article>
