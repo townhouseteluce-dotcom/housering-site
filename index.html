@@ -1540,7 +1540,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
       </div>
 
       <div data-reveal>
-        <p class="ch-sub">현장별 유튜브 채널 · 누르면 바로 재생</p>
+        <p class="ch-sub">현장별 유튜브 채널 · 고르고 재생</p>
         <div class="ch-list" id="chList">
           <button class="ch-item is-active" type="button" data-yt="UUv1LuKEOIRZm-u71nhofMwA" data-title="하우스링 모듈러 전원주택" data-now="메인 채널 · 하우스링 모듈러 전원주택 타운하우스" data-tag="YOUTUBE · 하우스링 모듈러 전원주택" data-url="https://www.youtube.com/channel/UCv1LuKEOIRZm-u71nhofMwA" data-poster="assets/photos/hero-greendel.jpg" aria-pressed="true">
             <span class="ci-thumb"><img src="assets/photos/yt-main.jpg" alt="" loading="lazy" decoding="async"></span>
@@ -2144,8 +2144,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
     };
 
     function embedUrl(list){
-      /* 자동재생은 소리 없이(뮤트) 시작해야 브라우저가 허용합니다. 플레이어에서 소리를 켤 수 있습니다. */
-      return 'https://www.youtube.com/embed/videoseries?list=' + list + '&rel=0&autoplay=1&mute=1&playsinline=1';
+      return 'https://www.youtube.com/embed/videoseries?list=' + list + '&rel=0';
     }
 
     function paintPlayer(){
@@ -2196,8 +2195,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
             b.classList.toggle('is-active', on);
             b.setAttribute('aria-pressed', on ? 'true' : 'false');
           });
-          if (playing) paintPlayer();
-          else { paintPlayer(); startPlayer(); }
+          paintPlayer();
         });
       });
     }
