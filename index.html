@@ -15,13 +15,17 @@
 <meta property="og:site_name" content="하우스링 HOUSE RING">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://housering.co.kr/">
-<meta property="og:title" content="하우스링 HOUSE RING | 파주 모듈러주택 전시장 · 타운하우스 분양">
-<meta property="og:description" content="파주 교하 부경아리아 전시장에서 모듈러주택 실물을 직접 보고 느껴보세요. 용인 고림동 텔루체, 파주 그린델, 서동탄역 랜시티, 양평 서종 세컨하우스, 광주 BS애비뉴 분양 상담.">
-<meta property="og:image" content="https://housering.co.kr/assets/logo-full-navy.png">
+<meta property="og:title" content="세컨하우스부터 전원주택까지, 주택의 모든 것 | 하우스링">
+<meta property="og:description" content="풀옵션 모듈러 3천만 원대부터 (10평 3,900만 원~) · 파주 전시장 직접 체험 · 용인 고림동 텔루체, 파주 그린델, 서동탄역 랜시티 등 타운하우스 분양 상담.">
+<meta property="og:image" content="https://housering.co.kr/assets/og-housering.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="세컨하우스부터 전원주택까지, 주택의 모든 것 | 하우스링">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="하우스링 HOUSE RING | 파주 모듈러주택 전시장 · 타운하우스 분양">
-<meta name="twitter:description" content="파주 교하 부경아리아 전시장에서 모듈러주택 실물을 직접 보고 느껴보세요.">
-<meta name="twitter:image" content="https://housering.co.kr/assets/logo-full-navy.png">
+<meta name="twitter:title" content="세컨하우스부터 전원주택까지, 주택의 모든 것 | 하우스링">
+<meta name="twitter:description" content="풀옵션 모듈러 3천만 원대부터 (10평 3,900만 원~) · 파주 전시장 직접 체험">
+<meta name="twitter:image" content="https://housering.co.kr/assets/og-housering.jpg">
 <link rel="icon" href="assets/logo-mark-navy.png">
 <script type="application/ld+json">
 {
@@ -400,6 +404,21 @@ h2.title{
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .tags span{font-size:11.5px;padding:4px 9px;background:var(--cream);color:var(--ink-2);border:1px solid rgba(20,33,61,.08)}
 .card-foot{margin-top:auto;padding-top:18px}
+.hero-cats{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.hero-cats span{font-size:12px;padding:6px 11px;border:1px solid rgba(220,196,155,.4);background:rgba(255,255,255,.06);color:var(--gold-pale);letter-spacing:-.01em}
+.hero-cats span i{font-style:normal;color:var(--gold);margin-right:5px}
+.press-sec{background:var(--cream)}
+.press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(11px,1.6vw,18px);margin-top:clamp(22px,3.2vw,34px)}
+.press-card{display:flex;flex-direction:column;gap:8px;padding:20px 20px 22px;border:1px solid var(--line);background:#fff;transition:.25s}
+.press-card:hover{border-color:var(--line-gold);transform:translateY(-3px);box-shadow:0 18px 40px rgba(20,33,61,.08)}
+.press-card .press{display:flex;justify-content:space-between;gap:10px;font-size:11.5px;color:#9A7A45}
+.press-card .press time{color:var(--muted);font-variant-numeric:tabular-nums}
+.press-card h3{font-size:14.5px;font-weight:600;line-height:1.55;letter-spacing:-.02em}
+.press-card p{font-size:12.5px;line-height:1.75;color:var(--muted)}
+.press-card .go{margin-top:auto;font-size:12px;color:#8E6C36;display:inline-flex;gap:6px;align-items:center;padding-top:6px}
+.press-card .go svg{width:13px;height:13px}
+.press-note{margin-top:14px;font-size:11.5px;color:var(--muted);line-height:1.7}
+@media (max-width:900px){.press-grid{grid-template-columns:1fr}}
 .card-foot.is-split{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px}
 .card-link.is-detail{color:#8E6C36}
 .card-link{</work>
@@ -1068,11 +1087,18 @@ html.js [data-reveal].in{opacity:1;transform:none}
   <div class="wrap">
     <div class="hero-copy">
         <span class="eyebrow">House Ring · 종합 주거 개발</span>
-        <h1>땅에서 집까지,<br><em>한 번의 상담으로</em></h1>
+        <h1>주택의 모든 것,<br><em>하우스링(HOUSE RING)</em></h1>
         <p class="hero-sub">
-          모듈러주택 전시 상담부터 타운하우스 분양, 토지 매매, 건축 인허가까지.
-          <strong>하우스링</strong>이 처음부터 끝까지 함께합니다.
+          10평대 모듈러·농촌체류형쉼터 <strong>3,900만 원~</strong>부터 주말 세컨하우스,
+          내 인생의 보금자리 프리미엄 타운하우스까지 — 설계 · 전시장 체험 ·
+          <strong>시행사 직영 분양</strong>을 한곳에서.
         </p>
+        <div class="hero-cats">
+          <span><i>01</i>모듈러 · 농촌체류형쉼터</span>
+          <span><i>02</i>세컨하우스</span>
+          <span><i>03</i>타운하우스 분양</span>
+          <span><i>04</i>토지 · 건축 인허가</span>
+        </div>
         <div class="hero-actions">
           <a class="btn btn-gold" href="#booking">
             <svg aria-hidden="true"><use href="#i-calendar"/></svg>방문 예약하기
@@ -1526,6 +1552,40 @@ html.js [data-reveal].in{opacity:1;transform:none}
         <p>계약 조건을 확인한 뒤 시공과 입주까지 일정을 관리합니다.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ press ============ -->
+<section class="section press-sec" id="press">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div>
+        <span class="eyebrow on-light">Press &amp; Market</span>
+        <h2 class="title">보도자료로 보는<br><span class="thin">주택 시장 동향</span></h2>
+        <p class="lead">모듈러·농촌체류형쉼터·타운하우스 시장과 용인 개발 호재를 언론 보도로 확인해 보세요.</p>
+      </div>
+    </div>
+    <div class="press-grid">
+      <a class="press-card" href="https://www.edaily.co.kr/news/read?mediaCodeNo=257&amp;newsId=01472726645646376" target="_blank" rel="noopener" data-reveal>
+        <span class="press">이데일리 <time datetime="2026-11-16">2026.11.16</time></span>
+        <h3>“2만명이 24시간 속도전”…SK하이닉스 용인 팹, 2월 문 연다[르포]</h3>
+        <p>용인 반도체 클러스터 첫 팹이 2월 가동을 앞두고 2만 명 규모 인력이 24시간 체제로 움직입니다.</p>
+        <span class="go">기사 보기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="press-card" href="https://www.imwood.co.kr/news/articleView.html?idxno=41718" target="_blank" rel="noopener" data-reveal>
+        <span class="press">나무신문 <time datetime="2026-09-04">2026.09.04</time></span>
+        <h3>전원에 가꾸는 또 하나의 집…농촌체류형쉼터·이동식주택</h3>
+        <p>농촌체류형 쉼터와 이동식 주택이 새로운 전원 생활 방식으로 주목받고 있습니다.</p>
+        <span class="go">기사 보기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="press-card" href="https://news.nate.com/view/20250519n04880" target="_blank" rel="noopener" data-reveal>
+        <span class="press">브라보마이라이프 <time datetime="2025-05-19">2025.05.19</time></span>
+        <h3>중년의 로망 현실로, 푸른 초원에 그림 같은 ‘모듈러 주택’</h3>
+        <p>모듈러 주택이 중년 세대의 세컨하우스 대안으로 떠오르고 있습니다.</p>
+        <span class="go">기사 보기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+    <p class="press-note">기사 내용은 각 언론사 원문이며, 시장 상황과 일정은 달라질 수 있습니다.</p>
   </div>
 </section>
 
