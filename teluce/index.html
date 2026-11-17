@@ -143,19 +143,31 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
 .mobile-nav .btn{margin-top:14px;justify-content:center;border-bottom:0;padding:0 16px;gap:8px;min-height:48px}
 
 /* ---------- hero ---------- */
-.hero{position:relative;background:var(--navy-900);color:#fff;padding-top:var(--header-h);overflow:hidden}
-.hero::before{content:"";position:absolute;right:-120px;top:-140px;width:520px;height:520px;border-radius:50%;border:1px solid rgba(220,196,155,.13);pointer-events:none;z-index:0}
-.hero-inner{display:grid;grid-template-columns:1.02fr .98fr;align-items:stretch;min-height:min(760px,calc(100svh - var(--header-h) - 90px))}
-.hero-copy{align-self:center;padding:clamp(34px,5vw,60px) clamp(20px,4vw,56px) clamp(34px,5vw,64px) clamp(20px,5vw,40px);max-width:640px;position:relative;z-index:1}
-.hero h1{font-size:clamp(29px,4.3vw,50px);line-height:1.26;font-weight:700;letter-spacing:-.045em;margin:0 0 20px}
+.hero{position:relative;display:flex;flex-direction:column;min-height:100svh;padding-top:var(--header-h);background:#070E1E;color:#fff;overflow:hidden;isolation:isolate}
+@supports not (height:100svh){.hero{min-height:100vh}}
+.hero-media{position:absolute;inset:0;z-index:0;overflow:hidden;background:#070E1E}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+.hero-shot{position:absolute;inset:0;opacity:0;transition:opacity 1.35s cubic-bezier(.4,0,.2,1);pointer-events:none;will-change:opacity}
+.hero-shot.is-on{opacity:1}
+.hero-shot img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.02);backface-visibility:hidden}
+.hero-shot.is-on img{animation:heroZoomA 7.4s cubic-bezier(.25,.55,.35,1) forwards}
+.hero-shot[data-kb="b"].is-on img{animation-name:heroZoomB}
+.hero-shot[data-kb="c"].is-on img{animation-name:heroZoomC}
+@keyframes heroZoomA{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.13) translate3d(-1.6%,-1.1%,0)}}
+@keyframes heroZoomB{from{transform:scale(1.14) translate3d(1.4%,1%,0)}to{transform:scale(1.03) translate3d(0,0,0)}}
+@keyframes heroZoomC{from{transform:scale(1.06) translate3d(-1.3%,.6%,0)}to{transform:scale(1.16) translate3d(1.1%,-1%,0)}}
+.hero-veil{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(96deg,rgba(6,12,26,.95) 0%,rgba(6,12,26,.9) 24%,rgba(6,12,26,.66) 44%,rgba(6,12,26,.3) 66%,rgba(6,12,26,.38) 100%),linear-gradient(180deg,rgba(6,12,26,.88) 0%,rgba(6,12,26,.2) 24%,rgba(6,12,26,.16) 50%,rgba(6,12,26,.9) 100%)}
+.hero-inner{position:relative;z-index:2;flex:1;display:grid;grid-template-rows:1fr auto;width:100%;max-width:var(--max);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.hero-copy{align-self:center;max-width:648px;padding:clamp(24px,4vw,52px) 0 clamp(16px,2.4vw,26px);text-shadow:0 2px 26px rgba(4,9,20,.5)}
+.hero h1{font-size:clamp(30px,4.4vw,52px);line-height:1.24;font-weight:700;letter-spacing:-.045em;margin:0 0 18px}
 .hero h1 em{font-style:normal;color:var(--gold-soft)}
-.hero-sub{font-size:clamp(14.5px,1.5vw,16.5px);line-height:1.9;color:rgba(255,255,255,.76);max-width:44ch}
+.hero-sub{font-size:clamp(14px,1.45vw,16px);line-height:1.88;color:rgba(255,255,255,.8);max-width:44ch}
 .hero-sub b{color:#fff;font-weight:600}
-.hero-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line-gold);background:rgba(201,160,99,.1);font-size:12px;color:var(--gold-pale);letter-spacing:-.01em}
+.hero-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line-gold);background:rgba(10,19,41,.48);font-size:12px;color:var(--gold-pale);letter-spacing:-.01em;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(201,160,99,.18)}
-.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.hero-tel{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:13.5px;color:rgba(255,255,255,.68)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.hero-tel{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:13.5px;color:rgba(255,255,255,.72)}
 .hero-tel svg{width:15px;height:15px;color:var(--gold)}
 .hero-tel b{color:var(--gold-pale);font-weight:600;letter-spacing:.02em}
 .hero-tel:hover b{color:#fff}
@@ -163,7 +175,7 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
 .bk-phone a{color:var(--navy);font-weight:600;border-bottom:1px solid var(--line-gold);padding-bottom:1px}
 .sm-tag{font-size:11px;color:rgba(255,255,255,.42)}
 /* ---------- direct / viva / news ---------- */
-.hero-punch{display:inline-flex;align-items:baseline;flex-wrap:wrap;gap:9px;margin-top:20px;padding:10px 14px;border:1px solid rgba(220,196,155,.42);background:rgba(201,160,99,.13)}
+.hero-punch{display:inline-flex;align-items:baseline;flex-wrap:wrap;gap:9px;margin-top:20px;padding:10px 14px;border:1px solid rgba(220,196,155,.42);background:rgba(10,19,41,.46);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .hero-punch span{font-size:12px;color:rgba(255,255,255,.7);letter-spacing:-.01em}
 .hero-punch b{font-family:var(--ff-serif);font-size:clamp(17px,2vw,21px);color:var(--gold-pale);letter-spacing:.01em}
 .hero-badge.is-urgent{border-color:rgba(232,150,110,.55);background:rgba(232,150,110,.15);color:#F4CBAF}
@@ -206,11 +218,30 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
 .news-note{margin-top:16px;font-size:11.5px;color:var(--muted);line-height:1.7}
 @media (max-width:1080px){.direct-grid,.news-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:900px){.direct-grid,.news-grid{grid-template-columns:1fr}.viva{grid-template-columns:1fr}}
-.hero-photo{position:relative;overflow:hidden;min-height:340px}
-.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%}
-.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,19,41,.92) 0%,rgba(10,19,41,.28) 26%,rgba(10,19,41,0) 55%),linear-gradient(0deg,rgba(10,19,41,.55),transparent 42%)}
-.hero-photo figcaption{position:absolute;left:18px;bottom:16px;z-index:2;font-size:11.5px;color:rgba(255,255,255,.82);background:rgba(10,19,41,.6);border:1px solid rgba(220,196,155,.3);padding:6px 10px;backdrop-filter:blur(4px)}
-.hero-strip{position:relative;z-index:2;background:rgba(255,255,255,.045);border-top:1px solid rgba(220,196,155,.2)}
+/* ---------- hero controls ---------- */
+.hero-bar{display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(14px,3vw,28px);padding:clamp(12px,1.6vw,16px) 0 clamp(16px,2.4vw,26px);border-top:1px solid rgba(255,255,255,.16)}
+.hero-cap{display:flex;align-items:flex-start;gap:14px;min-width:0}
+.hero-idx{font-family:var(--ff-serif);font-size:clamp(23px,2.5vw,30px);line-height:1;color:var(--gold-pale);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.hero-cap small{display:block;font-family:var(--ff-serif);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft)}
+.hero-cap b{display:block;font-size:13.5px;font-weight:500;color:#fff;letter-spacing:-.01em;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero-nav{display:flex;align-items:center;gap:clamp(10px,1.8vw,18px);flex:none}
+.hero-dots{display:flex;align-items:center;gap:5px}
+.hero-dot{position:relative;width:clamp(18px,2.2vw,34px);height:16px;padding:0;border:0;background:transparent;display:block}
+.hero-dot::before{content:"";position:absolute;left:0;right:0;top:7px;height:2px;background:rgba(255,255,255,.26);transition:background .3s}
+.hero-dot .fill{position:absolute;left:0;top:7px;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.hero-dot.is-done .fill{transform:scaleX(1)}
+.hero-dot.is-active .fill{animation:heroFill var(--d,7s) linear forwards}
+.hero.is-paused .hero-dot.is-active .fill{animation-play-state:paused}
+@keyframes heroFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.hero-arrows{display:flex;gap:6px}
+.hero-arrow,.hero-toggle{width:42px;height:42px;border:1px solid rgba(255,255,255,.3);background:rgba(10,19,41,.38);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:#fff;transition:.25s}
+.hero-arrow:hover,.hero-toggle:hover{border-color:var(--gold);color:var(--gold-pale);background:rgba(201,160,99,.2)}
+.hero-arrow:focus-visible,.hero-toggle:focus-visible,.hero-dot:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.hero-arrow svg,.hero-toggle svg{width:15px;height:15px}
+.hero-toggle .i-play{display:none}
+.hero.is-paused .hero-toggle .i-pause{display:none}
+.hero.is-paused .hero-toggle .i-play{display:block}
+.hero-strip{position:relative;z-index:2;background:rgba(5,10,22,.62);border-top:1px solid rgba(220,196,155,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .hero-strip ul{display:grid;grid-template-columns:repeat(4,1fr);max-width:var(--max);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
 .hero-strip li{padding:18px 18px 18px 0;display:flex;flex-direction:column;gap:3px}
 .hero-strip li+li{padding-left:24px;border-left:1px solid rgba(255,255,255,.13)}
@@ -345,6 +376,64 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
 .ch-card .go svg{width:13px;height:13px;transition:transform .25s}
 .ch-card:hover .go svg{transform:translateX(3px)}
 
+/* ---------- video showcase ---------- */
+.vid-show{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.4vw,16px);margin-top:clamp(22px,3.2vw,32px)}
+.vid-card{display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);transition:border-color .3s,transform .3s}
+.vid-card:hover{border-color:var(--line-gold);transform:translateY(-3px)}
+.vid-frame{position:relative;aspect-ratio:16/9;overflow:hidden;background:#050B18}
+.vid-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.3,1),opacity .3s}
+.vid-card:hover .vid-frame img{transform:scale(1.045);opacity:.93}
+.vid-frame iframe{position:absolute;inset:0;z-index:3;width:100%;height:100%;border:0}
+.vid-play{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:linear-gradient(0deg,rgba(6,12,26,.6),rgba(6,12,26,.04) 62%);border:0;padding:0;cursor:pointer}
+.vid-play i{width:52px;height:52px;border-radius:50%;background:rgba(201,160,99,.94);color:#160F04;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px -12px rgba(0,0,0,.85);transition:transform .3s,background .3s}
+.vid-play:hover i{transform:scale(1.08);background:var(--gold-pale)}
+.vid-play i svg{width:19px;height:19px;margin-left:2px}
+.vid-time{position:absolute;right:10px;bottom:10px;z-index:2;font-size:11px;letter-spacing:.04em;color:#fff;background:rgba(6,12,26,.74);border:1px solid rgba(255,255,255,.16);padding:2px 7px;font-variant-numeric:tabular-nums}
+.vid-meta{padding:13px 15px 15px;display:flex;flex-direction:column;gap:5px;flex:1}
+.vid-meta b{font-size:13.5px;font-weight:600;line-height:1.5;letter-spacing:-.02em}
+.vid-meta small{font-size:11.5px;color:rgba(255,255,255,.56);line-height:1.6}
+.vid-meta a{margin-top:auto;padding-top:9px;display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:rgba(255,255,255,.5)}
+.vid-meta a:hover{color:var(--gold-soft)}
+.vid-meta a svg{width:12px;height:12px}
+.vid-note{margin-top:14px;font-size:11.5px;color:rgba(255,255,255,.46);line-height:1.7;display:flex;gap:7px;align-items:flex-start}
+.vid-note svg{width:13px;height:13px;flex:none;margin-top:3px;color:var(--gold)}
+
+/* ---------- price table ---------- */
+.price-block{margin-top:clamp(22px,3vw,32px);background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-s);padding:clamp(18px,2.6vw,30px)}
+.price-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:clamp(16px,2.2vw,22px);padding-bottom:16px;border-bottom:1px solid var(--line)}
+.price-head .eyebrow{margin-bottom:8px}
+.price-head h3{font-size:clamp(18px,2.2vw,23px);font-weight:700;letter-spacing:-.03em;line-height:1.4}
+.price-head p{margin-top:8px;font-size:12.5px;color:var(--muted);line-height:1.75}
+.price-head p b{color:var(--ink);font-weight:600}
+.price-cols{display:grid;grid-template-columns:1.45fr .55fr;gap:clamp(16px,2.4vw,26px);align-items:start}
+.price-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line)}
+table.price-table{width:100%;min-width:660px;border-collapse:collapse;font-size:12px;font-variant-numeric:tabular-nums}
+.price-table caption{position:absolute;left:-9999px}
+.price-table thead th{background:var(--navy);color:#fff;font-weight:600;font-size:11px;letter-spacing:.02em;padding:10px 9px;text-align:center;white-space:nowrap;border-right:1px solid rgba(255,255,255,.12)}
+.price-table thead th:last-child{border-right:0}
+.price-table td{padding:9px 9px;border-bottom:1px solid rgba(20,33,61,.09);border-right:1px solid rgba(20,33,61,.07);text-align:center;color:var(--ink-2);white-space:nowrap}
+.price-table td:last-child{border-right:0}
+.price-table tbody tr:nth-child(even){background:#FBF8F2}
+.price-table tbody tr:hover{background:#F3ECE0}
+.price-table tbody tr.is-sold td{color:rgba(20,33,61,.42)}
+.price-table th.num,.price-table td.num{text-align:right;padding-right:12px}
+.price-table td b{display:block;color:var(--ink);font-weight:600;font-size:12.5px}
+.price-table td small{display:block;font-size:10.5px;color:var(--muted);margin-top:1px}
+.price-table td.host b{font-size:13.5px}
+.st-chip{display:inline-block;font-size:10.5px;padding:2px 7px;border:1px solid;line-height:1.6}
+.st-chip.sold{color:#8A5A43;border-color:rgba(180,85,47,.4);background:rgba(180,85,47,.07)}
+.st-chip.model{color:#1A140A;border-color:var(--gold);background:rgba(201,160,99,.24)}
+.st-chip.open{color:#1F4A3C;border-color:rgba(31,74,60,.35);background:rgba(31,74,60,.06)}
+.price-figure{display:block;width:100%;padding:0;border:1px solid var(--line);background:var(--cream);cursor:zoom-in;position:relative;overflow:hidden}
+button.price-figure img{width:100%;height:auto;aspect-ratio:auto;display:block;object-fit:contain;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+button.price-figure:hover img{transform:scale(1.015)}
+.price-figure .pf-tag{position:absolute;left:10px;bottom:10px;z-index:2;display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#fff;background:rgba(10,19,41,.78);border:1px solid rgba(220,196,155,.4);padding:5px 9px;backdrop-filter:blur(4px)}
+.price-figure .pf-tag svg{width:12px;height:12px}
+.price-note{margin-top:14px;font-size:11.5px;color:var(--muted);line-height:1.75;display:flex;gap:7px;align-items:flex-start}
+.price-note svg{width:13px;height:13px;flex:none;margin-top:3px;color:var(--gold)}
+@media (max-width:1080px){.vid-show{grid-template-columns:repeat(2,1fr)}.price-cols{grid-template-columns:1fr}}
+@media (max-width:640px){.vid-show{grid-template-columns:1fr}.price-block{padding:16px}.price-head h3{font-size:17px}}
+
 /* ---------- booking ---------- */
 .booking{background:var(--cream);border-top:1px solid var(--line)}
 .booking-lead-sub{margin-top:8px;font-size:14px}
@@ -464,7 +553,9 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .js [data-reveal]{opacity:1;transform:none;transition:none}
-  .hero-photo img,.gal-item img{transition:none}
+  .hero-shot.is-on img{animation:none}
+  .hero-shot{transition:none}
+  .gal-item img{transition:none}
 }
 
 /* ---------- responsive ---------- */
@@ -472,15 +563,16 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
   .nav{display:none}
   .burger{display:flex}
   .header-home{display:none}
-  .hero-inner{min-height:0}
-  .hero-copy{max-width:none}
+  .hero-copy{max-width:600px}
   .ch-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:900px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero-copy{order:2;padding:clamp(26px,6vw,40px) clamp(20px,5vw,40px) clamp(32px,6vw,44px)}
-  .hero-photo{order:1;min-height:clamp(260px,52vw,420px)}
-  .hero-photo::after{background:linear-gradient(0deg,rgba(10,19,41,.95) 0%,rgba(10,19,41,.25) 40%,rgba(10,19,41,.15) 100%)}
+  .hero-veil{background:linear-gradient(180deg,rgba(6,12,26,.82) 0%,rgba(6,12,26,.4) 20%,rgba(6,12,26,.46) 46%,rgba(6,12,26,.95) 100%)}
+  .hero-copy{max-width:none;padding-top:clamp(18px,4vw,30px)}
+  .hero-bar{flex-direction:column;align-items:stretch;gap:12px}
+  .hero-nav{justify-content:space-between;gap:10px}
+  .hero-dots{flex:1;gap:4px}
+  .hero-dot{flex:1;width:auto;min-width:9px}
   .hero-strip ul{grid-template-columns:1fr 1fr}
   .hero-strip li{padding:14px 14px 14px 0}
   .hero-strip li+li{padding-left:0;border-left:0}
@@ -518,7 +610,9 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
   .mobile-bar{display:flex}
   .footer{padding-bottom:96px}
   .status-foot{flex-direction:column;align-items:flex-start}
-  .hero-photo figcaption{font-size:10.5px;left:12px;bottom:12px}
+  .hero-cap b{font-size:12.5px}
+  .hero-badge{font-size:11.5px;padding:7px 10px}
+  .hero-arrow,.hero-toggle{width:38px;height:38px}
   .contact-right .callout{margin-top:4px}
 }
 </style>
@@ -533,6 +627,9 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
 <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-arrow-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M9.5 5.5v13M14.5 5.5v13"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5.4v13.2L19 12z"/></symbol>
 <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/><path d="M10 21v-6h4v6"/></symbol>
 <symbol id="i-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="13" rx="2.5"/><path d="M5 10h14M9 16l-2 5M15 16l2 5"/><circle cx="9" cy="12.6" r=".8"/><circle cx="15" cy="12.6" r=".8"/></symbol>
 <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-9 0-15 4.5-15 11a5 5 0 0 0 5 5c6.5 0 10-6 10-16z"/><path d="M4 20c2.5-5 6-8 11-10"/></symbol>
@@ -590,7 +687,43 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
 
 <main id="main">
 <!-- ============ hero ============ -->
-<section class="hero" id="top">
+<section class="hero" id="top" aria-label="텔루체 현장 하이라이트">
+  <div class="hero-media" id="heroMedia" aria-hidden="true">
+    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/photos/hero-video-poster.jpg">
+      <source src="assets/hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-shot" data-kicker="외관 · 정원" data-label="철근콘크리트 3층 + 다락" data-kb="a">
+      <img src="assets/teluce-exterior.jpg" alt="용인 고림동 텔루체 타운하우스 외관과 개별 정원" width="1338" height="754" fetchpriority="high" decoding="async">
+    </div>
+    <div class="hero-shot" data-kicker="마당 · 조경" data-label="노을이 드는 개별 정원" data-kb="c">
+      <img src="assets/photos/teluce-sunset-garden.jpg" alt="노을이 드는 텔루체 단지의 잔디 마당" width="672" height="378" loading="lazy" decoding="async">
+    </div>
+    <div class="hero-shot" data-kicker="야간 · 벙커주차" data-label="구경하는 집, 밤의 표정" data-kb="b">
+      <img src="assets/photos/teluce-twilight.jpg" alt="해질녘 텔루체 6호 모델하우스와 벙커주차장" width="768" height="1238" loading="lazy" decoding="async">
+    </div>
+    <div class="hero-shot" data-kicker="주차 · 진입" data-label="114-5, 단지 입구와 벙커주차" data-kb="a">
+      <img src="assets/photos/teluce-day-bunker.jpg" alt="낮에 본 텔루체 6호 벙커주차장과 구경하는 집 배너" width="768" height="1230" loading="lazy" decoding="async">
+    </div>
+    <div class="hero-shot" data-kicker="마당 · 잔디" data-label="맑은 날의 잔디마당과 테라스" data-kb="c">
+      <img src="assets/photos/teluce-lawn-day.jpg" alt="맑은 날 텔루체 단지 안쪽 잔디 마당과 테라스" width="382" height="450" loading="lazy" decoding="async">
+    </div>
+    <div class="hero-shot" data-kicker="1층 거실" data-label="아일랜드 주방과 다이닝" data-kb="c">
+      <img src="assets/teluce-living.jpg" alt="텔루체 1층 거실과 아일랜드 주방" width="694" height="391" loading="lazy" decoding="async">
+    </div>
+    <div class="hero-shot" data-kicker="주방" data-label="아치형 수납과 아일랜드 식탁" data-kb="b">
+      <img src="assets/teluce-kitchen.jpg" alt="텔루체 주방과 아일랜드 식탁" width="694" height="391" loading="lazy" decoding="async">
+    </div>
+    <div class="hero-shot" data-kicker="마당 · 테라스" data-label="파라솔과 바비큐 테이블" data-kb="c">
+      <img src="assets/teluce-terrace.jpg" alt="텔루체 마당과 테라스, 파라솔" width="694" height="900" loading="lazy" decoding="async">
+    </div>
+    <div class="hero-shot" data-kicker="루프탑" data-label="아파트 숲과 산이 함께 보이는 조망" data-kb="a">
+      <img src="assets/teluce-rooftop.jpg" alt="텔루체 루프탑에서 본 단지와 조망" width="694" height="391" loading="lazy" decoding="async">
+    </div>
+    <div class="hero-shot" data-kicker="다락" data-label="약 11평, 창으로 들어오는 채광" data-kb="b">
+      <img src="assets/teluce-attic.jpg" alt="텔루체 다락, 큰 창과 채광" width="694" height="391" loading="lazy" decoding="async">
+    </div>
+  </div>
+  <div class="hero-veil" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-copy">
       <span class="eyebrow">Yongin · Gorim-dong / Teluce</span>
@@ -610,10 +743,26 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
       </div>
       <a class="hero-tel" href="tel:+821062356914"><svg aria-hidden="true"><use href="#i-phone"/></svg>분양 상담 김경민 실장 <b>010-6235-6914</b></a>
     </div>
-    <figure class="hero-photo">
-      <img src="assets/teluce-exterior.jpg" alt="용인 고림동 텔루체 타운하우스 외관과 마당" width="1338" height="754" fetchpriority="high">
-      <figcaption>2026년 11월 현장 실사 · 외관과 마당</figcaption>
-    </figure>
+    <div class="hero-bar" id="heroBar">
+      <div class="hero-cap">
+        <span class="hero-idx" id="heroIdx">01</span>
+        <span>
+          <small id="heroKicker">현장 영상</small>
+          <b id="heroLabel">드론으로 본 3층 · 다락 주택</b>
+        </span>
+      </div>
+      <div class="hero-nav">
+        <div class="hero-dots" id="heroDots"></div>
+        <div class="hero-arrows">
+          <button class="hero-toggle" type="button" id="heroToggle" aria-label="자동 넘김 일시정지">
+            <svg class="i-pause" aria-hidden="true"><use href="#i-pause"/></svg>
+            <svg class="i-play" aria-hidden="true"><use href="#i-play"/></svg>
+          </button>
+          <button class="hero-arrow" type="button" id="heroPrev" aria-label="이전 장면 보기"><svg aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
+          <button class="hero-arrow" type="button" id="heroNext" aria-label="다음 장면 보기"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="hero-strip">
     <ul>
@@ -817,7 +966,7 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
         <span class="gal-cap"><b>주방</b><span>03</span></span>
       </button>
       <button class="gal-item" type="button" data-full="assets/teluce-terrace.jpg" data-cap="마당 · 테라스 — 파라솔과 바비큐 테이블 (2026년 11월 촬영)" aria-label="마당과 테라스 사진 크게 보기">
-        <img src="assets/teluce-terrace.jpg" alt="텔루체 마당과 테라스, 파라솔" width="694" height="1232" loading="lazy" decoding="async">
+        <img src="assets/teluce-terrace.jpg" alt="텔루체 마당과 테라스, 파라솔" width="694" height="900" loading="lazy" decoding="async">
         <span class="gal-cap"><b>마당 · 테라스</b><span>04</span></span>
       </button>
       <button class="gal-item" type="button" data-full="assets/teluce-rooftop.jpg" data-cap="루프탑 · 조망 — 아파트 숲과 산이 함께 보이는 자리 (2026년 11월 촬영)" aria-label="루프탑과 조망 사진 크게 보기">
@@ -827,6 +976,18 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
       <button class="gal-item" type="button" data-full="assets/teluce-attic.jpg" data-cap="다락 — 창으로 채광이 들어오는 약 11평 (2026년 11월 촬영)" aria-label="다락 사진 크게 보기">
         <img src="assets/teluce-attic.jpg" alt="텔루체 다락, 큰 창과 채광" width="694" height="391" loading="lazy" decoding="async">
         <span class="gal-cap"><b>다락</b><span>06</span></span>
+      </button>
+      <button class="gal-item" type="button" data-full="assets/photos/teluce-twilight.jpg" data-cap="야간 외관 — 해질녘 6호 모델하우스와 벙커주차장 (구경하는 집)" aria-label="야간 외관과 벙커주차장 사진 크게 보기">
+        <img src="assets/photos/teluce-twilight.jpg" alt="해질녘 텔루체 6호 모델하우스와 벙커주차장" width="768" height="1238" loading="lazy" decoding="async">
+        <span class="gal-cap"><b>야간 외관 · 벙커주차</b><span>07</span></span>
+      </button>
+      <button class="gal-item" type="button" data-full="assets/photos/teluce-day-bunker.jpg" data-cap="주간 벙커주차 — 단지 입구 114-5, 구경하는 집 배너" aria-label="주간 벙커주차장 사진 크게 보기">
+        <img src="assets/photos/teluce-day-bunker.jpg" alt="낮에 본 텔루체 6호 벙커주차장과 구경하는 집 배너" width="768" height="1230" loading="lazy" decoding="async">
+        <span class="gal-cap"><b>벙커주차 · 입구</b><span>08</span></span>
+      </button>
+      <button class="gal-item" type="button" data-full="assets/photos/teluce-sunset-garden.jpg" data-cap="노을 정원 — 단지 안쪽 잔디마당과 석재 마당" aria-label="노을 진 정원 사진 크게 보기">
+        <img src="assets/photos/teluce-sunset-garden.jpg" alt="노을이 드는 텔루체 단지의 잔디 마당" width="672" height="378" loading="lazy" decoding="async">
+        <span class="gal-cap"><b>노을 정원</b><span>09</span></span>
       </button>
     </div>
     <p class="gal-note"><svg aria-hidden="true"><use href="#i-info"/></svg>사진은 2026년 11월 텔루체 현장에서 촬영한 실제 세대입니다. 세대별 마감과 가구 배치, 마당·테라스 구성은 다를 수 있습니다.</p>
@@ -929,6 +1090,58 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
       <div class="unit open"><b>16호</b><span>상담 문의</span></div>
       <div class="unit open"><b>17호</b><span>상담 문의</span></div>
     </div>
+
+    <div class="price-block" data-reveal>
+      <div class="price-head">
+        <div>
+          <span class="eyebrow on-light">Official price</span>
+          <h3>공식 분양가표 — 17세대 전체</h3>
+          <p>텔루체타운하우스 분양사무실 공식 분양가표입니다. 예상분양가 <b>6억 5천만 원 ~ 7억 4천만 원</b>, <b>상기 분양가는 정찰제</b>로 운영됩니다.</p>
+        </div>
+      </div>
+      <div class="price-cols">
+        <div class="price-scroll">
+          <table class="price-table">
+            <caption>텔루체타운하우스 17세대 면적·예상분양가·분양 현황</caption>
+            <thead>
+              <tr>
+                <th scope="col">호수</th>
+                <th scope="col">전용면적</th>
+                <th scope="col">공용면적</th>
+                <th scope="col">공급면적</th>
+                <th scope="col">건축면적</th>
+                <th scope="col">예상분양가</th>
+                <th scope="col">현황</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="host"><b>1호</b></td><td><b>85.31평</b><small>282.02㎡</small></td><td>16.69평<small>55.17㎡</small></td><td>102.00평<small>337.19㎡</small></td><td>33평</td><td><b>6억 5천만원</b></td><td><span class="st-chip open">상담 문의</span></td></tr>
+              <tr class="is-sold"><td class="host"><b>2호</b></td><td><b>85.31평</b><small>282.02㎡</small></td><td>16.69평<small>55.17㎡</small></td><td>102.00평<small>337.19㎡</small></td><td>33평</td><td><b>6억 5천만원</b></td><td><span class="st-chip sold">분양 완료</span></td></tr>
+              <tr class="is-sold"><td class="host"><b>3호</b></td><td><b>84.70평</b><small>280.00㎡</small></td><td>16.57평<small>54.78㎡</small></td><td>101.25평<small>334.71㎡</small></td><td>33평</td><td><b>6억 5천만원</b></td><td><span class="st-chip sold">분양 완료</span></td></tr>
+              <tr class="is-sold"><td class="host"><b>4호</b></td><td><b>86.82평</b><small>287.01㎡</small></td><td>16.98평<small>56.13㎡</small></td><td>103.80평<small>343.14㎡</small></td><td>33평</td><td><b>6억 5천만원</b></td><td><span class="st-chip sold">분양 완료</span></td></tr>
+              <tr class="is-sold"><td class="host"><b>5호</b></td><td><b>91.00평</b><small>300.83㎡</small></td><td>17.80평<small>58.84㎡</small></td><td>108.86평<small>359.87㎡</small></td><td>37평</td><td><b>7억 3천만원</b></td><td><span class="st-chip sold">분양 완료</span></td></tr>
+              <tr><td class="host"><b>6호</b></td><td><b>84.10평</b><small>278.02㎡</small></td><td>16.45평<small>54.38㎡</small></td><td>100.54평<small>332.37㎡</small></td><td>33평</td><td><b>6억 9천만원</b></td><td><span class="st-chip model">모델하우스</span></td></tr>
+              <tr><td class="host"><b>7호</b></td><td><b>84.10평</b><small>278.02㎡</small></td><td>16.45평<small>54.38㎡</small></td><td>100.54평<small>332.37㎡</small></td><td>33평</td><td><b>6억 9천만원</b></td><td><span class="st-chip open">상담 문의</span></td></tr>
+              <tr><td class="host"><b>8호</b></td><td><b>84.10평</b><small>278.02㎡</small></td><td>16.45평<small>54.38㎡</small></td><td>100.54평<small>332.37㎡</small></td><td>33평</td><td><b>6억 9천만원</b></td><td><span class="st-chip open">상담 문의</span></td></tr>
+              <tr class="is-sold"><td class="host"><b>9호</b></td><td><b>84.10평</b><small>278.02㎡</small></td><td>16.45평<small>54.38㎡</small></td><td>100.54평<small>332.37㎡</small></td><td>45평</td><td><b>6억 9천만원</b></td><td><span class="st-chip sold">분양 완료</span></td></tr>
+              <tr><td class="host"><b>10호</b></td><td><b>84.10평</b><small>278.02㎡</small></td><td>16.45평<small>54.38㎡</small></td><td>100.54평<small>332.37㎡</small></td><td>33평</td><td><b>6억 9천만원</b></td><td><span class="st-chip open">상담 문의</span></td></tr>
+              <tr><td class="host"><b>11호</b></td><td><b>85.31평</b><small>282.02㎡</small></td><td>16.69평<small>55.17㎡</small></td><td>102.00평<small>337.19㎡</small></td><td>33평</td><td><b>6억 5천만원</b></td><td><span class="st-chip open">상담 문의</span></td></tr>
+              <tr><td class="host"><b>12호</b></td><td><b>83.79평</b><small>276.99㎡</small></td><td>16.39평<small>54.18㎡</small></td><td>100.18평<small>331.18㎡</small></td><td>39평</td><td><b>7억 4천만원</b></td><td><span class="st-chip open">상담 문의</span></td></tr>
+              <tr><td class="host"><b>13호</b></td><td><b>84.10평</b><small>278.02㎡</small></td><td>16.45평<small>54.38㎡</small></td><td>100.54평<small>332.37㎡</small></td><td>39평</td><td><b>7억 4천만원</b></td><td><span class="st-chip open">상담 문의</span></td></tr>
+              <tr><td class="host"><b>14호</b></td><td><b>84.10평</b><small>278.02㎡</small></td><td>16.45평<small>54.38㎡</small></td><td>100.54평<small>332.37㎡</small></td><td>39평</td><td><b>7억 4천만원</b></td><td><span class="st-chip open">상담 문의</span></td></tr>
+              <tr class="is-sold"><td class="host"><b>15호</b></td><td><b>83.79평</b><small>276.99㎡</small></td><td>16.27평<small>53.79㎡</small></td><td>100.06평<small>330.78㎡</small></td><td>39평</td><td><b>7억 4천만원</b></td><td><span class="st-chip sold">분양 완료</span></td></tr>
+              <tr><td class="host"><b>16호</b></td><td><b>83.19평</b><small>275.10㎡</small></td><td>16.27평<small>53.79㎡</small></td><td>99.46평<small>328.79㎡</small></td><td>33평</td><td><b>7억 4천만원</b></td><td><span class="st-chip open">상담 문의</span></td></tr>
+              <tr><td class="host"><b>17호</b></td><td><b>103.46평</b><small>342.02㎡</small></td><td>20.36평<small>67.31㎡</small></td><td>123.85평<small>409.42㎡</small></td><td>33평</td><td><b>7억 4천만원</b></td><td><span class="st-chip open">상담 문의</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <button class="price-figure gal-item" type="button" data-full="assets/photos/teluce-price-table.jpg" data-cap="텔루체타운하우스 공식 분양가표 — 17세대 면적·예상분양가 (분양사무실 자료, 2026년 11월)" aria-label="공식 분양가표 이미지 크게 보기">
+          <img src="assets/photos/teluce-price-table.jpg" alt="텔루체타운하우스 17세대 공식 분양가표 — 전용·공용·공급면적과 예상분양가, 6억 5천만원부터 7억 4천만원, 정찰제" width="1055" height="1491" loading="lazy" decoding="async">
+          <span class="pf-tag"><svg aria-hidden="true"><use href="#i-zoom"/></svg>공식 분양가표 크게 보기</span>
+        </button>
+      </div>
+      <p class="price-note"><svg aria-hidden="true"><use href="#i-info"/></svg>표시한 면적과 예상분양가는 분양사무실 공식 분양가표(2026년 11월) 기준입니다. 상기 분양가는 정찰제이며, 옵션·계약 조건에 따라 최종 금액이 달라질 수 있습니다.</p>
+    </div>
     <div class="status-foot" data-reveal>
       <p>2026년 11월 기준 현황입니다. 계약 진행에 따라 세대별 상황이 달라질 수 있으니, 방문 전 전화로 잔여 세대를 확인해 주세요.</p>
       <div class="status-cta">
@@ -980,6 +1193,45 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
       <h2 class="title">영상으로 먼저 둘러보기</h2>
       <p class="lead">텔루체 현장의 시공 과정과 세대 내부를 유튜브·인스타그램·블로그에 기록하고 있습니다.</p>
     </div>
+    <div class="vid-show" data-reveal>
+      <article class="vid-card">
+        <div class="vid-frame">
+          <img src="https://img.youtube.com/vi/UHxoOUJ0Fd0/hqdefault.jpg" alt="텔루체 마당과 벙커주차 현장 영상 장면" width="480" height="360" loading="lazy" decoding="async">
+          <button class="vid-play" type="button" data-video="UHxoOUJ0Fd0" aria-label="영상 재생 — 마당과 벙커주차"><i><svg aria-hidden="true"><use href="#i-play"/></svg></i></button>
+          <span class="vid-time">00:58</span>
+        </div>
+        <div class="vid-meta">
+          <b>마당과 벙커주차, 3층 주택의 하루</b>
+          <small>초중고 도보권 · 34평 + 다락 11평 · 58초</small>
+          <a href="https://www.youtube.com/watch?v=UHxoOUJ0Fd0" target="_blank" rel="noopener">유튜브에서 보기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="vid-card">
+        <div class="vid-frame">
+          <img src="https://img.youtube.com/vi/SBNP0xxChY4/hqdefault.jpg" alt="텔루체 뒷마당 잔디와 테라스 현장 영상 장면" width="480" height="360" loading="lazy" decoding="async">
+          <button class="vid-play" type="button" data-video="SBNP0xxChY4" aria-label="영상 재생 — 층간소음 없는 철콘 45평"><i><svg aria-hidden="true"><use href="#i-play"/></svg></i></button>
+          <span class="vid-time">01:01</span>
+        </div>
+        <div class="vid-meta">
+          <b>층간소음 없는 철콘 45평, 뒷마당</b>
+          <small>반도체 클러스터 직주근접 · 개별 정원 · 61초</small>
+          <a href="https://www.youtube.com/watch?v=SBNP0xxChY4" target="_blank" rel="noopener">유튜브에서 보기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="vid-card">
+        <div class="vid-frame">
+          <img src="https://img.youtube.com/vi/BEdulyb5DxI/hqdefault.jpg" alt="해질녁 텔루체 단지 외관 현장 영상 장면" width="480" height="360" loading="lazy" decoding="async">
+          <button class="vid-play" type="button" data-video="BEdulyb5DxI" aria-label="영상 재생 — 보평3지구 확정, 밤의 텔루체"><i><svg aria-hidden="true"><use href="#i-play"/></svg></i></button>
+          <span class="vid-time">00:58</span>
+        </div>
+        <div class="vid-meta">
+          <b>보평3지구 확정, 밤의 텔루체</b>
+          <small>단지 앞 20m 대로 신설 · 영구 조망 · 58초</small>
+          <a href="https://www.youtube.com/watch?v=BEdulyb5DxI" target="_blank" rel="noopener">유튜브에서 보기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+    </div>
+    <p class="vid-note"><svg aria-hidden="true"><use href="#i-info"/></svg>현장에서 직접 찍은 짧은 영상입니다. 재생 버튼을 누르면 이 자리에서 바로 재생되고, 유튜브 앱으로 열 수도 있습니다.</p>
     <div class="ch-grid">
       <a class="ch-card" href="https://www.youtube.com/channel/UCKnVgPLCCxq4bYGz_bbiJZg" target="_blank" rel="noopener" data-reveal>
         <span class="ch-ico"><svg aria-hidden="true"><use href="#i-youtube"/></svg></span>
@@ -1305,6 +1557,136 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
   } else {
     revealEls.forEach(function(el){ el.classList.add('in'); });
   }
+
+  /* ---------- hero showcase (video + ken burns) ---------- */
+  var heroEl = document.querySelector('.hero');
+  var heroVideo = document.getElementById('heroVideo');
+  var heroShots = Array.prototype.slice.call(document.querySelectorAll('.hero-shot'));
+  var heroDotsBox = document.getElementById('heroDots');
+  var heroIdxEl = document.getElementById('heroIdx');
+  var heroKickerEl = document.getElementById('heroKicker');
+  var heroLabelEl = document.getElementById('heroLabel');
+
+  if (heroEl && heroDotsBox && heroShots.length){
+    var cuts = [{video:true, kicker:'현장 영상', label:'드론으로 본 3층 · 다락 주택', dur:9000}];
+    heroShots.forEach(function(s){
+      cuts.push({video:false, el:s, kicker:s.getAttribute('data-kicker') || '', label:s.getAttribute('data-label') || '', dur:7200});
+    });
+
+    var hIdx = reduced ? 1 : 0;
+    var hTimer = null, hStart = 0, hElapsed = 0;
+    var hUserPaused = reduced, hOffscreen = false, hVisible = true;
+    var dotEls = [];
+
+    cuts.forEach(function(c, i){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'hero-dot';
+      b.setAttribute('aria-label', (i + 1) + '번째 장면 — ' + c.label);
+      b.style.setProperty('--d', (c.dur / 1000) + 's');
+      b.appendChild(document.createElement('span')).className = 'fill';
+      b.addEventListener('click', function(){ goTo(i); });
+      heroDotsBox.appendChild(b);
+      dotEls.push(b);
+    });
+
+    function paintHero(){
+      var c = cuts[hIdx];
+      dotEls.forEach(function(d, i){
+        d.classList.toggle('is-active', i === hIdx);
+        d.classList.toggle('is-done', i < hIdx);
+        if (i === hIdx) d.setAttribute('aria-current', 'true');
+        else d.removeAttribute('aria-current');
+      });
+      if (heroIdxEl) heroIdxEl.textContent = (hIdx + 1 < 10 ? '0' : '') + (hIdx + 1);
+      if (heroKickerEl) heroKickerEl.textContent = c.kicker;
+      if (heroLabelEl) heroLabelEl.textContent = c.label;
+      heroShots.forEach(function(s){ s.classList.toggle('is-on', !c.video && s === c.el); });
+      heroEl.classList.toggle('is-paused', hUserPaused);
+      if (heroVideo){
+        if (c.video && !hUserPaused && !reduced && !hOffscreen){
+          var pr = heroVideo.play();
+          if (pr && pr.catch) pr.catch(function(){});
+        }
+        else { heroVideo.pause(); }
+      }
+    }
+    function clearHeroTimer(){ if (hTimer){ clearTimeout(hTimer); hTimer = null; } }
+    function scheduleHero(){
+      clearHeroTimer();
+      if (hUserPaused || hOffscreen) return;
+      hStart = (window.performance && performance.now) ? performance.now() : Date.now();
+      hTimer = setTimeout(function(){ goTo(hIdx + 1); }, Math.max(900, cuts[hIdx].dur - hElapsed));
+    }
+    function restartProgress(){
+      dotEls.forEach(function(d){ d.classList.remove('is-active'); });
+      void heroDotsBox.offsetWidth;
+      paintHero();
+    }
+    function goTo(i){
+      var len = cuts.length;
+      hIdx = ((i % len) + len) % len;
+      hElapsed = 0;
+      paintHero();
+      scheduleHero();
+    }
+
+    document.getElementById('heroNext').addEventListener('click', function(){ hUserPaused = false; goTo(hIdx + 1); });
+    document.getElementById('heroPrev').addEventListener('click', function(){ hUserPaused = false; goTo(hIdx - 1); });
+    document.getElementById('heroToggle').addEventListener('click', function(){
+      hUserPaused = !hUserPaused;
+      if (hUserPaused){ clearHeroTimer(); paintHero(); }
+      else { hElapsed = 0; restartProgress(); scheduleHero(); }
+    });
+
+    /* swipe */
+    var tX = 0, tY = 0;
+    heroEl.addEventListener('touchstart', function(e){
+      var t = e.changedTouches[0]; tX = t.clientX; tY = t.clientY;
+    }, {passive:true});
+    heroEl.addEventListener('touchend', function(e){
+      var t = e.changedTouches[0], dx = t.clientX - tX, dy = t.clientY - tY;
+      if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.6){ goTo(hIdx + (dx < 0 ? 1 : -1)); }
+    }, {passive:true});
+
+    /* pause when the hero leaves the viewport or the tab is hidden */
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){
+        hOffscreen = en[0].intersectionRatio < 0.12;
+        if (hOffscreen){ clearHeroTimer(); if (heroVideo) heroVideo.pause(); }
+        else if (!hUserPaused){ hElapsed = 0; restartProgress(); scheduleHero(); }
+      }, {threshold:[0, 0.12]}).observe(heroEl);
+    }
+    document.addEventListener('visibilitychange', function(){
+      if (document.hidden){ clearHeroTimer(); }
+      else if (!hUserPaused){ hElapsed = 0; restartProgress(); scheduleHero(); }
+    });
+
+    if (heroVideo){
+      heroVideo.addEventListener('error', function(){ heroVideo.style.display = 'none'; }, true);
+    }
+    paintHero();
+    scheduleHero();
+  }
+
+  /* ---------- youtube inline player ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.vid-play'), function(btn){
+    btn.addEventListener('click', function(){
+      var frame = btn.closest ? btn.closest('.vid-frame') : btn.parentNode;
+      var id = btn.getAttribute('data-video');
+      if (!frame || !id || frame.querySelector('iframe')) return;
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
+      ifr.title = btn.getAttribute('aria-label') || '텔루체 현장 영상';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      ifr.setAttribute('allowfullscreen', '');
+      frame.appendChild(ifr);
+      frame.classList.add('is-playing');
+      var cap = btn.parentNode.querySelector('img');
+      if (cap) cap.style.opacity = '0';
+      btn.style.display = 'none';
+    });
+  });
 
   /* ---------- gallery lightbox ---------- */
   var lb = document.getElementById('lightbox');
