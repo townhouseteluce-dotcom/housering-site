@@ -72,9 +72,11 @@
   --shadow-s:0 2px 10px rgba(10,19,41,.06);
   --shadow-m:0 18px 40px -18px rgba(10,19,41,.35);
   --header-h:76px;
+  --quick-h:0px;
   --max:1180px;
 }
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px)}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+[id]{scroll-margin-top:calc(var(--header-h) + var(--quick-h) + 28px)}
 body{
   margin:0;background:var(--cream);color:var(--ink);
   font-family:var(--ff);font-size:16px;line-height:1.72;
@@ -144,10 +146,10 @@ h2.title{
 .brand-txt{display:flex;flex-direction:column;line-height:1.15}
 .brand-txt b{font-family:var(--ff-serif);font-size:15px;letter-spacing:.24em;color:#fff;font-weight:600}
 .brand-txt i{font-style:normal;font-size:11px;letter-spacing:.2em;color:var(--gold-soft);margin-top:3px}
-.nav{display:flex;align-items:center;gap:6px}
+.nav{display:flex;align-items:center;gap:6px;flex:none}
 .nav a{
   position:relative;padding:10px 14px;font-size:14.5px;font-weight:500;color:rgba(255,255,255,.82);
-  letter-spacing:-.01em;transition:color .2s ease;
+  letter-spacing:-.01em;transition:color .2s ease;white-space:nowrap;
 }
 .nav a::after{
   content:"";position:absolute;left:14px;right:14px;bottom:4px;height:1px;background:var(--gold);
@@ -247,6 +249,9 @@ h2.title{
   color:var(--gold-soft);letter-spacing:.01em;line-height:1.2;
 }
 .hero-facts span{display:block;font-size:12.5px;color:rgba(255,255,255,.62);margin-top:7px;line-height:1.5;letter-spacing:-.01em}
+.hero-facts a{display:block;transition:opacity .2s ease}
+.hero-facts a:hover b{color:#fff}
+.hero-facts a:hover span{color:rgba(255,255,255,.82)}
 .hero-badge{
   position:relative;display:inline-flex;align-items:center;gap:9px;
   margin:18px 0 0;padding:9px 14px;border:1px solid var(--line-gold);background:rgba(10,19,41,.6);
@@ -404,9 +409,10 @@ h2.title{
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .tags span{font-size:11.5px;padding:4px 9px;background:var(--cream);color:var(--ink-2);border:1px solid rgba(20,33,61,.08)}
 .card-foot{margin-top:auto;padding-top:18px}
-.hero-cats{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
-.hero-cats span{font-size:12px;padding:6px 11px;border:1px solid rgba(220,196,155,.4);background:rgba(255,255,255,.06);color:var(--gold-pale);letter-spacing:-.01em}
-.hero-cats span i{font-style:normal;color:var(--gold);margin-right:5px}
+.hero-cats{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 20px}
+.hero-cats a{font-size:12px;padding:6px 11px;border:1px solid rgba(220,196,155,.4);background:rgba(255,255,255,.06);color:var(--gold-pale);letter-spacing:-.01em;transition:background .2s ease,border-color .2s ease,color .2s ease}
+.hero-cats a i{font-style:normal;color:var(--gold);margin-right:5px}
+.hero-cats a:hover{background:rgba(201,160,99,.24);border-color:var(--gold);color:#fff}
 .press-sec{background:var(--cream)}
 .press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(11px,1.6vw,18px);margin-top:clamp(22px,3.2vw,34px)}
 .press-card{display:flex;flex-direction:column;gap:8px;padding:20px 20px 22px;border:1px solid var(--line);background:#fff;transition:.25s}
@@ -939,6 +945,181 @@ html.js [data-reveal].in{opacity:1;transform:none}
 @media(max-width:390px){
   .hero h1{font-size:27px}
 }
+
+/* ============ v4 quick nav (mobile) ============ */
+.quickbar{
+  position:fixed;top:var(--header-h);left:0;right:0;z-index:78;display:none;
+  background:linear-gradient(180deg,rgba(10,19,41,.98),rgba(12,22,44,.97));
+  border-bottom:1px solid rgba(220,196,155,.26);
+  box-shadow:0 10px 24px -18px rgba(0,0,0,.85);
+}
+.quickbar-inner{
+  display:flex;align-items:center;gap:6px;overflow-x:auto;padding:7px clamp(14px,4vw,22px);
+  scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;
+}
+.quickbar-inner::-webkit-scrollbar{display:none}
+.quickbar a{
+  flex:none;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;white-space:nowrap;scroll-snap-align:center;
+  font-size:12.5px;font-weight:600;letter-spacing:-.01em;line-height:1.4;color:rgba(255,255,255,.86);
+  border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.quickbar a i{font-style:normal;font-family:var(--ff-serif);font-size:10px;letter-spacing:.06em;color:var(--gold-soft)}
+.quickbar a:hover,.quickbar a.is-active{background:var(--gold);border-color:var(--gold);color:#1A140A}
+.quickbar a:hover i,.quickbar a.is-active i{color:#1A140A}
+
+/* ============ v4 showroom info chips ============ */
+.invite-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.invite-chips .chip{
+  display:inline-flex;align-items:center;gap:7px;font:inherit;font-size:12.5px;line-height:1.4;color:var(--ink-2);
+  min-height:40px;background:#fff;border:1px solid var(--line-gold);padding:9px 12px;letter-spacing:-.01em;cursor:pointer;
+  transition:border-color .2s ease,background .2s ease,color .2s ease,transform .2s ease;
+}
+.invite-chips .chip>svg{width:15px;height:15px;flex:none;color:var(--gold)}
+.invite-chips .chip .chip-go{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;letter-spacing:.02em;color:#9A7A45}
+.invite-chips .chip .chip-go svg{width:10px;height:10px}
+.invite-chips .chip:hover{border-color:var(--gold);background:#FDFAF3;color:var(--navy);transform:translateY(-1px)}
+.invite-chips .chip[aria-expanded="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.invite-chips .chip[aria-expanded="true"]>svg{color:var(--gold-soft)}
+.invite-chips .chip[aria-expanded="true"] .chip-go{color:var(--gold-pale)}
+.chip-panel{
+  display:none;margin-top:14px;padding:18px 18px 16px;background:#fff;
+  border:1px solid var(--line-gold);box-shadow:var(--shadow-s);
+}
+.chip-panel.on{display:block;animation:chipIn .26s ease}
+@keyframes chipIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.chip-panel .cp-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.chip-panel h3{font-size:15.5px;font-weight:700;letter-spacing:-.02em;line-height:1.45}
+.chip-panel .cp-close{
+  flex:none;padding:5px 10px;border:1px solid var(--line);background:#fff;color:var(--muted);
+  font-size:11.5px;line-height:1.4;
+}
+.chip-panel .cp-close:hover{border-color:var(--gold);color:#8E6C36}
+.chip-panel .cp-body{font-size:13px;color:var(--muted);line-height:1.75;margin-top:9px}
+.chip-panel .cp-list{display:grid;gap:6px;margin-top:10px}
+.chip-panel .cp-list li{display:flex;gap:8px;font-size:12.5px;color:var(--ink-2);line-height:1.6}
+.chip-panel .cp-list svg{width:13px;height:13px;flex:none;margin-top:4px;color:var(--gold)}
+.chip-panel .cp-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.chip-panel .cp-actions a,.chip-panel .cp-actions button{
+  display:inline-flex;align-items:center;gap:6px;padding:8px 12px;font-size:12.5px;
+  border:1px solid var(--line);background:#fff;color:var(--ink-2);transition:.2s ease;
+}
+.chip-panel .cp-actions svg{width:13px;height:13px;color:var(--gold)}
+.chip-panel .cp-actions a:hover,.chip-panel .cp-actions button:hover{border-color:var(--gold);color:#8E6C36}
+.chip-panel .cp-actions .cp-primary{background:var(--navy);border-color:var(--navy);color:#fff}
+.chip-panel .cp-actions .cp-primary svg{color:var(--gold-soft)}
+.chip-panel .cp-actions .cp-primary:hover{background:var(--navy-700);border-color:var(--navy-700);color:#fff;transform:translateY(-1px)}
+
+/* ============ v4 model → estimate link ============ */
+.model .m-pick{
+  margin-top:13px;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:600;color:#8E6C36;border-bottom:1px solid var(--line-gold);padding-bottom:2px;
+}
+.model .m-pick svg{width:12px;height:12px;transition:transform .2s ease}
+.model .m-pick:hover{color:var(--navy)}
+.model .m-pick:hover svg{transform:translateX(3px)}
+.models-head .models-cta{
+  font-size:12px;font-weight:600;color:#8E6C36;display:inline-flex;align-items:center;gap:5px;
+  border-bottom:1px solid var(--line-gold);padding-bottom:2px;
+}
+.models-head .models-cta svg{width:12px;height:12px}
+
+/* ============ v4 estimate calculator ============ */
+.estimate{background:#fff;border-top:1px solid var(--line)}
+.est-card{
+  margin-top:clamp(22px,3vw,34px);display:grid;grid-template-columns:1fr 1fr;
+  border:1px solid var(--line);background:var(--cream);box-shadow:var(--shadow-m);
+}
+.est-form{padding:clamp(20px,2.6vw,32px)}
+.est-block+.est-block{margin-top:20px;padding-top:20px;border-top:1px solid var(--line)}
+.est-label{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:10px;letter-spacing:-.01em}
+.est-label .no{font-family:var(--ff-serif);font-size:10px;letter-spacing:.16em;color:var(--gold);flex:none}
+.est-models{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.est-model{
+  display:flex;flex-direction:column;gap:3px;text-align:left;padding:12px 13px;background:#fff;line-height:1.45;
+  border:1px solid rgba(20,33,61,.16);transition:border-color .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.est-model b{font-size:13.5px;font-weight:700;letter-spacing:-.02em;color:var(--navy);line-height:1.35}
+.est-model small{font-size:11px;color:var(--muted);line-height:1.55;letter-spacing:-.01em}
+.est-model:hover{border-color:var(--gold);background:#FDFAF3}
+.est-model[aria-pressed="true"]{border-color:var(--gold);background:#FBF4E6;box-shadow:inset 0 0 0 1px var(--gold)}
+.est-model[aria-pressed="true"] b{color:#7A5C2A}
+.est-toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.est-toggle button{
+  padding:11px 10px;border:1px solid rgba(20,33,61,.16);background:#fff;font-size:13px;font-weight:600;
+  color:var(--ink-2);letter-spacing:-.01em;transition:.18s ease;
+}
+.est-toggle button:hover{border-color:var(--gold);background:#FDFAF3}
+.est-toggle button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.est-form .field{margin-bottom:0}
+.est-area-hint{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6}
+.est-out{
+  position:relative;overflow:hidden;display:flex;flex-direction:column;
+  padding:clamp(20px,2.6vw,32px);color:#fff;
+  background:radial-gradient(80% 120% at 88% 0%,rgba(201,160,99,.2),rgba(201,160,99,0) 60%),linear-gradient(165deg,#0F1B36,#1B2B4D 72%,#22314F);
+  border-left:1px solid rgba(220,196,155,.28);
+}
+.est-out::after{content:"";position:absolute;right:-90px;bottom:-120px;width:280px;height:280px;border-radius:50%;border:1px solid rgba(220,196,155,.14);pointer-events:none}
+.eo-eyebrow{font-family:var(--ff-serif);font-size:10.5px;letter-spacing:.2em;color:var(--gold-soft);text-transform:uppercase}
+.est-placeholder{position:relative;font-size:13.5px;line-height:1.85;color:rgba(255,255,255,.62);margin:auto 0;display:grid;gap:8px;padding-top:16px}
+.est-placeholder[hidden],.est-result[hidden]{display:none !important}
+.est-placeholder b{color:#fff;font-size:15.5px;font-weight:600;letter-spacing:-.02em}
+.est-placeholder .ph-note{font-size:11.5px;color:rgba(255,255,255,.42);line-height:1.7}
+.est-result{position:relative;margin-top:12px}
+.eo-label{display:block;font-size:11px;letter-spacing:.14em;color:rgba(255,255,255,.5);text-transform:uppercase;font-family:var(--ff-serif)}
+.eo-price{
+  display:block;margin-top:6px;font-family:var(--ff-serif);font-weight:600;letter-spacing:.005em;
+  font-size:clamp(22px,3.2vw,29px);line-height:1.3;color:var(--gold-soft);
+}
+.eo-sub{font-size:12.5px;color:rgba(255,255,255,.66);line-height:1.6;margin-top:6px}
+.eo-rows{display:grid;gap:7px;margin:16px 0 0;padding-top:14px;border-top:1px solid rgba(255,255,255,.13)}
+.eo-rows div{display:flex;gap:10px;font-size:12.5px;line-height:1.55;color:rgba(255,255,255,.85)}
+.eo-rows dt{flex:none;width:46px;color:rgba(255,255,255,.44);font-size:11.5px}
+.eo-rows dd{margin:0}
+.eo-steps{margin-top:15px;display:grid;gap:7px;counter-reset:eo;list-style:none;padding:0}
+.eo-steps li{display:flex;gap:9px;font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.8)}
+.eo-steps li::before{
+  counter-increment:eo;content:counter(eo);flex:none;width:17px;height:17px;margin-top:2px;border-radius:50%;
+  border:1px solid rgba(220,196,155,.55);font-family:var(--ff-serif);font-size:9.5px;color:var(--gold-soft);
+  display:flex;align-items:center;justify-content:center;
+}
+.eo-steps li b{color:#fff;font-weight:600}
+.eo-cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;padding-top:22px}
+.eo-cta .btn{width:100%;min-height:46px;padding:0 10px;font-size:13px}
+.eo-cta .wide{grid-column:1 / -1}
+.eo-note{font-size:10.5px;line-height:1.7;color:rgba(255,255,255,.4);margin-top:11px}
+
+@media(max-width:1024px){
+  :root{--quick-h:55px}
+  .quickbar{display:block}
+  .header,.header.is-scrolled{height:var(--header-h)}
+  .mobile-nav{max-height:calc(100svh - var(--header-h) - var(--quick-h));overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:28px}
+  .hero{padding-top:calc(var(--header-h) + var(--quick-h) + clamp(30px,4.6vw,58px))}
+  .est-card{grid-template-columns:1fr}
+  .est-out{border-left:0;border-top:1px solid rgba(220,196,155,.28)}
+}
+@media(max-width:760px){
+  :root{--quick-h:55px}
+  body.menu-open .mobile-bar{display:none}
+  body.menu-open{padding-bottom:0}
+  .hero{padding-top:calc(var(--header-h) + var(--quick-h) + 30px)}
+  .est-models{gap:7px}
+  .est-model{padding:11px 11px}
+  .est-model b{font-size:12.5px}
+  .est-model small{font-size:10.5px}
+  .eo-cta{grid-template-columns:1fr}
+  .eo-cta .wide{grid-column:auto}
+  .eo-cta .btn{min-height:48px;font-size:13.5px}
+  .chip-panel{padding:16px 15px 15px}
+  .invite-chips .chip{font-size:12px;padding:9px 11px}
+}
+@media(max-width:560px){
+  .est-models{grid-template-columns:1fr 1fr;gap:7px}
+  .est-model b{font-size:12px}
+}
+@media(max-width:359px){
+  .est-models{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -1043,9 +1224,11 @@ html.js [data-reveal].in{opacity:1;transform:none}
       <span class="brand-txt"><b>HOUSE RING</b><i>하우스링</i></span>
     </a>
     <nav class="nav" aria-label="주요 메뉴">
-      <a href="#showroom">전시장</a>
-      <a href="#properties">주요 현장</a>
-      <a href="#services">사업 분야</a>
+      <a href="#lineup">모듈러 라인업</a>
+      <a href="#properties">분양 현장</a>
+      <a href="#estimate">무료 출장 견적</a>
+      <a href="#compare">현장 비교</a>
+      <a href="#press">보도자료</a>
       <a href="#channel">채널</a>
       <a href="#booking">방문 예약</a>
       <a href="#contact">상담 문의</a>
@@ -1060,18 +1243,31 @@ html.js [data-reveal].in{opacity:1;transform:none}
 </header>
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="#showroom">파주 교하 전시장 <span>SHOWROOM</span></a>
-  <a href="#properties">주요 현장 <span>PROJECTS</span></a>
-  <a href="#services">사업 분야 <span>SERVICE</span></a>
-  <a href="#compare">현장 비교 <span>COMPARE</span></a>
-  <a href="#channel">채널 <span>CHANNEL</span></a>
+  <a href="#lineup">모듈러 라인업 <span>LINEUP</span></a>
+  <a href="#properties">분양 현장 <span>PROJECTS</span></a>
+  <a href="#estimate">무료 출장 견적 · 가견적 <span>ESTIMATE</span></a>
+  <a href="#press">보도자료 <span>PRESS</span></a>
   <a href="#booking">방문 예약 <span>VISIT</span></a>
+  <a href="#showroom">파주 교하 전시장 <span>SHOWROOM</span></a>
+  <a href="#compare">현장 비교 <span>COMPARE</span></a>
+  <a href="#services">사업 분야 <span>SERVICE</span></a>
+  <a href="#channel">채널 <span>CHANNEL</span></a>
   <a href="#process">상담 절차 <span>PROCESS</span></a>
   <a href="#contact">상담 문의 <span>CONTACT</span></a>
   <a class="btn btn-gold" href="tel:+821048257879">
     <svg aria-hidden="true"><use href="#i-phone"/></svg>010-4825-7879 전화 상담
   </a>
 </div>
+
+<nav class="quickbar" id="quickbar" aria-label="빠른 메뉴">
+  <div class="quickbar-inner">
+    <a href="#lineup" data-quick="lineup"><i>01</i>모듈러 라인업</a>
+    <a href="#properties" data-quick="properties"><i>02</i>분양 현장</a>
+    <a href="#estimate" data-quick="estimate"><i>03</i>무료 출장 견적</a>
+    <a href="#press" data-quick="press"><i>04</i>보도자료</a>
+    <a href="#booking" data-quick="booking"><i>05</i>방문 예약</a>
+  </div>
+</nav>
 
 <!-- ============ hero ============ -->
 <main id="top">
@@ -1094,10 +1290,10 @@ html.js [data-reveal].in{opacity:1;transform:none}
           <strong>시행사 직영 분양</strong>을 한곳에서.
         </p>
         <div class="hero-cats">
-          <span><i>01</i>모듈러 · 농촌체류형쉼터</span>
-          <span><i>02</i>세컨하우스</span>
-          <span><i>03</i>타운하우스 분양</span>
-          <span><i>04</i>토지 · 건축 인허가</span>
+          <a href="#lineup"><i>01</i>모듈러 · 농촌체류형쉼터</a>
+          <a href="#properties"><i>02</i>세컨하우스</a>
+          <a href="#properties"><i>03</i>타운하우스 분양</a>
+          <a href="#services"><i>04</i>토지 · 건축 인허가</a>
         </div>
         <div class="hero-actions">
           <a class="btn btn-gold" href="#booking">
@@ -1113,9 +1309,9 @@ html.js [data-reveal].in{opacity:1;transform:none}
         <br>
         <span class="hero-badge"><i class="dot"></i>부경아리아 파주 교하전시장 · 본사 직영</span>
         <ul class="hero-facts">
-          <li><b>3,900만원~</b><span>10평 기준<br>모듈러·세컨하우스 시작가</span></li>
-          <li><b>17세대</b><span>용인 고림동<br>텔루체 타운하우스</span></li>
-          <li><b>2026. 12.</b><span>공인중개사 합류<br>중개 업무 확장 예정</span></li>
+          <li><a href="#estimate"><b>3,900만원~</b><span>10평 기준<br>모듈러·세컨하우스 시작가</span></a></li>
+          <li><a href="#properties"><b>17세대</b><span>용인 고림동<br>텔루체 타운하우스</span></a></li>
+          <li><a href="#services"><b>2026. 12.</b><span>공인중개사 합류<br>중개 업무 확장 예정</span></a></li>
         </ul>
     </div>
 
@@ -1145,11 +1341,31 @@ html.js [data-reveal].in{opacity:1;transform:none}
           넓은 주차장에 편히 주차하시고, 시원하고 따뜻한 커피 한 잔 드시면서
           <b>직접 보고, 만지고, 느낄 수 있는</b> 파주 교하 전시장으로 초대합니다.
         </p>
-        <ul class="invite-chips">
-          <li><svg aria-hidden="true"><use href="#i-parking"/></svg>넓은 주차장 완비</li>
-          <li><svg aria-hidden="true"><use href="#i-coffee"/></svg>시원하고 따뜻한 커피</li>
-          <li><svg aria-hidden="true"><use href="#i-hand"/></svg>직접 보고 · 만지고</li>
-        </ul>
+        <div class="invite-chips" role="group" aria-label="전시장 체험 안내">
+          <button type="button" class="chip" data-showroom="parking" aria-expanded="false" aria-controls="showroomInfo">
+            <svg aria-hidden="true"><use href="#i-parking"/></svg>넓은 주차장 완비<span class="chip-go">안내</span>
+          </button>
+          <button type="button" class="chip" data-showroom="coffee" aria-expanded="false" aria-controls="showroomInfo">
+            <svg aria-hidden="true"><use href="#i-coffee"/></svg>시원하고 따뜻한 커피<span class="chip-go">안내</span>
+          </button>
+          <button type="button" class="chip" data-showroom="touch" aria-expanded="false" aria-controls="showroomInfo">
+            <svg aria-hidden="true"><use href="#i-hand"/></svg>직접 보고 · 만지고<span class="chip-go">안내</span>
+          </button>
+        </div>
+
+        <div class="chip-panel" id="showroomInfo" role="region" aria-label="전시장 안내 상세" aria-live="polite">
+          <div class="cp-head">
+            <h3 id="cpTitle">전시장 안내</h3>
+            <button type="button" class="cp-close" id="cpClose">닫기</button>
+          </div>
+          <p class="cp-body" id="cpBody"></p>
+          <ul class="cp-list" id="cpList"></ul>
+          <div class="cp-actions">
+            <a href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%8C%8C%EC%A3%BC%EC%8B%9C%20%ED%8C%8C%EC%A3%BC%EB%A1%9C%20725" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>네이버 지도</a>
+            <a href="https://map.kakao.com/?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%8C%8C%EC%A3%BC%EC%8B%9C%20%ED%8C%8C%EC%A3%BC%EB%A1%9C%20725" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>카카오맵</a>
+            <button type="button" class="cp-primary" id="cpBook" data-booking-interest="파주 교하 전시장 방문 (모듈러주택)"><svg aria-hidden="true"><use href="#i-calendar"/></svg>방문 예약하기</button>
+          </div>
+        </div>
 
         <div class="route-card">
           <span class="rc-head"><svg aria-hidden="true"><use href="#i-pin"/></svg>오시는 길 · ORIENTATION</span>
@@ -1196,10 +1412,10 @@ html.js [data-reveal].in{opacity:1;transform:none}
       </div>
     </div>
 
-    <div class="models" data-reveal>
+    <div class="models" id="lineup" data-reveal>
       <div class="models-head">
         <h3>전시장에서 만나보실 수 있는 모델 3종</h3>
-        <span>부경아리아 전시 모델 · 가격과 준공 일정은 상담으로 확인</span>
+        <a class="models-cta" href="#estimate">모델별 가견적 계산<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="model-grid">
         <article class="model">
@@ -1209,6 +1425,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
           <span class="m-size">큐브 · 10평형</span>
           <span class="m-price">3,900만 원~</span>
           <span class="m-note">10평 모듈러 세컨하우스. 가장 많이 찾는 시작 모델입니다.</span>
+          <a class="m-pick" href="#estimate" data-estimate-model="cube10">이 모델로 가견적<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </article>
         <article class="model">
           <div class="m-photo"><img src="assets/photos/nest-12.jpg" alt="NEST 12 전시 모델 외관" loading="lazy" decoding="async"></div>
@@ -1217,6 +1434,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
           <span class="m-size">네스트 · 12평형</span>
           <span class="m-price">가격 상담 안내</span>
           <span class="m-state"><svg aria-hidden="true"><use href="#i-check"/></svg>준공 가능</span>
+          <a class="m-pick" href="#estimate" data-estimate-model="nest12">이 모델로 가견적<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </article>
         <article class="model">
           <div class="m-photo"><img src="assets/photos/luna-high-21.jpg" alt="LUNA HIGH 21 전시 모델 외관" loading="lazy" decoding="async"></div>
@@ -1225,6 +1443,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
           <span class="m-size">루나 하이 · 21평형</span>
           <span class="m-price">1억 760만 원</span>
           <span class="m-state"><svg aria-hidden="true"><use href="#i-check"/></svg>준공 가능</span>
+          <a class="m-pick" href="#estimate" data-estimate-model="luna21">이 모델로 가견적<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </article>
       </div>
     </div>
@@ -1236,8 +1455,96 @@ html.js [data-reveal].in{opacity:1;transform:none}
         <p>현장 답사부터 인허가, 배치, 견적까지 — 무료 출장 견적으로 한 번에 정리해 드립니다. 지역과 땅 조건만 알려 주시면 됩니다.</p>
       </div>
       <div class="qb-actions">
-        <a class="btn btn-gold" href="#booking" data-booking-interest="무료 출장 견적 (현장 답사)"><svg aria-hidden="true"><use href="#i-pin"/></svg>무료 출장 견적 신청</a>
+        <a class="btn btn-gold" href="#estimate"><svg aria-hidden="true"><use href="#i-calendar"/></svg>무료 출장 견적 · 가견적</a>
         <a class="btn btn-ghost" href="tel:+821048257879"><svg aria-hidden="true"><use href="#i-phone"/></svg>010-4825-7879</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ estimate ============ -->
+<section class="section estimate" id="estimate">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div>
+        <span class="eyebrow on-light">Free Estimate · 가견적</span>
+        <h2 class="title">3분이면 보이는<br><span class="thin">예상 금액과 준비 절차</span></h2>
+        <p class="lead">모델과 토지 조건, 희망 지역만 골라 주세요. 예상 금액 범위와 다음에 준비하실 일을 바로 보여드리고, 그대로 문자·전화 상담으로 이어집니다. <b>현장 답사와 출장 견적은 무료</b>입니다.</p>
+      </div>
+      <a class="btn btn-line btn-sm" href="tel:+821048257879"><svg aria-hidden="true"><use href="#i-phone"/></svg>바로 전화 상담</a>
+    </div>
+
+    <div class="est-card" data-reveal>
+      <div class="est-form">
+        <div class="est-block">
+          <span class="est-label"><span class="no">STEP 01</span>어떤 집을 생각하고 계신가요?</span>
+          <div class="est-models" id="estModels" role="group" aria-label="모델 선택">
+            <button type="button" class="est-model" data-model="cube10" aria-pressed="false">
+              <b>CUBE 10</b><small>모듈러 · 10평형<br>3,900만 원~</small>
+            </button>
+            <button type="button" class="est-model" data-model="nest12" aria-pressed="false">
+              <b>NEST 12</b><small>모듈러 · 12평형<br>가격 상담 안내</small>
+            </button>
+            <button type="button" class="est-model" data-model="luna21" aria-pressed="false">
+              <b>LUNA HIGH 21</b><small>모듈러 · 21평형<br>1억 760만 원~</small>
+            </button>
+            <button type="button" class="est-model" data-model="town" aria-pressed="false">
+              <b>타운하우스 맞춤</b><small>텔루체 · 그린델 등<br>6억 원대~</small>
+            </button>
+          </div>
+        </div>
+
+        <div class="est-block">
+          <span class="est-label"><span class="no">STEP 02</span>토지는 있으신가요?</span>
+          <div class="est-toggle" id="estLand" role="group" aria-label="토지 보유 여부">
+            <button type="button" data-land="own" aria-pressed="true">토지 보유</button>
+            <button type="button" data-land="find" aria-pressed="false">찾는 중</button>
+          </div>
+        </div>
+
+        <div class="est-block">
+          <span class="est-label"><span class="no">STEP 03</span>희망 지역</span>
+          <div class="field">
+            <select id="estArea" aria-label="희망 지역">
+              <option value="">지역을 선택해 주세요</option>
+              <option>파주 · 교하</option>
+              <option>용인 · 처인</option>
+              <option>양평 · 서종</option>
+              <option>광주 · 목현</option>
+              <option>오산 · 화성</option>
+              <option>기타 경기</option>
+              <option>지역 미정</option>
+            </select>
+          </div>
+          <p class="est-area-hint">토지를 찾고 계시면 희망 지역을 기준으로 후보지를 함께 살펴봅니다.</p>
+        </div>
+      </div>
+
+      <div class="est-out" id="estOut" aria-live="polite">
+        <span class="eo-eyebrow">Estimate</span>
+        <div class="est-placeholder" id="estPlaceholder">
+          <b>조건을 고르면 바로 계산됩니다</b>
+          <span>예상 금액 범위, 준비 순서, 상담 연결까지 한 화면에 정리해 드립니다.</span>
+          <span class="ph-note">표시 금액은 공개된 시작가를 기준으로 한 참고 범위이며, 토지·인허가·기초공사·운송 조건에 따라 달라집니다. 확정 금액은 무료 출장 견적에서 안내드립니다.</span>
+        </div>
+
+        <div class="est-result" id="estResult" hidden>
+          <span class="eo-label" id="eoLabel">예상 주택 가격</span>
+          <b class="eo-price" id="eoPrice">—</b>
+          <p class="eo-sub" id="eoSub"></p>
+          <dl class="eo-rows">
+            <div><dt>모델</dt><dd id="eoModel">—</dd></div>
+            <div><dt>토지</dt><dd id="eoLand">—</dd></div>
+            <div><dt>지역</dt><dd id="eoArea">—</dd></div>
+          </dl>
+          <ol class="eo-steps" id="eoSteps"></ol>
+          <div class="eo-cta">
+            <a class="btn btn-gold wide" id="estSms" href="sms:+821048257879"><svg aria-hidden="true"><use href="#i-sms"/></svg>이 조건으로 문자 상담</a>
+            <a class="btn btn-ghost" href="tel:+821048257879"><svg aria-hidden="true"><use href="#i-phone"/></svg>전화 상담</a>
+            <a class="btn btn-ghost" id="estBook" href="#booking" data-booking-interest="무료 출장 견적 (현장 답사)"><svg aria-hidden="true"><use href="#i-calendar"/></svg>방문·출장 예약</a>
+          </div>
+          <p class="eo-note" id="eoNote">표시 금액은 공개 시작가를 기준으로 한 참고 범위입니다. 토지·인허가·기초공사·운송 조건에 따라 달라지며, 확정 금액은 무료 출장 견적에서 안내드립니다.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1921,6 +2228,18 @@ html.js [data-reveal].in{opacity:1;transform:none}
 (function(){
   "use strict";
   var header = document.getElementById('header');
+  var estContext = '';   /* 가견적 조건 → 예약·문의 문자에 함께 전달 */
+
+  /* 상단 고정 바(헤더 + 모바일 퀵 메뉴) 높이를 실제 값으로 맞춰 앵커 이동이 가려지지 않게 */
+  var quickbarEl = document.getElementById('quickbar');
+  function syncQuickH(){
+    if (!quickbarEl) return;
+    var h = getComputedStyle(quickbarEl).display === 'none' ? 0 : Math.round(quickbarEl.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--quick-h', h + 'px');
+  }
+  syncQuickH();
+  window.addEventListener('resize', syncQuickH);
+  window.addEventListener('load', syncQuickH);
   var burger = document.getElementById('burger');
   var mobileNav = document.getElementById('mobileNav');
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
@@ -1939,12 +2258,14 @@ html.js [data-reveal].in{opacity:1;transform:none}
     burger.setAttribute('aria-expanded','false');
     burger.setAttribute('aria-label','메뉴 열기');
     document.body.style.overflow = '';
+    document.body.classList.remove('menu-open');
   }
   burger.addEventListener('click', function(){
     var open = mobileNav.classList.toggle('open');
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     burger.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
     document.body.style.overflow = open ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', open);
   });
   mobileNav.addEventListener('click', function(e){
     if (e.target.closest('a')) closeMenu();
@@ -1953,15 +2274,34 @@ html.js [data-reveal].in{opacity:1;transform:none}
   window.addEventListener('resize', function(){ if (window.innerWidth > 1024) closeMenu(); });
 
   /* active nav */
-  var sections = ['showroom','properties','compare','services','process','channel','booking','contact'].map(function(id){
+  var quickLinks = Array.prototype.slice.call(document.querySelectorAll('.quickbar a'));
+  var qbInner = document.querySelector('.quickbar-inner');
+  function centerQuick(a){
+    if (!qbInner || !a) return;
+    var r = a.getBoundingClientRect(), cr = qbInner.getBoundingClientRect();
+    if (r.left >= cr.left + 6 && r.right <= cr.right - 6) return;
+    var dx = (r.left - cr.left) - (cr.width - r.width) / 2;
+    if (qbInner.scrollBy) qbInner.scrollBy({left:dx, behavior:'smooth'});
+    else qbInner.scrollLeft += dx;
+  }
+  quickLinks.forEach(function(a){
+    a.addEventListener('click', function(){ centerQuick(a); });
+  });
+  var sections = ['lineup','properties','estimate','press','channel','booking','contact','showroom','compare','services','process'].map(function(id){
     return document.getElementById(id);
   }).filter(Boolean);
   if ('IntersectionObserver' in window && sections.length){
     var navObs = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
         if (!en.isIntersecting) return;
+        var href = '#' + en.target.id;
         navLinks.forEach(function(a){
-          a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id);
+          a.classList.toggle('active', a.getAttribute('href') === href);
+        });
+        quickLinks.forEach(function(a){
+          var on = a.getAttribute('href') === href;
+          a.classList.toggle('is-active', on);
+          if (on) centerQuick(a);
         });
       });
     }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
@@ -1988,18 +2328,25 @@ html.js [data-reveal].in{opacity:1;transform:none}
   /* interest deep-link from property cards */
   var interest = document.getElementById('f-interest');
   var msg = document.getElementById('f-msg');
+  var msgAuto = false;
   Array.prototype.forEach.call(document.querySelectorAll('[data-interest]'), function(a){
     a.addEventListener('click', function(){
       var v = a.getAttribute('data-interest');
-      if (!interest) return;
-      for (var i = 0; i < interest.options.length; i++){
-        if (interest.options[i].text.indexOf(v.slice(0, 8)) === 0 || v.indexOf(interest.options[i].text.slice(0, 8)) === 0){
-          interest.selectedIndex = i; break;
+      if (interest){
+        for (var i = 0; i < interest.options.length; i++){
+          if (interest.options[i].text.indexOf(v.slice(0, 8)) === 0 || v.indexOf(interest.options[i].text.slice(0, 8)) === 0){
+            interest.selectedIndex = i; break;
+          }
         }
       }
-      if (msg && !msg.value) msg.value = v + ' 상담을 문의드립니다.';
+      /* 자동으로 채운 문의 내용은 현장을 바꿀 때 함께 바꾸고, 직접 쓴 내용은 그대로 둔다 */
+      if (msg && (!msg.value.trim() || msgAuto)){
+        msg.value = v + ' 상담을 문의드립니다.';
+        msgAuto = true;
+      }
     });
   });
+  if (msg) msg.addEventListener('input', function(){ msgAuto = false; });
 
   /* inquiry form -> sms */
   var form = document.getElementById('inquiryForm');
@@ -2020,6 +2367,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
     var it = document.getElementById('f-interest').value;
     var m = (document.getElementById('f-msg').value || '').trim();
     var lines = ['[하우스링 상담 문의]', '성함: ' + name, '연락처: ' + phone, '관심 분야: ' + it];
+    if (estContext) lines.push('가견적 조건: ' + estContext);
     if (m) lines.push('문의 내용: ' + m);
     return lines.join('\n');
   }
@@ -2106,16 +2454,221 @@ html.js [data-reveal].in{opacity:1;transform:none}
   }
 
   /* booking interest preselection (무료 출장 견적 등) */
+  function selectSite(v){
+    var sel = document.getElementById('b-site');
+    if (!sel || !v) return;
+    for (var i = 0; i < sel.options.length; i++){
+      if (sel.options[i].text === v || sel.options[i].text.indexOf(v) === 0){ sel.selectedIndex = i; break; }
+    }
+  }
+  function scrollToId(id){
+    var t = document.getElementById(id);
+    if (t) t.scrollIntoView({behavior:'smooth', block:'start'});
+  }
   Array.prototype.forEach.call(document.querySelectorAll('[data-booking-interest]'), function(a){
     a.addEventListener('click', function(){
-      var v = a.getAttribute('data-booking-interest');
-      var sel = document.getElementById('b-site');
-      if (!sel || !v) return;
-      for (var i = 0; i < sel.options.length; i++){
-        if (sel.options[i].text === v){ sel.selectedIndex = i; break; }
-      }
+      selectSite(a.getAttribute('data-booking-interest'));
+      /* 버튼(앵커가 아닌 경우)은 직접 예약 섹션으로 이동 */
+      if (a.tagName !== 'A') scrollToId('booking');
     });
   });
+
+  /* ===== 전시장 안내 칩 → 상세 안내 + 오시는 길 + 방문 예약 ===== */
+  var chipPanel = document.getElementById('showroomInfo');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.invite-chips [data-showroom]'));
+  var SHOWROOM_INFO = {
+    parking:{
+      title:'넓은 주차장 완비',
+      body:'전시장 마당에 차를 대고 바로 모델을 보실 수 있습니다. 방문 전 전화로 일정을 알려주시면 동선을 미리 준비해 두었습니다.',
+      list:['주소 — 경기도 파주시 파주로 725 (교하동 70-33) 부경아리아 파주 교하전시장','네이버 지도·카카오맵으로 바로 길안내를 받으실 수 있습니다.']
+    },
+    coffee:{
+      title:'시원하고 따뜻한 커피 한 잔',
+      body:'상담하시는 동안 커피를 드리며 천천히 둘러보실 수 있도록 준비하고 있습니다.',
+      list:['본사 직영 쇼룸 — 방문 상담은 예약제로 진행합니다.','방문 예약을 남겨 주시면 담당자가 확인 후 연락드립니다.']
+    },
+    touch:{
+      title:'직접 보고 · 만지고 느끼는 전시장',
+      body:'10~30평형 모듈러주택과 농촌체류형쉼터를 실물로 확인하세요. 사진으로는 알 수 없는 마감과 구조를 직접 보실 수 있습니다.',
+      list:['AI 설계 · 80% 공장 사전제작 방식 상담','토지 답사 · 인허가 · 시공까지 원스톱 안내']
+    }
+  };
+  function closeChips(){
+    if (chipPanel) chipPanel.classList.remove('on');
+    chips.forEach(function(b){ b.setAttribute('aria-expanded','false'); });
+  }
+  if (chipPanel && chips.length){
+    var cpTitle = document.getElementById('cpTitle');
+    var cpBody = document.getElementById('cpBody');
+    var cpList = document.getElementById('cpList');
+    var cpBook = document.getElementById('cpBook');
+    var cpClose = document.getElementById('cpClose');
+
+    chips.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var key = btn.getAttribute('data-showroom');
+        var d = SHOWROOM_INFO[key];
+        if (!d) return;
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+        if (isOpen){ closeChips(); return; }
+        cpTitle.textContent = d.title;
+        cpBody.textContent = d.body;
+        cpList.innerHTML = '';
+        d.list.forEach(function(t){
+          var li = document.createElement('li');
+          var ic = document.createElementNS('http://www.w3.org/2000/svg','svg');
+          ic.setAttribute('aria-hidden','true');
+          var use = document.createElementNS('http://www.w3.org/2000/svg','use');
+          use.setAttribute('href','#i-check');
+          ic.appendChild(use);
+          var sp = document.createElement('span');
+          sp.textContent = t;
+          li.appendChild(ic); li.appendChild(sp);
+          cpList.appendChild(li);
+        });
+        chips.forEach(function(b){ b.setAttribute('aria-expanded', b === btn ? 'true' : 'false'); });
+        chipPanel.classList.add('on');
+      });
+    });
+    if (cpClose) cpClose.addEventListener('click', closeChips);
+    if (cpBook) cpBook.addEventListener('click', function(){
+      selectSite('파주 교하 전시장 방문');
+      closeChips();
+      scrollToId('booking');
+    });
+  }
+
+  /* ===== 간편 가견적 계산기 ===== */
+  var estModelsBox = document.getElementById('estModels');
+  if (estModelsBox){
+    var estLandBox = document.getElementById('estLand');
+    var estAreaSel = document.getElementById('estArea');
+    var estPlaceholder = document.getElementById('estPlaceholder');
+    var estResultBox = document.getElementById('estResult');
+    var eoLabel = document.getElementById('eoLabel');
+    var eoPrice = document.getElementById('eoPrice');
+    var eoSub = document.getElementById('eoSub');
+    var eoModel = document.getElementById('eoModel');
+    var eoLand = document.getElementById('eoLand');
+    var eoArea = document.getElementById('eoArea');
+    var eoSteps = document.getElementById('eoSteps');
+    var eoNote = document.getElementById('eoNote');
+    var estSms = document.getElementById('estSms');
+    var estBook = document.getElementById('estBook');
+    var estButtons = Array.prototype.slice.call(estModelsBox.querySelectorAll('.est-model'));
+    var landButtons = Array.prototype.slice.call(estLandBox.querySelectorAll('button'));
+
+    /* 공개된 금액만 근거로 한 범위 — 옵션·운송·기초공사 여유(최대 25%) 포함 */
+    var EST = {
+      cube10:{name:'CUBE 10', size:'10평형', min:3900, max:4900, label:'예상 주택 가격',
+        sub:'10평 모듈러 세컨하우스 · 가장 많이 찾는 시작 모델',
+        stepsOwn:['토지 조건 확인 — 건축 가능 여부·인허가 검토','전시장 답사 — 실물 모델 확인 (무료)','설계·배치 — 평형과 배치 확정','견적·계약 — 확정 금액과 일정 안내'],
+        stepsFind:['지역·예산 상담 — 후보지 방향 정리','후보지 답사 — 건축 가능성·규제 확인','설계·배치 — 평형과 배치 확정','통합 견적 — 토지+주택 견적과 계약']},
+      nest12:{name:'NEST 12', size:'12평형', min:4680, max:6100, label:'예상 주택 가격 (추정)',
+        sub:'12평 모듈러 · 가격은 상담으로 안내드립니다',
+        note:'NEST 12는 확정 공개가가 없어, 공개된 시작가(CUBE 10 3,900만 / LUNA HIGH 21 1억 760만)를 평형으로 환산한 추정 범위로 표시합니다. 정확한 금액은 상담으로 안내드립니다.',
+        stepsOwn:['토지 조건 확인 — 건축 가능 여부·인허가 검토','전시장 답사 — 실물 모델 확인 (무료)','평형·옵션 상담 — 12평 배치 확정','견적·계약 — 확정 금액과 일정 안내'],
+        stepsFind:['지역·예산 상담 — 후보지 방향 정리','후보지 답사 — 건축 가능성·규제 확인','평형·옵션 상담 — 12평 배치 확정','통합 견적 — 토지+주택 견적과 계약']},
+      luna21:{name:'LUNA HIGH 21', size:'21평형', min:10760, max:13450, label:'예상 주택 가격',
+        sub:'21평 모듈러 · 전시장에서 실물로 확인',
+        stepsOwn:['토지 조건 확인 — 건축 가능 여부·인허가 검토','전시장 답사 — 실물 모델 확인 (무료)','설계·배치 — 평형과 배치 확정','견적·계약 — 확정 금액과 일정 안내'],
+        stepsFind:['지역·예산 상담 — 후보지 방향 정리','후보지 답사 — 건축 가능성·규제 확인','설계·배치 — 평형과 배치 확정','통합 견적 — 토지+주택 견적과 계약']},
+      town:{name:'타운하우스 맞춤', size:'세대별', min:60000, max:70000, label:'예상 분양가',
+        sub:'텔루체 · 그린델 등 현장별 세대 · 토지 없이 분양',
+        note:'타운하우스는 토지 없이 분양받는 세대입니다. 현장·세대·옵션에 따라 금액과 입주 일정이 달라집니다.',
+        stepsAll:['현장 비교 — 지역·규모·가격 확인','현장 방문 — 세대와 마감 확인 (예약)','세대·옵션 선택 — 잔여 세대 확인','계약·입주 — 일정 관리']}
+    };
+    var estState = {model:null, land:'own', area:''};
+
+    function won(m){
+      if (m >= 10000){
+        var eok = Math.floor(m / 10000), rest = m % 10000;
+        return eok + '억' + (rest ? ' ' + rest.toLocaleString() + '만' : '');
+      }
+      return m.toLocaleString() + '만';
+    }
+    function paintEst(){
+      var m = EST[estState.model];
+      if (!m) return;
+      var isTown = estState.model === 'town';
+      var owned = estState.land === 'own';
+      var areaTxt = estState.area || '미정 · 상담에서 확인';
+
+      estPlaceholder.hidden = true;
+      estResultBox.hidden = false;
+      eoLabel.textContent = m.label;
+      eoPrice.textContent = won(m.min) + ' ~ ' + won(m.max) + ' 원';
+      eoModel.textContent = m.name + ' · ' + m.size;
+      eoLand.textContent = isTown ? '분양 세대 (토지 불필요)' : (owned ? '보유 · 토지 비용 제외' : '찾는 중 · 토지 매매 상담 포함');
+      eoArea.textContent = areaTxt;
+
+      if (isTown){
+        eoSub.textContent = m.sub;
+      } else {
+        eoSub.textContent = m.sub + (owned ? ' · 토지 비용 제외' : ' · 토지 비용 별도');
+      }
+
+      var steps = isTown ? m.stepsAll : (owned ? m.stepsOwn : m.stepsFind);
+      eoSteps.innerHTML = '';
+      steps.forEach(function(t){
+        var li = document.createElement('li');
+        li.textContent = t;
+        eoSteps.appendChild(li);
+      });
+
+      eoNote.textContent = m.note || '표시 금액은 공개 시작가를 기준으로 한 참고 범위입니다. 토지·인허가·기초공사·운송 조건에 따라 달라지며, 확정 금액은 무료 출장 견적에서 안내드립니다.';
+
+      estContext = m.name + ' · ' + m.size + ' · ' + (isTown ? '분양 세대' : (owned ? '토지 보유' : '토지 찾는 중')) + ' · ' + areaTxt;
+      var smsLines = [
+        '[하우스링 가견적 상담]',
+        '모델: ' + m.name + ' (' + m.size + ')',
+        '토지: ' + (isTown ? '분양 세대' : (owned ? '보유' : '찾는 중')),
+        '지역: ' + areaTxt,
+        '예상 금액: ' + won(m.min) + ' ~ ' + won(m.max) + ' 원',
+        '무료 출장 견적(현장 답사) 상담을 신청합니다.'
+      ];
+      estSms.setAttribute('href', 'sms:' + PHONE_TEL + (isIOS ? '&' : '?') + 'body=' + encodeURIComponent(smsLines.join('\n')));
+    }
+    function pickModel(key){
+      if (!EST[key]) return;
+      estState.model = key;
+      estButtons.forEach(function(b){
+        b.setAttribute('aria-pressed', b.getAttribute('data-model') === key ? 'true' : 'false');
+      });
+      paintEst();
+    }
+    estButtons.forEach(function(b){
+      b.addEventListener('click', function(){ pickModel(b.getAttribute('data-model')); });
+    });
+    landButtons.forEach(function(b){
+      b.addEventListener('click', function(){
+        estState.land = b.getAttribute('data-land');
+        landButtons.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        if (estState.model) paintEst();
+      });
+    });
+    if (estAreaSel){
+      estAreaSel.addEventListener('change', function(){
+        estState.area = estAreaSel.value;
+        if (estState.model){
+          paintEst();
+          if (window.innerWidth <= 1024) scrollToId('estOut');
+        }
+      });
+    }
+    if (estBook){
+      estBook.addEventListener('click', function(){
+        selectSite('무료 출장 견적 (현장 답사)');
+      });
+    }
+    /* 모델 카드의 “이 모델로 가견적” → 모델 선택 후 이동 */
+    Array.prototype.forEach.call(document.querySelectorAll('[data-estimate-model]'), function(a){
+      a.addEventListener('click', function(){ pickModel(a.getAttribute('data-estimate-model')); });
+    });
+    /* ?model=cube10 같은 직접 링크 대응 */
+    var mParam = (location.search.match(/[?&]model=([a-z0-9]+)/i) || [])[1];
+    if (mParam && EST[mParam.toLowerCase()]) pickModel(mParam.toLowerCase());
+  }
 
   /* ===== hero showcase slider ===== */
   var hero = document.getElementById('hero');
@@ -2403,7 +2956,9 @@ html.js [data-reveal].in{opacity:1;transform:none}
         '관심 현장: ' + siteSel.value,
         '성함: ' + bName.value.trim(),
         '연락처: ' + bPhone.value.trim()
-      ].join('\n');
+      ];
+      if (estContext) text.splice(4, 0, '가견적 조건: ' + estContext);
+      text = text.join('\n');
       bookText.textContent = text;
       bookSms.setAttribute('href', 'sms:' + PHONE_TEL + (isIOS ? '&' : '?') + 'body=' + encodeURIComponent(text));
       bookFields.style.display = 'none';
