@@ -171,33 +171,39 @@ h2.title{
 .mobile-nav a span{color:var(--gold-soft);font-size:12px;letter-spacing:.16em;font-family:var(--ff-serif)}
 .mobile-nav a.btn{margin-top:18px;justify-content:center;border-bottom:0;padding:0 18px;gap:9px}
 
-/* ============ hero ============ */
+/* ============ hero · v3 photo showcase ============ */
 .hero{
-  position:relative;isolation:isolate;overflow:hidden;
-  padding-top:calc(var(--header-h) + clamp(48px,7vw,84px));
-  padding-bottom:clamp(40px,5vw,56px);
-  background:
-    radial-gradient(120% 90% at 82% 8%,rgba(201,160,99,.16) 0%,rgba(201,160,99,0) 55%),
-    radial-gradient(90% 70% at 8% 92%,rgba(70,100,160,.22) 0%,rgba(70,100,160,0) 60%),
-    linear-gradient(165deg,#0A1329 0%,#14213D 48%,#1B2B4D 100%);
-  color:#fff;
-}
-.hero::before{
-  content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
-  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
-  background-size:88px 88px;
-  mask-image:radial-gradient(80% 70% at 50% 30%,#000 20%,transparent 78%);
-  -webkit-mask-image:radial-gradient(80% 70% at 50% 30%,#000 20%,transparent 78%);
+  position:relative;isolation:isolate;overflow:hidden;color:#fff;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:min(780px,calc(100svh - 12px));
+  padding-top:calc(var(--header-h) + clamp(34px,4.6vw,58px));
+  padding-bottom:clamp(22px,2.6vw,30px);
+  background:#0A1329;
 }
 .hero::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;z-index:3;
   background:linear-gradient(90deg,transparent,var(--line-gold),transparent);
 }
-.hero-grid{
-  display:grid;grid-template-columns:1.02fr .98fr;align-items:center;
-  gap:clamp(24px,4vw,56px);min-height:min(600px,calc(100svh - var(--header-h) - 110px));
+/* slides */
+.hero-slides{position:absolute;inset:0;z-index:-2;overflow:hidden;background:#0A1329}
+.hero-slides .hs{position:absolute;inset:0;opacity:0;transition:opacity 1.15s ease}
+.hero-slides .hs img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.04);will-change:transform}
+.hero-slides .hs.is-on{opacity:1}
+.hero-slides .hs.is-on img{animation:hsKB 8.6s ease-out forwards}
+.hero-slides .hs:nth-child(2).is-on img,
+.hero-slides .hs:nth-child(4).is-on img{animation-name:hsKB2}
+@keyframes hsKB{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.15) translate3d(-1.6%,-1.2%,0)}}
+@keyframes hsKB2{from{transform:scale(1.15) translate3d(1.4%,1%,0)}to{transform:scale(1.04) translate3d(0,0,0)}}
+/* scrim keeps the navy + gold tone and the copy readable over every photo */
+.hero-scrim{
+  position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(96deg,rgba(6,12,26,.96) 0%,rgba(6,12,26,.9) 32%,rgba(6,12,26,.7) 56%,rgba(6,12,26,.44) 100%),
+    linear-gradient(0deg,rgba(6,12,26,.94) 0%,rgba(6,12,26,.4) 30%,rgba(6,12,26,0) 62%),
+    linear-gradient(180deg,rgba(6,12,26,.74) 0%,rgba(6,12,26,0) 24%);
 }
-.hero-copy{max-width:600px}
+.hero > .wrap{position:relative;z-index:1;width:100%}
+.hero-copy{max-width:min(620px,94%)}
 .hero h1{
   font-size:clamp(31px,4.9vw,58px);line-height:1.24;font-weight:700;letter-spacing:-.045em;
   margin:0 0 22px;
@@ -213,7 +219,7 @@ h2.title{
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
 .hero-facts{
   display:grid;grid-template-columns:repeat(3,1fr);gap:0;
-  margin-top:clamp(38px,5vw,56px);border-top:1px solid rgba(255,255,255,.14);padding-top:22px;
+  margin-top:clamp(26px,3.4vw,38px);border-top:1px solid rgba(255,255,255,.14);padding-top:20px;
 }
 .hero-facts li{padding-right:18px;position:relative}
 .hero-facts li+li{padding-left:22px;border-left:1px solid rgba(255,255,255,.12)}
@@ -222,21 +228,45 @@ h2.title{
   color:var(--gold-soft);letter-spacing:.01em;line-height:1.2;
 }
 .hero-facts span{display:block;font-size:12.5px;color:rgba(255,255,255,.62);margin-top:7px;line-height:1.5;letter-spacing:-.01em}
-.hero-art{position:relative;width:100%}
-.hero-art svg{width:100%;height:auto;display:block}
-.hero-art .line{fill:none;stroke:var(--gold-soft);stroke-width:1.15;opacity:.62}
-.hero-art .thin{opacity:.3}
-.hero-art .faint{opacity:.14}
-.hero-art .glass{fill:rgba(220,196,155,.13);stroke:var(--gold-soft);stroke-width:1.1;opacity:.85}
-.hero-art .solid{fill:rgba(220,196,155,.05);stroke:var(--gold-soft);stroke-width:1.1}
-.hero-art text{fill:var(--gold-soft);font-family:var(--ff-serif);font-size:9.5px;letter-spacing:.2em;opacity:.72}
-.hero-art .cap{fill:#fff;font-family:var(--ff);font-size:10px;letter-spacing:.24em;opacity:.5}
 .hero-badge{
   position:relative;display:inline-flex;align-items:center;gap:9px;
-  margin-top:-6px;padding:9px 14px;border:1px solid var(--line-gold);background:rgba(10,19,41,.6);
+  margin:18px 0 0;padding:9px 14px;border:1px solid var(--line-gold);background:rgba(10,19,41,.6);
   backdrop-filter:blur(6px);font-size:11.5px;letter-spacing:.02em;color:var(--gold-pale);
 }
 .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(201,160,99,.2)}
+/* slide caption + controls */
+.hero-ui{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
+  margin-top:clamp(20px,2.6vw,32px);
+}
+.hs-caption{display:flex;align-items:center;gap:12px;min-width:0}
+.hs-count{
+  flex:none;display:inline-flex;align-items:center;gap:4px;padding:5px 9px;
+  border:1px solid var(--line-gold);background:rgba(8,16,34,.55);backdrop-filter:blur(4px);
+  font-family:var(--ff-serif);font-size:10.5px;letter-spacing:.16em;color:rgba(255,255,255,.55);
+}
+.hs-count b{color:#fff;font-weight:600}
+.hs-label{
+  font-size:13px;color:#fff;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  text-shadow:0 1px 14px rgba(0,0,0,.6);
+}
+.hs-controls{flex:none;display:flex;align-items:center;gap:12px}
+.hs-arrow{
+  width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(220,196,155,.5);background:rgba(8,16,34,.55);backdrop-filter:blur(4px);
+  color:var(--gold-pale);cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease;
+}
+.hs-arrow:hover{background:var(--gold);border-color:var(--gold);color:#1A140A}
+.hs-arrow svg{width:16px;height:16px}
+#hsPrev svg{transform:rotate(180deg)}
+.hs-dots{display:flex;align-items:center;gap:7px}
+.hs-dots button{
+  width:7px;height:7px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.34);cursor:pointer;
+  transition:width .3s ease,background .3s ease,border-radius .3s ease;
+}
+.hs-dots button:hover{background:rgba(255,255,255,.72)}
+.hs-dots button.is-on{width:26px;border-radius:3px;background:var(--gold)}
+.hs-dots button.is-on:hover{background:var(--gold)}
 /* ============ showroom ============ */
 .showroom{background:var(--cream);border-bottom:1px solid var(--line)}
 .showroom-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:start}
@@ -598,10 +628,23 @@ h2.title{
   border:1px solid rgba(220,196,155,.32);
   background:radial-gradient(75% 80% at 62% 30%,rgba(201,160,99,.2),rgba(201,160,99,0) 60%),linear-gradient(158deg,#101C38,#1B2B4D 62%,#22314F);
 }
-.video-poster::before{
+.video-poster:not(:has(.vp-photo))::before{
   content:"";position:absolute;inset:0;
   background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
   background-size:44px 44px;opacity:.7;
+}
+.video-poster img.vp-photo{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+  opacity:.72;transition:opacity .4s ease,transform .7s ease;
+}
+.video-poster:hover img.vp-photo{opacity:.84;transform:scale(1.03)}
+.video-poster .vp-shade{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,14,30,.55),rgba(7,14,30,.12) 34%,rgba(7,14,30,.74));
+}
+.video-poster .vp-hint{
+  position:absolute;right:14px;bottom:12px;font-size:10.5px;letter-spacing:.02em;
+  color:rgba(255,255,255,.6);z-index:2;
 }
 .video-poster .vp-art{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
 .video-poster .vp-art .line{fill:none;stroke:var(--gold-soft);stroke-width:1.1;opacity:.7}
@@ -626,19 +669,25 @@ h2.title{
 .ch-sub::after{content:"";flex:1;height:1px;background:rgba(220,196,155,.22)}
 .ch-list{display:grid;gap:8px}
 .ch-item{
-  display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 14px 11px 11px;
+  width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;
   border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.035);
   transition:border-color .25s ease,background .25s ease,transform .25s ease;
 }
 .ch-item:hover{border-color:var(--line-gold);background:rgba(201,160,99,.09);transform:translateX(3px)}
-.ch-item .ci-main{display:flex;align-items:center;gap:12px;min-width:0}
+.ch-item.is-active{border-color:rgba(201,160,99,.85);background:rgba(201,160,99,.14);transform:none}
+.ch-item .ci-thumb{width:58px;height:58px;flex:none;overflow:hidden;border:1px solid rgba(220,196,155,.35);position:relative}
+.ch-item .ci-thumb img{display:block;width:100%;height:100%;object-fit:cover;opacity:.9;transition:transform .5s ease,opacity .3s ease}
+.ch-item:hover .ci-thumb img,.ch-item.is-active .ci-thumb img{transform:scale(1.07);opacity:1}
+.ch-item .ci-main{flex:1 1 auto;display:flex;align-items:center;gap:12px;min-width:0}
 .ch-item .ci-ico{width:34px;height:34px;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid rgba(220,196,155,.35);color:var(--gold-soft)}
 .ch-item .ci-ico svg{width:16px;height:16px}
-.ch-item b{display:block;font-size:13.5px;font-weight:600;color:#fff;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ch-item small{display:block;font-size:11.5px;color:rgba(255,255,255,.45);margin-top:2px}
+.ch-item b{display:block;font-size:13.5px;font-weight:600;color:#fff;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
+.ch-item small{display:block;font-size:11.5px;color:rgba(255,255,255,.45);margin-top:2px;text-align:left}
 .ch-item .ci-go{flex:none;display:inline-flex;align-items:center;gap:6px;font-size:10.5px;letter-spacing:.16em;font-family:var(--ff-serif);color:var(--gold-soft);text-transform:uppercase}
-.ch-item .ci-go svg{width:13px;height:13px;transition:transform .25s ease}
-.ch-item:hover .ci-go svg{transform:translate(2px,-2px)}
+.ch-item .ci-go svg{width:10px;height:10px;transition:transform .25s ease}
+.ch-item:hover .ci-go svg{transform:none}
+.ch-item.is-active .ci-go{color:#fff}
 .sns-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:22px}
 .sns{
   display:flex;align-items:center;gap:11px;padding:13px 15px;border:1px solid rgba(255,255,255,.13);
@@ -766,6 +815,8 @@ html.js [data-reveal].in{opacity:1;transform:none}
   html{scroll-behavior:auto}
   html.js [data-reveal]{opacity:1;transform:none;transition:none}
   .card:hover{transform:none}
+  .hero-slides .hs{transition:opacity .25s linear}
+  .hero-slides .hs.is-on img{animation:none;transform:none}
   }
 
 /* ============ responsive ============ */
@@ -777,9 +828,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
   .nav{display:none}
   .burger{display:inline-flex}
   .header-phone{display:none}
-  .hero-grid{grid-template-columns:1fr;gap:8px;min-height:0;padding-top:6px}
   .hero-copy{max-width:none}
-  .hero-art{order:2;margin:-28px auto 0;max-width:560px}
     .hero-facts{margin-top:30px}
   .prop-grid{grid-template-columns:repeat(2,1fr)}
   .svc-grid{grid-template-columns:repeat(2,1fr)}
@@ -802,7 +851,10 @@ html.js [data-reveal].in{opacity:1;transform:none}
   .brand img{height:34px}
   .brand-txt b{font-size:13px;letter-spacing:.2em}
   .brand-txt i{font-size:10px}
-  .hero{padding-top:calc(var(--header-h) + 40px)}
+  .hero{padding-top:calc(var(--header-h) + 46px);min-height:auto;padding-bottom:28px}
+  .hero-ui{flex-direction:column;align-items:stretch;gap:14px;margin-top:26px}
+  .hs-controls{justify-content:space-between}
+  .hs-dots{flex:1;justify-content:center}
   .hero h1{font-size:clamp(29px,8.4vw,40px);line-height:1.26}
   .hero-sub{font-size:15px;margin-bottom:28px}
   .hero-actions{flex-direction:column}
@@ -811,11 +863,18 @@ html.js [data-reveal].in{opacity:1;transform:none}
   .showroom-actions .btn{width:100%}
   .map-links a{flex:1;text-align:center}
   .sec-head .btn{width:100%}
-  .hero-facts{grid-template-columns:1fr;gap:0;padding-top:0;border-top:0}
-  .hero-facts li,.hero-facts li+li{padding:13px 0;border-left:0;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:baseline;gap:12px}
-  .hero-facts b{font-size:19px;min-width:96px}
-  .hero-facts span{margin-top:0;font-size:12.5px}
-  .hero-badge{position:relative;margin:14px 0 0;display:inline-flex}
+  .hero-facts{grid-template-columns:repeat(3,1fr);gap:0;padding-top:16px;margin-top:22px}
+  .hero-facts li,.hero-facts li+li{padding:0 10px 0 0;border-left:0;border-top:0;display:block}
+  .hero-facts li+li{padding-left:12px;border-left:1px solid rgba(255,255,255,.3)}
+  .hero-facts b{font-size:16px;min-width:0;line-height:1.3}
+  .hero-facts span{margin-top:5px;font-size:10.5px;line-height:1.45}
+  .video-poster .vp-hint{display:none}
+  .hero-scrim{background:
+    linear-gradient(96deg,rgba(6,12,26,.94) 0%,rgba(6,12,26,.82) 40%,rgba(6,12,26,.58) 72%,rgba(6,12,26,.46) 100%),
+    linear-gradient(0deg,rgba(6,12,26,.9) 0%,rgba(6,12,26,.3) 34%,rgba(6,12,26,0) 64%),
+    linear-gradient(180deg,rgba(6,12,26,.66) 0%,rgba(6,12,26,0) 22%);
+  }
+  .hero-badge{position:relative;margin:16px 0 0;display:inline-flex}
     .prop-grid{grid-template-columns:1fr}
   .card-visual.has-photo{height:clamp(190px,52vw,230px)}
   .m-photo{height:clamp(160px,44vw,190px)}
@@ -980,10 +1039,17 @@ html.js [data-reveal].in{opacity:1;transform:none}
 
 <!-- ============ hero ============ -->
 <main id="top">
-<section class="hero">
+<section class="hero" id="hero" aria-label="하우스링 주요 현장 쇼케이스">
+  <div class="hero-slides" aria-hidden="true">
+    <div class="hs is-on"><img src="assets/photos/hero-showroom.jpg" alt="" fetchpriority="high" decoding="async"></div>
+    <div class="hs"><img src="assets/photos/hero-cube10.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="hs"><img src="assets/photos/hero-teluce.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="hs"><img src="assets/photos/hero-greendel.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="hs"><img src="assets/photos/hero-lancity.jpg" alt="" loading="lazy" decoding="async"></div>
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-copy">
+    <div class="hero-copy">
         <span class="eyebrow">House Ring · 종합 주거 개발</span>
         <h1>땅에서 집까지,<br><em>한 번의 상담으로</em></h1>
         <p class="hero-sub">
@@ -1001,59 +1067,29 @@ html.js [data-reveal].in{opacity:1;transform:none}
         <a class="hero-tel" href="tel:+821048257879">
           <svg aria-hidden="true"><use href="#i-phone"/></svg>전화 상담 <b>010-4825-7879</b>
         </a>
+        <br>
+        <span class="hero-badge"><i class="dot"></i>부경아리아 파주 교하전시장 · 본사 직영</span>
         <ul class="hero-facts">
           <li><b>3,900만원~</b><span>10평 기준<br>모듈러·세컨하우스 시작가</span></li>
           <li><b>17세대</b><span>용인 고림동<br>텔루체 타운하우스</span></li>
           <li><b>2026. 12.</b><span>공인중개사 합류<br>중개 업무 확장 예정</span></li>
         </ul>
-      </div>
+    </div>
 
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 640 520" role="img" aria-label="모듈러주택 라인 일러스트">
-          <circle class="line faint" cx="335" cy="300" r="198"/>
-          <circle class="line faint" cx="335" cy="300" r="156"/>
-          <!-- dimension -->
-          <path class="line thin" d="M150 160h120M334 160h190"/>
-          <path class="line thin" d="M150 152v16M524 152v16"/>
-          <path class="line thin" d="M157 156l-7 4 7 4M517 156l7 4-7 4"/>
-          <text x="290" y="164">10 – 30 PY</text>
-          <!-- main volume -->
-          <path class="solid" d="M150 236h250v216H150z"/>
-          <path class="line" d="M138 236h274M138 229h274"/>
-          <path class="glass" d="M166 258h80v58h-80z"/>
-          <path class="glass" d="M262 258h56v58h-56z"/>
-          <path class="solid" d="M336 258h46v58h-46z"/>
-          <path class="line thin" d="M206 258v58M290 258v58M359 258v58"/>
-          <path class="solid" d="M166 336h44v116h-44z"/>
-          <path class="line thin" d="M188 336v116"/>
-          <path class="line faint" d="M300 236v216"/>
-          <!-- side volume -->
-          <path class="solid" d="M400 316h124v136h-124"/>
-          <path class="line" d="M400 316h132M400 309h132"/>
-          <path class="line thin" d="M400 292h132"/>
-          <path class="line thin" d="M404 309v-17M424 309v-17M444 309v-17M464 309v-17M484 309v-17M504 309v-17M524 309v-17"/>
-          <path class="glass" d="M416 338h84v48h-84z"/>
-          <path class="line thin" d="M458 338v48"/>
-          <!-- deck -->
-          <path class="line" d="M150 452h260v14H150z"/>
-          <path class="line thin" d="M172 466v8M236 466v8M300 466v8M364 466v8"/>
-          <!-- ground -->
-          <path class="line thin" d="M40 474h560"/>
-          <path class="line faint" d="M40 484h560"/>
-          <!-- trees -->
-          <path class="line" d="M82 474v-16"/>
-          <path class="line" d="M60 458h44L82 424z"/>
-          <path class="line" d="M64 436h36L82 408z"/>
-          <path class="line" d="M68 416h28L82 392z"/>
-          <path class="line" d="M556 474v-12"/>
-          <path class="line" d="M534 462h44L556 428z"/>
-          <path class="line" d="M540 440h32L556 412z"/>
-        </svg>
-        <span class="hero-badge"><i class="dot"></i>부경아리아 파주 교하전시장 · 본사 직영</span>
+    <div class="hero-ui">
+      <div class="hs-caption">
+        <span class="hs-count"><b id="hsNum">01</b> / 05</span>
+        <span class="hs-label" id="hsLabel">부경아리아 파주 전시장</span>
+      </div>
+      <div class="hs-controls">
+        <button class="hs-arrow" type="button" id="hsPrev" aria-label="이전 사진"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <div class="hs-dots" id="hsDots" role="tablist" aria-label="쇼케이스 사진 선택"></div>
+        <button class="hs-arrow" type="button" id="hsNext" aria-label="다음 사진"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- ============ showroom ============ -->
 <section class="section showroom" id="showroom">
@@ -1254,10 +1290,10 @@ html.js [data-reveal].in{opacity:1;transform:none}
 
       <!-- 04 -->
       <article class="card" data-reveal>
-        <div class="card-visual">
+        <div class="card-visual has-photo">
           <span class="card-code">YANGPYEONG · 04</span>
           <span class="badge">수익형</span>
-          <svg class="ico" aria-hidden="true"><use href="#i-pool"/></svg>
+          <img class="photo" src="assets/photos/seojong.jpg" alt="양평 서종 풀바베큐 세컨하우스 수영장과 바베큐 데크" loading="lazy" decoding="async">
           <span class="card-no">04</span>
         </div>
         <div class="card-body">
@@ -1278,10 +1314,10 @@ html.js [data-reveal].in{opacity:1;transform:none}
 
       <!-- 05 -->
       <article class="card" data-reveal>
-        <div class="card-visual">
+        <div class="card-visual has-photo">
           <span class="card-code">GWANGJU · 05</span>
           <span class="badge">2026년 준공</span>
-          <svg class="ico" aria-hidden="true"><use href="#i-villa"/></svg>
+          <img class="photo" src="assets/photos/bs-avenue.jpg" alt="광주 목현동 비에스애비뉴 신축 빌라 외관" loading="lazy" decoding="async">
           <span class="card-no">05</span>
         </div>
         <div class="card-body">
@@ -1482,67 +1518,65 @@ html.js [data-reveal].in{opacity:1;transform:none}
       <div>
         <span class="eyebrow">Channel</span>
         <h2 class="title">영상과 기록으로<br><span class="thin">먼저 만나보세요</span></h2>
-        <p class="lead">전시장과 현장의 실제 모습을 유튜브·블로그에 올리고 있습니다. 아래 채널에서 최신 영상과 현장 기록을 확인하실 수 있습니다.</p>
+        <p class="lead">전시장과 현장의 실제 모습을 유튜브·블로그에 올리고 있습니다. 채널을 누르면 이 자리에서 바로 재생되고, 최신 영상은 유튜브에서도 보실 수 있습니다.</p>
       </div>
     </div>
 
     <div class="ch-grid">
       <div class="ch-video" data-reveal>
-        <button class="video-poster" type="button" id="ytPlay" aria-label="하우스링 유튜브 채널 영상 재생">
-          <svg class="vp-art" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <circle class="line thin" cx="330" cy="196" r="150"/>
-            <circle class="line thin" cx="330" cy="196" r="118"/>
-            <path class="line" d="M150 214h210v98H150z"/>
-            <path class="line thin" d="M142 214h226M142 207h226"/>
-            <path class="line thin" d="M170 232h62v34h-62zM246 232h48v34h-48zM308 232h34v34h-34z"/>
-            <path class="line thin" d="M170 284h20v28h-20z"/>
-            <path class="line" d="M372 254h118v58H372"/>
-            <path class="line thin" d="M372 250h126M372 243h126"/>
-            <path class="line thin" d="M390 254v58M446 254v58"/>
-            <path class="line thin" d="M60 312h520M60 322h520"/>
-            <path class="line thin" d="M96 312v-14M78 298h36l-18-26z"/>
-            <path class="line thin" d="M556 312v-12M540 300h32l-16-24z"/>
-          </svg>
-          <span class="play"><svg aria-hidden="true"><use href="#i-play"/></svg></span>
-          <span class="vp-tag">YOUTUBE · 하우스링 모듈러 전원주택</span>
-        </button>
+        <div class="ch-player" id="chPlayer">
+          <button class="video-poster" type="button" id="ytPlay" aria-label="하우스링 모듈러 전원주택 유튜브 채널 영상 재생">
+            <img class="vp-photo" id="vpPhoto" src="assets/photos/hero-greendel.jpg" alt="" loading="lazy" decoding="async">
+            <span class="vp-shade" aria-hidden="true"></span>
+            <span class="play"><svg aria-hidden="true"><use href="#i-play"/></svg></span>
+            <span class="vp-tag" id="vpTag">YOUTUBE · 하우스링 모듈러 전원주택</span>
+            <span class="vp-hint" id="vpHint">클릭하면 이 자리에서 재생</span>
+          </button>
+        </div>
         <div class="ch-video-cap">
-          <span>메인 채널 · 하우스링 모듈러 전원주택 타운하우스</span>
-          <a href="https://www.youtube.com/channel/UCv1LuKEOIRZm-u71nhofMwA" target="_blank" rel="noopener">유튜브에서 보기</a>
+          <span id="chNow">메인 채널 · 하우스링 모듈러 전원주택 타운하우스</span>
+          <a id="chLink" href="https://www.youtube.com/channel/UCv1LuKEOIRZm-u71nhofMwA" target="_blank" rel="noopener">유튜브에서 보기</a>
         </div>
       </div>
 
       <div data-reveal>
-        <p class="ch-sub">현장별 유튜브 채널</p>
-        <div class="ch-list">
-          <a class="ch-item" href="https://www.youtube.com/channel/UCGw0eGE1WyVHrMNPFaYJp4Q" target="_blank" rel="noopener">
+        <p class="ch-sub">현장별 유튜브 채널 · 누르면 바로 재생</p>
+        <div class="ch-list" id="chList">
+          <button class="ch-item is-active" type="button" data-yt="UUv1LuKEOIRZm-u71nhofMwA" data-title="하우스링 모듈러 전원주택" data-now="메인 채널 · 하우스링 모듈러 전원주택 타운하우스" data-tag="YOUTUBE · 하우스링 모듈러 전원주택" data-url="https://www.youtube.com/channel/UCv1LuKEOIRZm-u71nhofMwA" data-poster="assets/photos/hero-greendel.jpg" aria-pressed="true">
+            <span class="ci-thumb"><img src="assets/photos/yt-main.jpg" alt="" loading="lazy" decoding="async"></span>
             <span class="ci-main">
-              <span class="ci-ico"><svg aria-hidden="true"><use href="#i-youtube"/></svg></span>
+              <span><b>하우스링 모듈러 전원주택</b><small>메인 채널 · 전 현장 영상</small></span>
+            </span>
+            <span class="ci-go"><svg aria-hidden="true"><use href="#i-play"/></svg>재생</span>
+          </button>
+          <button class="ch-item" type="button" data-yt="UUGw0eGE1WyVHrMNPFaYJp4Q" data-title="부경아리아 파주전시장" data-now="파주 교하 전시장 · 부경아리아" data-tag="YOUTUBE · 부경아리아 파주전시장" data-url="https://www.youtube.com/channel/UCGw0eGE1WyVHrMNPFaYJp4Q" data-poster="assets/photos/hero-showroom.jpg" aria-pressed="false">
+            <span class="ci-thumb"><img src="assets/photos/yt-showroom.jpg" alt="" loading="lazy" decoding="async"></span>
+            <span class="ci-main">
               <span><b>부경아리아 파주전시장</b><small>파주 교하 전시장 · 모듈러주택</small></span>
             </span>
-            <span class="ci-go">YouTube <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
-          </a>
-          <a class="ch-item" href="https://www.youtube.com/channel/UCKnVgPLCCxq4bYGz_bbiJZg" target="_blank" rel="noopener">
+            <span class="ci-go"><svg aria-hidden="true"><use href="#i-play"/></svg>재생</span>
+          </button>
+          <button class="ch-item" type="button" data-yt="UUKnVgPLCCxq4bYGz_bbiJZg" data-title="텔루체타운하우스" data-now="용인 고림동 텔루체 타운하우스" data-tag="YOUTUBE · 텔루체타운하우스" data-url="https://www.youtube.com/channel/UCKnVgPLCCxq4bYGz_bbiJZg" data-poster="assets/photos/hero-teluce.jpg" aria-pressed="false">
+            <span class="ci-thumb"><img src="assets/photos/yt-teluce.jpg" alt="" loading="lazy" decoding="async"></span>
             <span class="ci-main">
-              <span class="ci-ico"><svg aria-hidden="true"><use href="#i-youtube"/></svg></span>
               <span><b>텔루체타운하우스</b><small>용인 고림동 타운하우스 현장</small></span>
             </span>
-            <span class="ci-go">YouTube <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
-          </a>
-          <a class="ch-item" href="https://www.youtube.com/channel/UCK6nJl5qJ906ED_bkiESrlQ" target="_blank" rel="noopener">
+            <span class="ci-go"><svg aria-hidden="true"><use href="#i-play"/></svg>재생</span>
+          </button>
+          <button class="ch-item" type="button" data-yt="UUK6nJl5qJ906ED_bkiESrlQ" data-title="용인 고림동 텔루체타운하우스" data-now="용인 고림동 텔루체 · 현장 시공·입주 영상" data-tag="YOUTUBE · 용인 고림동 텔루체" data-url="https://www.youtube.com/channel/UCK6nJl5qJ906ED_bkiESrlQ" data-poster="assets/photos/hero-teluce.jpg" aria-pressed="false">
+            <span class="ci-thumb"><img src="assets/photos/yt-yongin.jpg" alt="" loading="lazy" decoding="async"></span>
             <span class="ci-main">
-              <span class="ci-ico"><svg aria-hidden="true"><use href="#i-youtube"/></svg></span>
-              <span><b>용인 고림동 텔루체타운하우스</b><small>현장 시공·입주 영상</small></span>
+              <span><b>용인 고림동 텔루체</b><small>현장 시공·입주 영상</small></span>
             </span>
-            <span class="ci-go">YouTube <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
-          </a>
-          <a class="ch-item" href="https://www.youtube.com/channel/UCv0OI5yg0yETDd20zSluVLw" target="_blank" rel="noopener">
+            <span class="ci-go"><svg aria-hidden="true"><use href="#i-play"/></svg>재생</span>
+          </button>
+          <button class="ch-item" type="button" data-yt="UUv0OI5yg0yETDd20zSluVLw" data-title="파주그린델타운하우스" data-now="파주 조리읍 그린델 타운하우스" data-tag="YOUTUBE · 파주 그린델" data-url="https://www.youtube.com/channel/UCv0OI5yg0yETDd20zSluVLw" data-poster="assets/photos/hero-greendel.jpg" aria-pressed="false">
+            <span class="ci-thumb"><img src="assets/photos/yt-greendel.jpg" alt="" loading="lazy" decoding="async"></span>
             <span class="ci-main">
-              <span class="ci-ico"><svg aria-hidden="true"><use href="#i-youtube"/></svg></span>
               <span><b>파주그린델타운하우스</b><small>파주 조리읍 현장</small></span>
             </span>
-            <span class="ci-go">YouTube <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
-          </a>
+            <span class="ci-go"><svg aria-hidden="true"><use href="#i-play"/></svg>재생</span>
+          </button>
         </div>
 
         <p class="ch-sub">블로그 · SNS</p>
@@ -1786,7 +1820,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
     </div>
     <div class="footer-bottom">
       <p>© 2026 HOUSE RING. All rights reserved.</p>
-      <p class="disc">현장 정보와 조건은 변경될 수 있으며, 일부 이미지는 조감도·전시 모델 이미지로 실제와 다를 수 있습니다. 정확한 조건은 상담 시 확인해 주세요.</p>
+      <p class="disc">현장 정보와 조건은 변경될 수 있으며, 일부 이미지는 대표 이미지·조감도·전시 모델 이미지로 실제와 다를 수 있습니다. 정확한 조건은 상담 시 확인해 주세요.</p>
     </div>
   </div>
 </footer>
@@ -2005,26 +2039,167 @@ html.js [data-reveal].in{opacity:1;transform:none}
     });
   });
 
-  /* youtube lazy embed */
-  var ytPlay = document.getElementById('ytPlay');
-  var YT_CHANNEL = 'https://www.youtube.com/channel/UCv1LuKEOIRZm-u71nhofMwA';
-  if (ytPlay){
-    ytPlay.addEventListener('click', function(){
+  /* ===== hero showcase slider ===== */
+  var hero = document.getElementById('hero');
+  if (hero){
+    var slides = Array.prototype.slice.call(hero.querySelectorAll('.hero-slides .hs'));
+    var dotsBox = document.getElementById('hsDots');
+    var numEl = document.getElementById('hsNum');
+    var labelEl = document.getElementById('hsLabel');
+    var prevBtn = document.getElementById('hsPrev');
+    var nextBtn = document.getElementById('hsNext');
+    var LABELS = [
+      '부경아리아 파주 전시장',
+      'CUBE 10 · 모듈러 10평',
+      '용인 고림동 텔루체 타운하우스',
+      '파주 그린델 타운하우스 2차',
+      '서동탄역 랜시티'
+    ];
+    var dots = [];
+    var curIdx = 0;
+    var timer = null;
+    var inView = true;
+
+    if (dotsBox){
+      LABELS.forEach(function(t, i){
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('role','tab');
+        b.setAttribute('aria-label', (i + 1) + '번째 사진 · ' + t);
+        b.addEventListener('click', function(){ go(i, true); });
+        dotsBox.appendChild(b);
+        dots.push(b);
+      });
+    }
+
+    function paintSlide(){
+      slides.forEach(function(s, i){ s.classList.toggle('is-on', i === curIdx); });
+      dots.forEach(function(d, i){
+        d.classList.toggle('is-on', i === curIdx);
+        d.setAttribute('aria-selected', i === curIdx ? 'true' : 'false');
+      });
+      if (numEl) numEl.textContent = ('0' + (curIdx + 1));
+      if (labelEl) labelEl.textContent = LABELS[curIdx];
+    }
+
+    function go(i, fromUser){
+      curIdx = (i + slides.length) % slides.length;
+      paintSlide();
+      if (fromUser) restart();
+    }
+
+    function stop(){ if (timer){ clearInterval(timer); timer = null; } }
+    function restart(){
+      stop();
+      if (reduced || slides.length < 2) return;
+      timer = setInterval(function(){
+        if (!inView || document.hidden) return;
+        go(curIdx + 1, false);
+      }, 6500);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function(){ go(curIdx - 1, true); });
+    if (nextBtn) nextBtn.addEventListener('click', function(){ go(curIdx + 1, true); });
+
+    /* swipe on touch devices */
+    var touchX = null;
+    hero.addEventListener('touchstart', function(e){
+      if (e.touches.length === 1) touchX = e.touches[0].clientX;
+    }, {passive:true});
+    hero.addEventListener('touchend', function(e){
+      if (touchX === null) return;
+      var dx = (e.changedTouches[0] ? e.changedTouches[0].clientX : touchX) - touchX;
+      touchX = null;
+      if (Math.abs(dx) > 42) go(curIdx + (dx < 0 ? 1 : -1), true);
+    }, {passive:true});
+
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(entries){
+        inView = entries[0].isIntersecting;
+      }, {threshold:0.15}).observe(hero);
+    }
+    document.addEventListener('visibilitychange', function(){ if (!document.hidden) restart(); });
+
+    paintSlide();
+    restart();
+  }
+
+  /* ===== youtube: channel playlist player ===== */
+  var chPlayer = document.getElementById('chPlayer');
+  var chList = document.getElementById('chList');
+  if (chPlayer){
+    var vpPhoto = document.getElementById('vpPhoto');
+    var vpTag = document.getElementById('vpTag');
+    var vpHint = document.getElementById('vpHint');
+    var chNow = document.getElementById('chNow');
+    var chLink = document.getElementById('chLink');
+    var playing = false;
+    var current = {
+      yt: 'UUv1LuKEOIRZm-u71nhofMwA',
+      title: '하우스링 모듈러 전원주택',
+      tag: 'YOUTUBE · 하우스링 모듈러 전원주택',
+      now: '메인 채널 · 하우스링 모듈러 전원주택 타운하우스',
+      url: 'https://www.youtube.com/channel/UCv1LuKEOIRZm-u71nhofMwA',
+      poster: 'assets/photos/hero-greendel.jpg'
+    };
+
+    function embedUrl(list){
+      return 'https://www.youtube.com/embed/videoseries?list=' + list + '&rel=0';
+    }
+
+    function paintPlayer(){
+      if (vpPhoto) vpPhoto.setAttribute('src', current.poster);
+      if (vpTag) vpTag.textContent = current.tag;
+      if (chNow) chNow.textContent = current.now;
+      if (chLink) chLink.setAttribute('href', current.url);
+      if (playing){
+        var f = chPlayer.querySelector('iframe');
+        if (f) f.setAttribute('src', embedUrl(current.yt));
+      }
+    }
+
+    function startPlayer(){
       /* 파일로 바로 열었을 때(file://)는 유튜브 임베드가 동작하지 않으므로 새 창으로 연결 */
       if (location.protocol === 'file:'){
-        window.open(YT_CHANNEL, '_blank', 'noopener');
+        window.open(current.url, '_blank', 'noopener');
         return;
       }
-      var frame = document.createElement('div');
       var f = document.createElement('iframe');
-      f.src = 'https://www.youtube.com/embed/videoseries?list=UUv1LuKEOIRZm-u71nhofMwA&rel=0';
-      f.title = '하우스링 모듈러 전원주택 타운하우스 유튜브 채널';
+      f.src = embedUrl(current.yt);
+      f.title = current.title + ' 유튜브 채널 업로드 영상';
       f.setAttribute('loading', 'lazy');
       f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
       f.setAttribute('allowfullscreen', '');
-      frame.appendChild(f);
-      ytPlay.replaceWith(frame);
-    });
+      chPlayer.innerHTML = '';
+      chPlayer.appendChild(f);
+      playing = true;
+      if (vpHint) vpHint.hidden = true;
+    }
+
+    var posterBtn = document.getElementById('ytPlay');
+    if (posterBtn) posterBtn.addEventListener('click', startPlayer);
+
+    if (chList){
+      Array.prototype.forEach.call(chList.querySelectorAll('.ch-item'), function(btn){
+        btn.addEventListener('click', function(){
+          current = {
+            yt: btn.getAttribute('data-yt'),
+            title: btn.getAttribute('data-title'),
+            tag: btn.getAttribute('data-tag'),
+            now: btn.getAttribute('data-now'),
+            url: btn.getAttribute('data-url'),
+            poster: btn.getAttribute('data-poster')
+          };
+          Array.prototype.forEach.call(chList.querySelectorAll('.ch-item'), function(b){
+            var on = b === btn;
+            b.classList.toggle('is-active', on);
+            b.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+          if (playing) paintPlayer();
+          else { paintPlayer(); startPlayer(); }
+        });
+      });
+    }
   }
 
   /* ===== visit booking calendar ===== */

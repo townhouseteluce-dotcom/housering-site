@@ -1,6 +1,12 @@
-# 하우스링 (HOUSE RING) 대표 홈페이지 — v2
+# 하우스링 (HOUSE RING) 대표 홈페이지 — v3
 
 `index.html` 파일 하나로 동작하는 반응형 원페이지 사이트입니다. 서버·빌드 없이 열리고, GitHub Pages · Cloudflare Pages · Netlify 에 폴더째 올리면 바로 공개 주소가 생깁니다.
+
+## v3에서 바뀐 것
+
+- **첫 화면을 사진 쇼케이스로 교체** — 전시장 · CUBE 10 · 텔루체 · 그린델 · 랜시티 5장이 6.5초마다 크로스페이드 + 줌(Ken Burns)으로 자동 순환. 좌우 화살표 · 도트 · `01 / 05` 카운터 · 현장 라벨 · 모바일 스와이프 지원 (움직임 최소화 설정 사용자는 자동 전환·줌 정지)
+- **주요 현장 5곳 전부 실사진** — 양평 서종 풀바베큐(`seojong.jpg`), 광주 목현동 비에스애비뉴(`bs-avenue.jpg`) 추가
+- **채널 섹션 확장** — 메인 채널만 재생되던 것을 5개 채널(하우스링 · 부경아리아 파주전시장 · 텔루체 · 용인 고림동 텔루체 · 파주 그린델) 각각의 **업로드 재생목록(`UU…`)이 같은 플레이어에서 바로 재생**되도록 변경. 채널 카드를 누르면 그 채널 영상으로 교체됩니다.
 
 ## v2에서 바뀐 것
 
@@ -33,17 +39,22 @@ houseling-site/
 | `teluce.jpg` | 용인 고림동 텔루체 카드 | 자사 블로그 `blog.naver.com/yummyapt` | 실사진 |
 | `greendel.jpg` | 파주 그린델 2차 카드 | 자사 블로그 `blog.naver.com/yummyapt` | 실사진 |
 | `lancity.jpg` | 서동탄역 랜시티 카드 | 서동탄역 랜시티 공식 홈페이지 `aptgio.co.kr` | 조감도 |
+| `seojong.jpg` | 양평 서종 풀바베큐 카드 | **사용자 촬영 영상**(Google 포토, 2026-07-22, `20260722_134635.mp4`)에서 뽑은 정지 프레임 | 실사진 |
+| `bs-avenue.jpg` | 광주 목현동 비에스애비뉴 카드 | 공개 분양 자료(목현동 신축빌라 매물 사진, 2026년 준공 8세대 동 외관) | 실사진 |
+| `hero-showroom.jpg` 외 `hero-*.jpg` 4장 | 첫 화면 쇼케이스 | 위 사진들의 16:9 크롭(1500×844, JPEG q80) | 가로 1500px |
+| `yt-*.jpg` 5장 | 채널 카드 썸네일 | 위 사진들의 정사각 크롭(400×250, 약 20~30KB) | — |
 
-- 모두 가로 1200px 이하로 줄이고(작은 원본은 그대로) JPEG 품질 84로 최적화했습니다. 총 672KB.
+- 모두 가로 1500px 이하(카드 사진은 1200px 이하)로 줄이고 JPEG 품질 80~84로 최적화했습니다. 사진 폴더 전체 약 2.1MB.
 - 외부 URL을 직접 불러오지 않고(`hotlink` 없음) 전부 로컬 파일입니다. GitHub Pages·Cloudflare Pages에 폴더째 올리면 그대로 동작합니다.
 - 카드에는 `object-fit: cover` + 어두운 그라데이션 오버레이를 써서 비율이 깨지지 않고, 카드 코드·배지 글자가 사진 위에서도 읽힙니다.
-- **아직 일러스트로 남은 카드**: 양평 서종 풀바베큐 세컨하우스, 광주 목현동 비에스애비뉴 — 공개된 실사진을 확보하지 못해 기존 라인 일러스트를 유지했습니다. 해당 현장 사진을 주시면 `assets/photos/seojong.jpg`, `bs-avenue.jpg`로 넣고 카드만 바꾸면 됩니다.
+- 서종 사진은 세로 영상(56MB) 원본을 사이트에 넣지 않고 정지 프레임만 사용했습니다. 영상 자체는 유튜브에 올려 채널 섹션에서 연결하는 편이 가볍습니다.
+- 비에스애비뉴는 공개 매물 사진을 쓴 대표 이미지입니다. 직접 촬영한 외관 사진이 생기면 같은 파일명으로 교체하면 됩니다.
 
 ## 로컬에서 보기
 
 `index.html` 을 더블클릭하면 브라우저에서 바로 열립니다. (인터넷 없이도 표시됩니다. 외부 폰트·이미지 불러오기 없음)
 
-> 채널 섹션의 영상 카드는 **공개 주소(https)에서 열면 그 자리에서 유튜브 재생목록이 재생**되고, 파일로 바로 열었을 때는 유튜브 채널이 새 창으로 열립니다. (file:// 에서는 유튜브 임베드가 동작하지 않습니다.)
+> 채널 섹션은 **공개 주소(https)에서 열면 채널 카드를 누르는 순간 그 채널의 업로드 재생목록이 그 자리에서 재생**되고, 파일로 바로 열었을 때는 해당 유튜브 채널이 새 창으로 열립니다. (file:// 에서는 유튜브 임베드가 동작하지 않습니다.)
 
 ## 무료로 공개하기
 
@@ -57,7 +68,7 @@ houseling-site/
 1. Cloudflare 대시보드 → Workers & Pages → Create → Pages → Upload assets
 2. `houseling-site` 폴더를 그대로 업로드 → 배포
 
-나중에 `housering.co.kr` 같은 도메인을 붙이면 주소를 그대로 쓸 수 있습니다.
+나중에 `housering.co.kr` 같은 도메인을 붙이면 주소를 그대로 쓸 수 있습니다. (저장소 루트의 `CNAME` 파일이 도메인을 지정합니다 — 사이트 파일을 다시 올릴 때도 `CNAME` 은 지우지 마세요.)
 
 ## 바꿔 넣을 곳 (검색해서 찾으면 됩니다)
 
@@ -66,19 +77,24 @@ houseling-site/
 | 전화번호 | `tel:+821048257879` / `010-4825-7879` | 하우스링 대표 상담 번호 |
 | 문자 문의 | `sms:+821048257879` | 문자 앱으로 내용 전송 |
 | 카카오톡 채널 | `.kakao-note` 문구 | 채널 개설 전이라 "준비 중" 표기 |
-| 현장 사진 | `assets/photos/` + `.card-visual` 안의 `img.photo` | 전시장·모델 3종·텔루체·그린델·랜시티는 실사진, 서종·비에스애비뉴는 일러스트 유지 |
+| 현장 사진 | `assets/photos/` + `.card-visual` 안의 `img.photo` | 5개 현장 전부 실사진 (서종·비에스애비뉴 포함) |
 | 가격·세대수 | 각 카드의 `.specs`, `.price-band`, `.model` | 확인된 정보만 기재 (CUBE 10 3,900만 원~ / LUNA HIGH 21 1억 760만 원) |
 | 지도 링크 | `#showroom` 의 네이버·카카오맵 링크 | 주소 검색으로 연결 |
 | 채널 링크 | `#channel` 의 `.ch-item`, `.sns` | 하우스링 유튜브 5개 · 네이버 블로그 2개 · 인스타그램 |
 | 방문 예약 | `#booking` 달력·시간대·문자 링크 | `sms:+821048257879` 로 내용 전송 |
 
-## 채널 링크 (확인 완료)
+## 채널 링크 (확인 완료 · 업로드 재생목록 ID 포함)
 
-- 유튜브 메인 — 하우스링 모듈러 전원주택 타운하우스: https://www.youtube.com/channel/UCv1LuKEOIRZm-u71nhofMwA
-- 부경아리아 파주전시장: https://www.youtube.com/channel/UCGw0eGE1WyVHrMNPFaYJp4Q
-- 텔루체타운하우스: https://www.youtube.com/channel/UCKnVgPLCCxq4bYGz_bbiJZg
-- 용인 고림동 텔루체타운하우스: https://www.youtube.com/channel/UCK6nJl5qJ906ED_bkiESrlQ
-- 파주그린델타운하우스: https://www.youtube.com/channel/UCv0OI5yg0yETDd20zSluVLw
+| 채널 | 채널 ID | 업로드 재생목록 |
+|---|---|---|
+| 하우스링 모듈러 전원주택 타운하우스 (메인) | `UCv1LuKEOIRZm-u71nhofMwA` | `UUv1LuKEOIRZm-u71nhofMwA` |
+| 부경아리아 파주전시장 | `UCGw0eGE1WyVHrMNPFaYJp4Q` | `UUGw0eGE1WyVHrMNPFaYJp4Q` |
+| 텔루체타운하우스 | `UCKnVgPLCCxq4bYGz_bbiJZg` | `UUKnVgPLCCxq4bYGz_bbiJZg` |
+| 용인 고림동 텔루체타운하우스 | `UCK6nJl5qJ906ED_bkiESrlQ` | `UUK6nJl5qJ906ED_bkiESrlQ` |
+| 파주그린델타운하우스 | `UCv0OI5yg0yETDd20zSluVLw` | `UUv0OI5yg0yETDd20zSluVLw` |
+
+- 채널 5개는 2026-11-17 기준 채널 RSS(`youtube.com/feeds/videos.xml?channel_id=…`)로 실제 존재와 최신 영상까지 확인했습니다.
+- 플레이어는 `https://www.youtube.com/embed/videoseries?list=UU…` 형식이라 재생목록에 새 영상이 올라가면 사이트 수정 없이 자동 반영됩니다.
 - 네이버 블로그: https://blog.naver.com/yummyapt · https://blog.naver.com/teluceyongin
 - 인스타그램: https://www.instagram.com/pajucountry_house/
 
