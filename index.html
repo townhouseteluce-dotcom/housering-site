@@ -1,0 +1,2181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>하우스링 HOUSE RING | 종합 주거 개발 · 분양 컨설팅 · 모듈러주택 전시</title>
+<meta name="description" content="하우스링(HOUSE RING) — 파주 교하 부경아리아 전시장에서 사진·영상이 아닌 실물을 직접 보고 만지고 느껴보세요. 넓은 주차장, 커피 한 잔과 함께. CUBE 10 10평 기준 3,900만 원부터, NEST 12·LUNA HIGH 21 준공 가능. 무료 출장 견적 상담 010-4825-7879.">
+<meta name="theme-color" content="#14213D">
+<meta property="og:type" content="website">
+<meta property="og:title" content="하우스링 HOUSE RING">
+<meta property="og:description" content="사진과 영상만 보고 속지 마세요. 넓은 주차장에 주차하시고 커피 한 잔 드시면서 직접 보고, 만지고, 느낄 수 있는 파주 교하 전시장으로 초대합니다.">
+<meta property="og:image" content="assets/logo-full-navy.png">
+<link rel="icon" href="assets/logo-mark-navy.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "하우스링 HOUSE RING",
+  "description": "종합 주거 개발 · 분양 컨설팅 · 토지 매매 · 모듈러주택 전시 상담",
+  "telephone": "+82-10-4825-7879",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "파주로 725 (교하동 70-33)",
+    "addressLocality": "파주시",
+    "addressRegion": "경기도",
+    "addressCountry": "KR"
+  }
+}
+</script>
+<script>document.documentElement.classList.add('js');</script>
+<style>
+/* ============ base ============ */
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --navy:#14213D;
+  --navy-900:#0A1329;
+  --navy-800:#0F1B36;
+  --navy-700:#1B2B4D;
+  --navy-600:#26375C;
+  --gold:#C9A063;
+  --gold-soft:#DCC49B;
+  --gold-pale:#EBDCC0;
+  --cream:#F8F4EC;
+  --cream-2:#F1EADF;
+  --paper:#FFFFFF;
+  --ink:#131C33;
+  --ink-2:#37415A;
+  --muted:#626B80;
+  --line:rgba(20,33,61,.13);
+  --line-gold:rgba(201,160,99,.42);
+  --ff:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --ff-serif:"Bodoni MT",Didot,"Playfair Display",Georgia,"Times New Roman",serif;
+  --shadow-s:0 2px 10px rgba(10,19,41,.06);
+  --shadow-m:0 18px 40px -18px rgba(10,19,41,.35);
+  --header-h:76px;
+  --max:1180px;
+}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px)}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:var(--ff);font-size:16px;line-height:1.72;
+  letter-spacing:-.012em;-webkit-font-smoothing:antialiased;
+  word-break:keep-all;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,h3,h4,p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+::selection{background:var(--gold-pale);color:var(--navy)}
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--navy);color:#fff;padding:12px 18px;font-size:14px}
+.skip:focus{left:10px;top:10px}
+
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.section{padding:clamp(64px,8.5vw,112px) 0;position:relative}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold);font-family:var(--ff-serif);margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);opacity:.8}
+.eyebrow.on-light{color:#9A7A45}
+.eyebrow.on-light::before{background:#9A7A45}
+h2.title{
+  font-size:clamp(25px,3.5vw,38px);line-height:1.34;font-weight:700;letter-spacing:-.03em;
+}
+.title .thin{font-weight:300;color:var(--ink-2)}
+.lead{color:var(--muted);font-size:clamp(15px,1.6vw,17px);line-height:1.8;margin-top:18px;max-width:56ch}
+.on-dark{color:#fff}
+.on-dark .title .thin{color:rgba(255,255,255,.72)}
+.on-dark .lead{color:rgba(255,255,255,.68)}
+
+/* ============ buttons ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:52px;padding:0 26px;border-radius:2px;border:1px solid transparent;
+  font-size:15px;font-weight:600;letter-spacing:-.02em;text-align:center;
+  transition:transform .25s ease,background .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-gold{background:var(--gold);color:#1A140A;border-color:var(--gold)}
+.btn-gold:hover{background:var(--gold-soft);border-color:var(--gold-soft);transform:translateY(-2px);box-shadow:0 12px 24px -14px rgba(201,160,99,.9)}
+.btn-navy{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-navy:hover{background:var(--navy-700);border-color:var(--navy-700);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.32)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft);transform:translateY(-2px)}
+.btn-line{background:transparent;color:var(--navy);border-color:rgba(20,33,61,.22)}
+.btn-line:hover{border-color:var(--gold);color:#8E6C36;background:#fff;transform:translateY(-2px)}
+.btn-sm{min-height:44px;padding:0 18px;font-size:14px}
+
+/* ============ header ============ */
+.header{
+  position:fixed;inset:0 0 auto 0;z-index:80;height:var(--header-h);
+  display:flex;align-items:center;
+  background:rgba(10,19,41,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(220,196,155,.16);
+  transition:background .3s ease,box-shadow .3s ease,height .3s ease;
+}
+.header.is-scrolled{background:rgba(10,19,41,.94);box-shadow:0 10px 30px -18px rgba(0,0,0,.7);height:66px}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;flex:none}
+.brand img{height:40px;width:auto;transition:height .3s ease}
+.header.is-scrolled .brand img{height:34px}
+.brand-txt{display:flex;flex-direction:column;line-height:1.15}
+.brand-txt b{font-family:var(--ff-serif);font-size:15px;letter-spacing:.24em;color:#fff;font-weight:600}
+.brand-txt i{font-style:normal;font-size:11px;letter-spacing:.2em;color:var(--gold-soft);margin-top:3px}
+.nav{display:flex;align-items:center;gap:6px}
+.nav a{
+  position:relative;padding:10px 14px;font-size:14.5px;font-weight:500;color:rgba(255,255,255,.82);
+  letter-spacing:-.01em;transition:color .2s ease;
+}
+.nav a::after{
+  content:"";position:absolute;left:14px;right:14px;bottom:4px;height:1px;background:var(--gold);
+  transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
+}
+.nav a:hover,.nav a.active{color:#fff}
+.nav a:hover::after,.nav a.active::after{transform:scaleX(1)}
+.header-phone{
+  display:inline-flex;align-items:center;gap:8px;flex:none;
+  height:44px;padding:0 18px;border:1px solid rgba(220,196,155,.5);border-radius:2px;
+  color:var(--gold-pale);font-size:14px;font-weight:600;letter-spacing:.01em;
+  transition:background .25s ease,color .25s ease,border-color .25s ease;
+}
+.header-phone svg{width:15px;height:15px}
+.header-phone:hover{background:var(--gold);color:#1A140A;border-color:var(--gold)}
+.burger{
+  display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.28);border-radius:2px;
+  background:transparent;align-items:center;justify-content:center;flex:none;
+}
+.burger span{display:block;width:18px;height:1.5px;background:#fff;position:relative;transition:transform .3s ease,opacity .2s ease}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:#fff;transition:transform .3s ease}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{transform:rotate(45deg)}
+.burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(-90deg)}
+.burger[aria-expanded="true"] span::after{opacity:0}
+
+.mobile-nav{
+  position:fixed;top:var(--header-h);left:0;right:0;z-index:79;
+  background:#0A1329;border-bottom:1px solid rgba(220,196,155,.2);
+  box-shadow:0 24px 40px -20px rgba(0,0,0,.85);
+  padding:10px clamp(20px,5vw,40px) 22px;
+  transform:translateY(-12px);opacity:0;visibility:hidden;transition:.28s ease;
+}
+.mobile-nav.open{transform:none;opacity:1;visibility:visible}
+.mobile-nav a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:15px 2px;color:#fff;font-size:16px;border-bottom:1px solid rgba(255,255,255,.09);
+}
+.mobile-nav a span{color:var(--gold-soft);font-size:12px;letter-spacing:.16em;font-family:var(--ff-serif)}
+.mobile-nav a.btn{margin-top:18px;justify-content:center;border-bottom:0;padding:0 18px;gap:9px}
+
+/* ============ hero ============ */
+.hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  padding-top:calc(var(--header-h) + clamp(48px,7vw,84px));
+  padding-bottom:clamp(40px,5vw,56px);
+  background:
+    radial-gradient(120% 90% at 82% 8%,rgba(201,160,99,.16) 0%,rgba(201,160,99,0) 55%),
+    radial-gradient(90% 70% at 8% 92%,rgba(70,100,160,.22) 0%,rgba(70,100,160,0) 60%),
+    linear-gradient(165deg,#0A1329 0%,#14213D 48%,#1B2B4D 100%);
+  color:#fff;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:88px 88px;
+  mask-image:radial-gradient(80% 70% at 50% 30%,#000 20%,transparent 78%);
+  -webkit-mask-image:radial-gradient(80% 70% at 50% 30%,#000 20%,transparent 78%);
+}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--line-gold),transparent);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.02fr .98fr;align-items:center;
+  gap:clamp(24px,4vw,56px);min-height:min(600px,calc(100svh - var(--header-h) - 110px));
+}
+.hero-copy{max-width:600px}
+.hero h1{
+  font-size:clamp(31px,4.9vw,58px);line-height:1.24;font-weight:700;letter-spacing:-.045em;
+  margin:0 0 22px;
+}
+.hero h1 em{
+  font-style:normal;color:var(--gold-soft);position:relative;
+}
+.hero-sub{
+  font-size:clamp(15px,1.7vw,17.5px);line-height:1.85;color:rgba(255,255,255,.76);
+  max-width:44ch;margin-bottom:34px;
+}
+.hero-sub strong{color:#fff;font-weight:600}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-facts{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  margin-top:clamp(38px,5vw,56px);border-top:1px solid rgba(255,255,255,.14);padding-top:22px;
+}
+.hero-facts li{padding-right:18px;position:relative}
+.hero-facts li+li{padding-left:22px;border-left:1px solid rgba(255,255,255,.12)}
+.hero-facts b{
+  display:block;font-family:var(--ff-serif);font-size:clamp(21px,2.6vw,27px);font-weight:600;
+  color:var(--gold-soft);letter-spacing:.01em;line-height:1.2;
+}
+.hero-facts span{display:block;font-size:12.5px;color:rgba(255,255,255,.62);margin-top:7px;line-height:1.5;letter-spacing:-.01em}
+.hero-art{position:relative;width:100%}
+.hero-art svg{width:100%;height:auto;display:block}
+.hero-art .line{fill:none;stroke:var(--gold-soft);stroke-width:1.15;opacity:.62}
+.hero-art .thin{opacity:.3}
+.hero-art .faint{opacity:.14}
+.hero-art .glass{fill:rgba(220,196,155,.13);stroke:var(--gold-soft);stroke-width:1.1;opacity:.85}
+.hero-art .solid{fill:rgba(220,196,155,.05);stroke:var(--gold-soft);stroke-width:1.1}
+.hero-art text{fill:var(--gold-soft);font-family:var(--ff-serif);font-size:9.5px;letter-spacing:.2em;opacity:.72}
+.hero-art .cap{fill:#fff;font-family:var(--ff);font-size:10px;letter-spacing:.24em;opacity:.5}
+.hero-badge{
+  position:relative;display:inline-flex;align-items:center;gap:9px;
+  margin-top:-6px;padding:9px 14px;border:1px solid var(--line-gold);background:rgba(10,19,41,.6);
+  backdrop-filter:blur(6px);font-size:11.5px;letter-spacing:.02em;color:var(--gold-pale);
+}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(201,160,99,.2)}
+/* ============ showroom ============ */
+.showroom{background:var(--cream);border-bottom:1px solid var(--line)}
+.showroom-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:start}
+.showroom-media{position:sticky;top:calc(var(--header-h) + 28px)}
+.showroom .title{margin-bottom:6px}
+.showroom .lead{margin-top:14px}
+.addr-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:22px}
+.addr-chip{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 14px;background:#fff;
+  border:1px solid var(--line);font-size:13.5px;color:var(--ink-2);
+}
+.addr-chip svg{width:15px;height:15px;color:var(--gold)}
+.map-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.map-links a{
+  font-size:12.5px;padding:7px 12px;border:1px solid var(--line);background:#fff;color:var(--ink-2);
+  transition:.2s ease;
+}
+.map-links a:hover{border-color:var(--gold);color:#8E6C36}
+.feature-list{margin-top:26px;display:grid;gap:11px}
+.feature-list li{display:flex;gap:11px;align-items:flex-start;font-size:15px;color:var(--ink-2);line-height:1.6}
+.feature-list svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--gold)}
+.feature-list b{font-weight:600;color:var(--ink)}
+.price-band{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;margin-top:22px;
+  padding:13px 16px;background:#fff;border:1px solid var(--line-gold);border-left:3px solid var(--gold);
+  box-shadow:var(--shadow-s);
+}
+.price-band .pb-label{
+  font-size:11px;font-weight:600;letter-spacing:.14em;color:#9A7A45;text-transform:uppercase;font-family:var(--ff-serif);
+}
+.price-band b{font-family:var(--ff-serif);font-size:clamp(18px,2vw,21px);font-weight:600;color:var(--navy);letter-spacing:.01em;line-height:1.3}
+.price-band .pb-note{font-size:12px;color:var(--muted);line-height:1.6;flex:1 1 100%}
+.showroom-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.showroom-note{font-size:12.5px;color:var(--muted);margin-top:14px;display:flex;gap:7px;align-items:center}
+.showroom-note svg{width:14px;height:14px;color:var(--gold)}
+
+.frame{
+  position:relative;background:#fff;border:1px solid rgba(20,33,61,.16);
+  padding:clamp(12px,1.6vw,18px);box-shadow:var(--shadow-m);
+}
+.frame::before,.frame::after{
+  content:"";position:absolute;width:26px;height:26px;border:1px solid var(--gold);pointer-events:none;
+}
+.frame::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.frame::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.frame-inner{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(75% 65% at 55% 78%,rgba(201,160,99,.16),rgba(201,160,99,0) 62%),
+    linear-gradient(160deg,#122040,#1B2B4D 60%,#22314F);
+  display:flex;align-items:flex-end;
+}.frame-inner svg{width:100%;height:auto;display:block}
+.frame-inner .line{fill:none;stroke:var(--gold-soft);stroke-width:1.1;opacity:.6}
+.frame-inner .glass{fill:rgba(220,196,155,.09);stroke:var(--gold-soft);stroke-width:1.05}
+.frame-tag{
+  position:absolute;top:12px;left:12px;z-index:2;
+  font-size:10.5px;letter-spacing:.2em;color:var(--gold-pale);
+  background:rgba(10,19,41,.72);border:1px solid var(--line-gold);padding:6px 10px;font-family:var(--ff-serif);
+}
+.frame-cap{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 4px 2px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);margin-top:14px;
+}
+.frame-cap b{color:var(--ink);font-weight:600;font-size:13.5px}
+
+/* ============ properties ============ */
+.properties{background:#fff}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,46px)}
+.sec-head-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.sec-head .lead{margin-top:12px;margin-bottom:0}
+.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px)}
+.card{
+  position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
+  transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease,border-color .35s ease;
+  overflow:hidden;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-m);border-color:var(--line-gold)}
+.card-visual{
+  position:relative;height:158px;overflow:hidden;
+  background:
+    radial-gradient(70% 120% at 88% 0%,rgba(201,160,99,.22),transparent 62%),
+    linear-gradient(155deg,#101C38,#1B2B4D 62%,#243354);
+  display:flex;align-items:center;justify-content:center;
+}
+.card-visual::before{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:26px 26px;
+  mask-image:radial-gradient(120% 100% at 50% 40%,#000 30%,transparent 85%);
+  -webkit-mask-image:radial-gradient(120% 100% at 50% 40%,#000 30%,transparent 85%);
+}
+.card-visual svg.ico{width:64px;height:64px;color:var(--gold-soft);opacity:.92;position:relative;z-index:1;stroke-width:1.05}
+.card-code{
+  position:absolute;left:16px;top:12px;z-index:1;font-family:var(--ff-serif);
+  font-size:10.5px;letter-spacing:.24em;color:rgba(255,255,255,.6);
+}
+.card-no{
+  position:absolute;right:14px;bottom:-14px;z-index:0;font-family:var(--ff-serif);
+  font-size:74px;line-height:1;color:rgba(255,255,255,.07);letter-spacing:-.02em;
+}
+.badge{
+  position:absolute;right:12px;top:12px;z-index:2;
+  font-size:11px;font-weight:600;letter-spacing:-.01em;
+  padding:5px 10px;border-radius:100px;
+  background:rgba(201,160,99,.16);color:var(--gold-pale);border:1px solid rgba(220,196,155,.4);
+}
+.badge.live{background:rgba(120,200,150,.16);color:#BFE8CC;border-color:rgba(150,220,175,.4)}
+.card-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.card-region{font-size:11.5px;letter-spacing:.16em;color:var(--gold);font-weight:600;text-transform:uppercase;font-family:var(--ff-serif)}
+.card h3{font-size:19px;font-weight:700;letter-spacing:-.03em;margin:6px 0 4px;line-height:1.4}
+.card .place{font-size:13px;color:var(--muted);line-height:1.6;min-height:21px}
+.specs{display:grid;gap:0;margin:16px 0 0;border-top:1px solid var(--line)}
+.specs div{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid rgba(20,33,61,.07);font-size:13.5px}
+.specs dt{color:var(--muted);flex:none;width:60px;font-size:12.5px;padding-top:1px}
+.specs dd{margin:0;color:var(--ink);font-weight:500;line-height:1.55}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tags span{font-size:11.5px;padding:4px 9px;background:var(--cream);color:var(--ink-2);border:1px solid rgba(20,33,61,.08)}
+.card-foot{margin-top:auto;padding-top:18px}
+.card-link{
+  display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--navy);
+  border-bottom:1px solid var(--line-gold);padding-bottom:3px;transition:.2s ease;
+}
+.card-link svg{width:14px;height:14px;transition:transform .25s ease}
+.card-link:hover{color:#8E6C36}
+.card-link:hover svg{transform:translateX(3px)}
+.card.cta-card{
+  background:linear-gradient(160deg,#101C38,#1B2B4D);border-color:rgba(220,196,155,.3);
+  color:#fff;justify-content:center;align-items:flex-start;padding:32px 26px;
+}
+.card.cta-card:hover{border-color:var(--gold)}
+.card.cta-card .eyebrow{margin-bottom:12px}
+.card.cta-card h3{font-size:21px;line-height:1.5;color:#fff;margin:0 0 10px}
+.card.cta-card p{font-size:13.5px;color:rgba(255,255,255,.68);line-height:1.75;margin-bottom:22px}
+.card.cta-card .btn{width:100%}
+.card.cta-card .tel-line{display:flex;align-items:center;gap:8px;font-family:var(--ff-serif);font-size:20px;color:var(--gold-soft);margin-bottom:18px;letter-spacing:.02em}
+
+/* ============ services ============ */
+.services{background:linear-gradient(170deg,#0F1B36,#14213D 55%,#152241);color:#fff;overflow:hidden;position:relative}
+.services::before{
+  content:"";position:absolute;right:-160px;top:-160px;width:520px;height:520px;border-radius:50%;
+  border:1px solid rgba(220,196,155,.14);pointer-events:none;
+}
+.services::after{
+  content:"";position:absolute;right:-40px;top:-40px;width:280px;height:280px;border-radius:50%;
+  border:1px solid rgba(220,196,155,.1);pointer-events:none;
+}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.1);margin-top:clamp(28px,4vw,44px)}
+.svc{
+  background:linear-gradient(170deg,#0F1B36,#14213D);padding:clamp(24px,3vw,34px);
+  transition:background .3s ease;position:relative;
+}
+.svc:hover{background:linear-gradient(170deg,#16264A,#1B2B4D)}
+.svc-ico{
+  width:50px;height:50px;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(220,196,155,.35);margin-bottom:20px;
+}
+.svc-ico svg{width:26px;height:26px;color:var(--gold-soft);stroke-width:1.15}
+.svc h3{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:9px;color:#fff;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.svc p{font-size:13.5px;line-height:1.78;color:rgba(255,255,255,.62)}
+.svc .soon{
+  font-size:10.5px;font-weight:600;letter-spacing:.04em;color:#1A140A;background:var(--gold-soft);
+  padding:2px 7px;border-radius:2px;
+}
+.svc .num{position:absolute;right:22px;top:20px;font-family:var(--ff-serif);font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.3)}
+
+/* ============ process ============ */
+.process{background:var(--cream)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(28px,4vw,44px);border-top:1px solid var(--line)}
+.step{padding:26px 22px 8px 0;position:relative}
+.step+.step{padding-left:26px;border-left:1px solid var(--line)}
+.step b.no{
+  font-family:var(--ff-serif);font-size:13px;letter-spacing:.2em;color:var(--gold);
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.step b.no::after{content:"";height:1px;flex:1;background:var(--line)}
+.step h3{font-size:16.5px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+.step p{font-size:13.5px;color:var(--muted);line-height:1.75}
+
+/* ============ contact ============ */
+.contact{
+  background:linear-gradient(165deg,#0A1329,#101C38 60%,#152241);color:#fff;
+  position:relative;overflow:hidden;
+}
+.contact::before{
+  content:"";position:absolute;left:-180px;bottom:-220px;width:560px;height:560px;border-radius:50%;
+  border:1px solid rgba(220,196,155,.12);
+}
+.contact-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,4.5vw,58px);align-items:start;position:relative}
+.contact-left .title{margin-bottom:14px}
+.contact-card{
+  margin-top:30px;background:rgba(255,255,255,.04);border:1px solid rgba(220,196,155,.28);
+  padding:clamp(22px,3vw,30px);position:relative;
+}
+.contact-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold)}
+.person{display:flex;align-items:baseline;gap:10px;margin-bottom:2px}
+.person b{font-size:20px;font-weight:700;letter-spacing:-.02em}
+.person span{font-size:12.5px;color:var(--gold-soft);letter-spacing:.06em}
+.person-role{font-size:12.5px;color:rgba(255,255,255,.55);margin-bottom:20px}
+.tel-big{
+  display:flex;align-items:center;gap:12px;font-family:var(--ff-serif);font-size:clamp(25px,3.4vw,32px);
+  color:#fff;letter-spacing:.02em;line-height:1.2;transition:color .2s ease;
+}
+.tel-big svg{width:22px;height:22px;color:var(--gold)}
+.tel-big:hover{color:var(--gold-soft)}
+.contact-lines{margin-top:22px;display:grid;gap:10px;font-size:13.5px;color:rgba(255,255,255,.66)}
+.contact-lines div{display:flex;gap:10px;align-items:flex-start;line-height:1.6}
+.contact-lines svg{width:15px;height:15px;flex:none;margin-top:4px;color:var(--gold)}
+.contact-btns{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.contact-btns .btn{flex:1;min-width:130px}
+.kakao-note{font-size:12px;color:rgba(255,255,255,.45);margin-top:14px;display:flex;gap:7px;align-items:center;line-height:1.6}
+.kakao-note svg{width:14px;height:14px;flex:none;color:rgba(220,196,155,.7)}
+
+.form-box{background:#fff;color:var(--ink);padding:clamp(24px,3.2vw,36px);box-shadow:var(--shadow-m)}
+.form-box h3{font-size:19px;font-weight:700;letter-spacing:-.03em;margin-bottom:6px}
+.form-box .hint{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:22px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:7px;letter-spacing:-.01em}
+.field label .req{color:#B4552F;margin-left:2px}
+.field input,.field select,.field textarea{
+  width:100%;border:1px solid rgba(20,33,61,.2);background:#FCFBF7;border-radius:2px;
+  padding:13px 14px;font:inherit;font-size:14.5px;color:var(--ink);transition:border-color .2s ease,background .2s ease;
+  -webkit-appearance:none;appearance:none;
+}
+.field select{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23626B80' stroke-width='1.4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.field textarea{min-height:104px;resize:vertical;line-height:1.7}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:#fff;box-shadow:0 0 0 3px rgba(201,160,99,.14)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-box .btn{width:100%}
+.form-note{font-size:11.5px;color:var(--muted);line-height:1.7;margin-top:12px;text-align:center}
+.form-result{display:none;margin-top:6px}
+.form-result.on{display:block}
+.form-result .ok{display:flex;gap:9px;align-items:center;color:#2E6B48;font-size:13.5px;font-weight:600;margin-bottom:14px}
+.form-result .ok svg{width:17px;height:17px}
+.form-result pre{
+  white-space:pre-wrap;font-family:var(--ff);font-size:13px;line-height:1.75;color:var(--ink-2);
+  background:var(--cream);border:1px solid var(--line);padding:14px;margin:0 0 14px;max-height:220px;overflow:auto;
+}
+.form-result .res-btns{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.form-result .res-btns .btn{width:100%;font-size:13.5px;padding:0 10px;white-space:nowrap;min-height:48px}
+.form-result .res-btns.sub{margin-top:9px}
+.form-result .res-btns.sub .btn{min-height:42px;font-size:12.5px}
+.copy-ok{font-size:12px;color:#2E6B48;margin-top:8px;text-align:center;height:0;overflow:hidden;transition:.2s}
+.copy-ok.on{height:18px}
+
+/* ============ footer ============ */
+.footer{background:#080F21;color:rgba(255,255,255,.6);padding:clamp(40px,5vw,60px) 0 26px;border-top:1px solid rgba(220,196,155,.16)}
+.footer-top{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand{max-width:340px}
+.footer-brand img{height:88px;width:auto;margin-bottom:10px}
+.footer-brand p{font-size:12.5px;line-height:1.85;color:rgba(255,255,255,.5)}
+.footer-cols{display:flex;gap:clamp(30px,5vw,70px);flex-wrap:wrap}
+.footer-col h4{font-size:11px;letter-spacing:.2em;color:var(--gold-soft);font-family:var(--ff-serif);margin-bottom:14px;font-weight:600;text-transform:uppercase}
+.footer-col li{margin-bottom:8px;font-size:13px}
+.footer-col a:hover{color:#fff}
+.footer-col .sm{font-size:12.5px;color:rgba(255,255,255,.5);display:flex;gap:8px;align-items:flex-start;line-height:1.6}
+.footer-col .sm svg{width:14px;height:14px;flex:none;margin-top:4px;color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:20px;font-size:11.5px;color:rgba(255,255,255,.38);line-height:1.7}
+.footer-bottom .disc{max-width:620px}
+
+/* ============ mobile bar ============ */
+.mobile-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+  background:rgba(10,19,41,.97);border-top:1px solid rgba(220,196,155,.25);
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom));
+  gap:8px;backdrop-filter:blur(10px);
+}
+.mobile-bar .btn{flex:1;min-height:48px;font-size:14.5px}
+
+/* ============ hero tel link ============ */
+.hero-tel{
+  display:inline-flex;align-items:center;gap:8px;margin-top:20px;
+  font-size:13.5px;color:rgba(255,255,255,.7);letter-spacing:.01em;transition:color .2s ease;
+}
+.hero-tel svg{width:15px;height:15px;color:var(--gold)}
+.hero-tel b{color:var(--gold-pale);font-weight:600;letter-spacing:.02em}
+.hero-tel:hover{color:#fff}
+.hero-tel:hover b{color:#fff}
+
+/* ============ route strip (showroom) ============ */
+.route-card{margin-top:14px;border:1px solid var(--line);background:#fff;padding:16px 18px;display:grid;gap:10px}
+.route-card .rc-head{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-2);font-weight:600}
+.route-card .rc-head svg{width:15px;height:15px;color:var(--gold)}
+.route-card .rc-addr{font-size:13px;color:var(--muted);line-height:1.65}
+.route-actions{display:flex;flex-wrap:wrap;gap:8px}
+.route-actions a,.route-actions button{
+  display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:8px 12px;
+  border:1px solid var(--line);background:#fff;color:var(--ink-2);transition:.2s ease;
+}
+.route-actions svg{width:13px;height:13px;color:var(--gold)}
+.route-actions a:hover,.route-actions button:hover{border-color:var(--gold);color:#8E6C36;transform:translateY(-1px)}
+.route-actions .copy-ok-inline{font-size:11.5px;color:#2E6B48;align-self:center}
+
+/* ============ card polish ============ */
+.card-visual svg.ico{transition:transform .55s cubic-bezier(.2,.7,.3,1),opacity .4s ease}
+.card:hover .card-visual svg.ico{transform:scale(1.08) translateY(-2px);opacity:1}
+.card:hover .card-code{color:var(--gold-pale)}
+
+/* ============ photo overrides ============ */
+.card-visual.has-photo::before{
+  background:linear-gradient(180deg,rgba(7,15,32,.68) 0%,rgba(7,15,32,.14) 42%,rgba(7,15,32,.2) 64%,rgba(7,15,32,.66) 100%);
+  background-size:auto;mask-image:none;-webkit-mask-image:none;z-index:1;pointer-events:none;
+}
+.card-visual img.photo{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;
+  display:block;z-index:0;transition:transform .7s cubic-bezier(.2,.7,.3,1);
+}
+.card:hover .card-visual img.photo{transform:scale(1.045)}
+.card-visual .card-code,.card-visual .badge,.card-visual .card-no{z-index:3}
+.card-visual .card-no{color:rgba(255,255,255,.18);text-shadow:0 1px 14px rgba(0,0,0,.45)}
+.card-visual.has-photo .card-code{color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.55)}
+.card-visual.has-photo .badge{background:rgba(12,24,44,.62);backdrop-filter:blur(2px)}
+.frame-inner img.frame-photo{width:100%;height:auto;display:block}
+.m-photo{
+  margin:-22px -22px 14px;height:clamp(118px,11vw,148px);overflow:hidden;
+  background:linear-gradient(160deg,#122040,#22314F);
+}
+.m-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:center;display:block;
+  transition:transform .65s cubic-bezier(.2,.7,.3,1);
+}
+.model:hover .m-photo img{transform:scale(1.04)}
+
+/* ============ compare ============ */
+.compare{background:var(--cream-2);border-bottom:1px solid var(--line);padding:clamp(52px,7vw,84px) 0 clamp(56px,7.5vw,92px)}
+.compare .table-wrap{
+  margin-top:clamp(24px,3vw,34px);background:#fff;border:1px solid var(--line);
+  box-shadow:var(--shadow-s);overflow-x:auto;-webkit-overflow-scrolling:touch;
+}
+.cmp{width:100%;min-width:1020px;border-collapse:collapse;font-size:13.5px}
+.cmp th,.cmp td{padding:15px 16px;text-align:left;vertical-align:top;border-bottom:1px solid rgba(20,33,61,.08)}
+.cmp thead th{
+  background:linear-gradient(180deg,#0F1B36,#1B2B4D);color:#fff;font-weight:600;font-size:13.5px;
+  letter-spacing:-.01em;border-bottom:1px solid rgba(220,196,155,.32);white-space:normal;
+}
+.cmp thead th small{display:block;font-size:10.5px;font-weight:500;letter-spacing:.16em;color:var(--gold-soft);font-family:var(--ff-serif);margin-top:4px}
+.cmp thead th:first-child{background:#0A1329;color:var(--gold-soft);width:92px;font-size:11px;letter-spacing:.18em;font-family:var(--ff-serif);text-transform:uppercase}
+.cmp thead th.is-pick{background:linear-gradient(180deg,#16264A,#233761)}
+.cmp thead th.is-pick small{color:var(--gold-pale)}
+.cmp tbody th{
+  position:sticky;left:0;z-index:1;background:var(--cream);color:var(--muted);
+  font-size:11.5px;font-weight:600;letter-spacing:.1em;white-space:nowrap;
+}
+.cmp td{color:var(--ink-2);line-height:1.6}
+.cmp td b{color:var(--ink);font-weight:600}
+.cmp td.price{font-family:var(--ff-serif);font-size:15px;font-weight:600;color:var(--navy);letter-spacing:.01em}
+.cmp tbody tr:hover td{background:#FDFBF6}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+.cmp td.tags-cell span{display:inline-block;font-size:11px;padding:2px 7px;background:var(--cream);border:1px solid rgba(20,33,61,.08);margin:0 4px 4px 0}
+.compare .swipe-note{display:none;font-size:11.5px;color:var(--muted);margin-top:10px;gap:6px;align-items:center}
+.compare .swipe-note svg{width:13px;height:13px}
+
+/* ============ channel ============ */
+.channel{background:linear-gradient(170deg,#0F1B36,#14213D 58%,#152241);color:#fff;position:relative;overflow:hidden}
+.channel::before{content:"";position:absolute;left:-140px;top:-160px;width:460px;height:460px;border-radius:50%;border:1px solid rgba(220,196,155,.12);pointer-events:none}
+.ch-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(26px,3.5vw,46px);align-items:start;margin-top:clamp(26px,3.4vw,40px);position:relative}
+.ch-video{width:100%}
+.video-poster{
+  position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;cursor:pointer;overflow:hidden;
+  border:1px solid rgba(220,196,155,.32);
+  background:radial-gradient(75% 80% at 62% 30%,rgba(201,160,99,.2),rgba(201,160,99,0) 60%),linear-gradient(158deg,#101C38,#1B2B4D 62%,#22314F);
+}
+.video-poster::before{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:44px 44px;opacity:.7;
+}
+.video-poster .vp-art{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.video-poster .vp-art .line{fill:none;stroke:var(--gold-soft);stroke-width:1.1;opacity:.7}
+.video-poster .vp-art .thin{opacity:.3}
+.video-poster .play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;border:1px solid var(--gold-soft);
+  background:rgba(10,19,41,.55);backdrop-filter:blur(4px);transition:.3s ease;
+}
+.video-poster .play svg{width:25px;height:25px;color:var(--gold-pale);margin-left:3px;transition:.3s ease}
+.video-poster:hover .play{background:var(--gold);border-color:var(--gold);transform:translate(-50%,-50%) scale(1.06);box-shadow:0 14px 30px -14px rgba(201,160,99,.9)}
+.video-poster:hover .play svg{color:#1A140A}
+.video-poster .vp-tag{
+  position:absolute;left:14px;bottom:12px;font-size:10.5px;letter-spacing:.18em;color:var(--gold-pale);
+  background:rgba(10,19,41,.72);border:1px solid var(--line-gold);padding:6px 10px;font-family:var(--ff-serif);text-transform:uppercase;
+}
+.ch-video iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
+.ch-video-cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:12px;font-size:12px;color:rgba(255,255,255,.5)}
+.ch-video-cap a{color:var(--gold-soft);border-bottom:1px solid rgba(220,196,155,.4);padding-bottom:1px;transition:.2s}
+.ch-video-cap a:hover{color:#fff;border-color:#fff}
+.ch-sub{font-size:11px;letter-spacing:.2em;color:var(--gold-soft);font-family:var(--ff-serif);text-transform:uppercase;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.ch-sub::after{content:"";flex:1;height:1px;background:rgba(220,196,155,.22)}
+.ch-list{display:grid;gap:8px}
+.ch-item{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 16px;
+  border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.035);
+  transition:border-color .25s ease,background .25s ease,transform .25s ease;
+}
+.ch-item:hover{border-color:var(--line-gold);background:rgba(201,160,99,.09);transform:translateX(3px)}
+.ch-item .ci-main{display:flex;align-items:center;gap:12px;min-width:0}
+.ch-item .ci-ico{width:34px;height:34px;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid rgba(220,196,155,.35);color:var(--gold-soft)}
+.ch-item .ci-ico svg{width:16px;height:16px}
+.ch-item b{display:block;font-size:13.5px;font-weight:600;color:#fff;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch-item small{display:block;font-size:11.5px;color:rgba(255,255,255,.45);margin-top:2px}
+.ch-item .ci-go{flex:none;display:inline-flex;align-items:center;gap:6px;font-size:10.5px;letter-spacing:.16em;font-family:var(--ff-serif);color:var(--gold-soft);text-transform:uppercase}
+.ch-item .ci-go svg{width:13px;height:13px;transition:transform .25s ease}
+.ch-item:hover .ci-go svg{transform:translate(2px,-2px)}
+.sns-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:22px}
+.sns{
+  display:flex;align-items:center;gap:11px;padding:13px 15px;border:1px solid rgba(255,255,255,.13);
+  background:rgba(255,255,255,.03);transition:.25s ease;
+}
+.sns:hover{border-color:var(--line-gold);background:rgba(201,160,99,.09)}
+.sns .ci-ico{width:32px;height:32px;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid rgba(220,196,155,.35);color:var(--gold-soft)}
+.sns .ci-ico svg{width:16px;height:16px}
+.sns b{display:block;font-size:12.5px;color:#fff;font-weight:600}
+.sns small{display:block;font-size:11px;color:rgba(255,255,255,.45);margin-top:1px}
+
+/* ============ booking ============ */
+.booking{background:var(--cream)}
+.booking-lead-sub{margin-top:8px;font-size:13.5px;color:var(--ink-2)}
+.booking-lead-sub b{color:var(--navy);font-weight:600}
+.booking-card{
+  margin-top:clamp(24px,3.2vw,38px);background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-m);
+  padding:clamp(20px,2.8vw,32px);display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(22px,3.2vw,42px);align-items:start;
+}
+.cal-side{border-right:1px solid var(--line);padding-right:clamp(18px,2.6vw,34px)}
+.cal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.cal-head b{font-size:16.5px;font-weight:700;letter-spacing:-.02em}
+.cal-nav{
+  width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line);background:#fff;color:var(--ink-2);transition:.2s ease;
+}
+.cal-nav svg{width:14px;height:14px}
+.cal-nav:hover:not(:disabled){border-color:var(--gold);color:#8E6C36;background:var(--cream)}
+.cal-nav:disabled{opacity:.28;cursor:not-allowed}
+.cal-dow,.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-dow span{text-align:center;font-size:11px;letter-spacing:.06em;color:var(--muted);padding:4px 0 8px}
+.cal-dow span:first-child{color:#B4552F}
+.cal-day{
+  position:relative;min-height:46px;display:flex;align-items:center;justify-content:center;
+  border:1px solid transparent;background:transparent;color:var(--ink-2);font-size:13px;
+  transition:background .18s ease,border-color .18s ease,color .18s ease;
+}
+.cal-day:hover:not(:disabled){background:var(--cream);border-color:var(--line-gold)}
+.cal-day.sun{color:#B4552F}
+.cal-day:disabled{color:rgba(20,33,61,.2);cursor:not-allowed}
+.cal-day.today{border-color:var(--line-gold)}
+.cal-day.sel{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:700}
+.cal-day.sel:hover{background:var(--navy-700);border-color:var(--navy-700)}
+.cal-day.sel::after{content:"";position:absolute;left:50%;bottom:5px;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.cal-note{font-size:11.5px;color:var(--muted);line-height:1.7;margin-top:12px;display:flex;gap:6px;align-items:flex-start}
+.cal-note svg{width:13px;height:13px;flex:none;margin-top:3px;color:var(--gold)}
+.bk-summary{
+  margin-top:18px;padding:14px 16px;background:var(--cream);border:1px solid var(--line);
+  border-left:3px solid var(--line-gold);display:grid;gap:2px;transition:border-color .25s ease;
+}
+.bk-summary.is-set{border-left-color:var(--gold);background:#FDFBF5}
+.bk-summary .bs-label{font-size:10.5px;letter-spacing:.16em;color:#9A7A45;font-family:var(--ff-serif);text-transform:uppercase}
+.bk-summary b{font-size:15.5px;font-weight:700;letter-spacing:-.02em;color:var(--navy);line-height:1.4}
+.bk-summary span:last-child{font-size:12.5px;color:var(--muted)}
+.book-side .field:last-of-type{margin-bottom:20px}
+.label-like{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:7px;letter-spacing:-.01em}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.slot{
+  min-height:44px;border:1px solid rgba(20,33,61,.16);background:#fff;color:var(--ink-2);
+  font-size:13px;letter-spacing:.01em;transition:.18s ease;
+}
+.slot:hover{border-color:var(--gold);background:var(--cream)}
+.slot[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:600}
+.slot[aria-pressed="true"]:hover{background:var(--navy-700);border-color:var(--navy-700)}
+.slot-note{font-size:11.5px;color:var(--muted);margin-top:8px}
+.booking-card .form-result pre{max-height:260px}
+.booking-card .bk-ok-note{font-size:12px;color:var(--muted);line-height:1.7;margin-top:10px}
+.booking-card:has(.form-result.on) .cal-side{display:none}
+.booking-card:has(.form-result.on){grid-template-columns:1fr}
+.booking-card.is-result{grid-template-columns:1fr}
+
+/* ============ showroom invite ============ */
+.showroom-lead b{color:var(--ink);font-weight:600}
+.invite-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.invite-chips li{
+  display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-2);
+  background:#fff;border:1px solid var(--line-gold);padding:8px 12px;letter-spacing:-.01em;
+}
+.invite-chips svg{width:15px;height:15px;color:var(--gold)}
+
+/* models */
+.models{margin-top:clamp(36px,4.6vw,56px)}
+.models-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px 18px;flex-wrap:wrap;margin-bottom:16px}
+.models-head h3{font-size:16px;font-weight:700;letter-spacing:-.02em}
+.models-head span{font-size:12px;color:var(--muted)}
+.model-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.4vw,16px)}
+.model{
+  position:relative;display:flex;flex-direction:column;gap:3px;background:#fff;border:1px solid var(--line);
+  padding:22px 22px 20px;transition:transform .32s cubic-bezier(.2,.7,.3,1),box-shadow .32s ease,border-color .32s ease;
+}
+.model:hover{transform:translateY(-5px);box-shadow:var(--shadow-m);border-color:var(--line-gold)}
+.model .m-code{font-family:var(--ff-serif);font-size:10px;letter-spacing:.24em;color:var(--gold)}
+.model b{font-size:clamp(19px,2.2vw,23px);font-weight:700;letter-spacing:-.03em;color:var(--navy);line-height:1.25}
+.model .m-size{font-size:12.5px;color:var(--muted)}
+.model .m-price{margin-top:12px;font-family:var(--ff-serif);font-size:16px;font-weight:600;color:var(--ink);letter-spacing:.01em}
+.model .m-state{
+  margin-top:11px;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;font-weight:600;color:#2E6B48;background:rgba(46,107,72,.07);
+  border:1px solid rgba(46,107,72,.24);padding:4px 9px;
+}
+.model .m-state svg{width:12px;height:12px}
+.model .m-note{margin-top:10px;font-size:11.5px;color:var(--muted);line-height:1.65}
+
+/* quote band */
+.quote-band{
+  margin-top:clamp(28px,3.6vw,42px);position:relative;overflow:hidden;color:#fff;
+  background:radial-gradient(90% 130% at 88% 0%,rgba(201,160,99,.22),rgba(201,160,99,0) 62%),linear-gradient(160deg,#0F1B36,#1B2B4D 78%);
+  border:1px solid rgba(220,196,155,.3);padding:clamp(24px,3.2vw,36px);
+  display:flex;align-items:center;justify-content:space-between;gap:22px 30px;flex-wrap:wrap;
+}
+.quote-band::before{
+  content:"";position:absolute;right:-90px;top:-80px;width:260px;height:260px;border-radius:50%;
+  border:1px solid rgba(220,196,155,.16);pointer-events:none;
+}
+.qb-copy{max-width:60ch;position:relative}
+.qb-eyebrow{font-family:var(--ff-serif);font-size:10.5px;letter-spacing:.2em;color:var(--gold-soft);text-transform:uppercase}
+.quote-band h3{font-size:clamp(18px,2.2vw,24px);font-weight:700;letter-spacing:-.03em;line-height:1.42;margin:9px 0 8px;color:#fff}
+.quote-band p{font-size:13.5px;line-height:1.78;color:rgba(255,255,255,.7)}
+.qb-actions{display:flex;gap:10px;flex-wrap:wrap;position:relative}
+
+/* ============ reveal ============ */
+html.js [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+html.js [data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  html.js [data-reveal]{opacity:1;transform:none;transition:none}
+  .card:hover{transform:none}
+  }
+
+/* ============ responsive ============ */
+@media(max-width:1180px){
+  .header-phone{display:none}
+  .nav a{padding:10px 10px;font-size:14px}
+}
+@media(max-width:1024px){
+  .nav{display:none}
+  .burger{display:inline-flex}
+  .header-phone{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:8px;min-height:0;padding-top:6px}
+  .hero-copy{max-width:none}
+  .hero-art{order:2;margin:-28px auto 0;max-width:560px}
+    .hero-facts{margin-top:30px}
+  .prop-grid{grid-template-columns:repeat(2,1fr)}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .showroom-grid{grid-template-columns:1fr;gap:38px}
+  .showroom-media{position:static}
+  .model-grid{grid-template-columns:repeat(3,1fr)}
+  .ch-grid{grid-template-columns:1fr;gap:30px}
+  .booking-card{grid-template-columns:1fr;gap:24px}
+  .cal-side{border-right:0;padding-right:0;border-bottom:1px solid var(--line);padding-bottom:24px;max-width:560px}
+  .contact-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step{padding:24px 18px 14px 0}
+  .step:nth-child(3){border-left:0;padding-left:0}
+  .step:nth-child(3),.step:nth-child(4){border-top:1px solid var(--line)}
+  .step:nth-child(2),.step:nth-child(4){padding-left:18px}
+}
+@media(max-width:760px){
+  :root{--header-h:62px}
+  body{padding-bottom:66px}
+  .brand img{height:34px}
+  .brand-txt b{font-size:13px;letter-spacing:.2em}
+  .brand-txt i{font-size:10px}
+  .hero{padding-top:calc(var(--header-h) + 40px)}
+  .hero h1{font-size:clamp(29px,8.4vw,40px);line-height:1.26}
+  .hero-sub{font-size:15px;margin-bottom:28px}
+  .hero-actions{flex-direction:column}
+  .hero-actions .btn{width:100%}
+  .showroom-actions{flex-direction:column}
+  .showroom-actions .btn{width:100%}
+  .map-links a{flex:1;text-align:center}
+  .sec-head .btn{width:100%}
+  .hero-facts{grid-template-columns:1fr;gap:0;padding-top:0;border-top:0}
+  .hero-facts li,.hero-facts li+li{padding:13px 0;border-left:0;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:baseline;gap:12px}
+  .hero-facts b{font-size:19px;min-width:96px}
+  .hero-facts span{margin-top:0;font-size:12.5px}
+  .hero-badge{position:relative;margin:14px 0 0;display:inline-flex}
+    .prop-grid{grid-template-columns:1fr}
+  .card-visual.has-photo{height:clamp(190px,52vw,230px)}
+  .m-photo{height:clamp(160px,44vw,190px)}
+  .svc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .step,.step+.step,.step:nth-child(2),.step:nth-child(3),.step:nth-child(4){padding:20px 0;border-left:0;border-top:1px solid var(--line)}
+  .step:first-child{border-top:0;padding-top:6px}
+  .field-row{grid-template-columns:1fr}
+  .model-grid{grid-template-columns:1fr}
+  .quote-band{padding:22px}
+  .qb-actions{width:100%}
+  .qb-actions .btn{flex:1;min-width:140px}
+  .sns-grid{grid-template-columns:1fr}
+  .compare .swipe-note{display:flex}
+  .compare{padding:clamp(44px,10vw,60px) 0}
+  .cmp{min-width:780px}
+  .cmp th,.cmp td{padding:12px 13px;font-size:13px}
+  .slots{grid-template-columns:repeat(2,1fr)}
+  .booking-card{padding:18px}
+  .ch-item b{white-space:normal}
+  .footer-top{flex-direction:column;gap:26px}
+  .footer-bottom{flex-direction:column}
+  .mobile-bar{display:flex}
+  .section{padding:clamp(48px,11vw,64px) 0}
+}
+@media(max-width:390px){
+  .hero h1{font-size:27px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#top">본문으로 바로가기</a>
+
+<!-- ============ icon sprite ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="i-modular" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 8.2h18"/><path d="M3 8.2 4.6 4.6h14.8L21 8.2"/><path d="M5 8.2V20h14V8.2"/><path d="M9.4 20v-5.6h5.2V20"/><path d="M5 13.4h14"/>
+  </symbol>
+  <symbol id="i-townhouse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2.5 20.5V10L7 6.5 11.5 10v10.5"/><path d="M11.5 20.5V10L16 6.5 20.5 10v10.5"/><path d="M6 20.5v-4.6h2.4v4.6"/><path d="M15.4 20.5v-4.6H18v4.6"/><path d="M4.2 13.2h1.2M13.3 13.2h1.2"/>
+  </symbol>
+  <symbol id="i-tower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.5 21V4h11v17"/><path d="M3.5 21h17"/><path d="M9.5 8h1.8M13 8h1.8M9.5 12h1.8M13 12h1.8M9.5 16h1.8M13 16h1.8"/>
+  </symbol>
+  <symbol id="i-pool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="17.4" cy="6.6" r="2.6"/><path d="M2.5 15.2c1.4-1.4 2.8-1.4 4.2 0s2.8 1.4 4.2 0 2.8-1.4 4.2 0 2.8 1.4 4.2 0"/><path d="M2.5 19.2c1.4-1.4 2.8-1.4 4.2 0s2.8 1.4 4.2 0 2.8-1.4 4.2 0 2.8 1.4 4.2 0"/><path d="M4.6 11.4V10a1.4 1.4 0 0 1 2.8 0v1.4M9.4 11.4V10a1.4 1.4 0 0 1 2.8 0v1.4"/>
+  </symbol>
+  <symbol id="i-villa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 20.6V8.4L12 4l8 4.4v12.2"/><path d="M4 11.4h16"/><path d="M8.2 20.6v-5h3v5"/><path d="M14 12.6h4v4h-4z"/>
+  </symbol>
+  <symbol id="i-land" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 20.5 8.6 5.5H21l-5.6 15z"/><path d="M6.6 11.6h10.9"/><path d="M10.8 5.5 5.2 20.5"/>
+  </symbol>
+  <symbol id="i-permit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 3.2H6.6v17.6h10.8V6.6z"/><path d="M14 3.2v3.6h3.4"/><path d="M9.2 13.6l2 2 3.9-4.2"/>
+  </symbol>
+  <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15.4 3.2a5.6 5.6 0 1 1-3.6 9.9L4 20.9v-3.1h3.1v-3.1h3.1l1.6-1.6a5.6 5.6 0 0 1 3.6-10z"/><circle cx="16.6" cy="7.6" r="1.5"/>
+  </symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4.8h16v11.2h-8.2L7.6 20v-4H4z"/><path d="M7.8 9h8.4M7.8 12.4h5.2"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.4 3.4h3.1l1.5 4-2.1 1.5a12.4 12.4 0 0 0 6.2 6.2l1.5-2.1 4 1.5v3.1a2 2 0 0 1-2.2 2A17.6 17.6 0 0 1 4.4 5.6a2 2 0 0 1 2-2.2z"/>
+  </symbol>
+  <symbol id="i-sms" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.6 5.4h16.8v10.4h-9L6.6 19.4v-3.6H3.6z"/><path d="M7.4 9.2h9.2M7.4 12h5.6"/>
+  </symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21.4s6.8-6.1 6.8-11.3A6.8 6.8 0 0 0 5.2 10.1c0 5.2 6.8 11.3 6.8 11.3z"/><circle cx="12" cy="9.9" r="2.5"/>
+  </symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3.2" y="5.4" width="17.6" height="13.2"/><path d="m3.6 6 8.4 6.4L20.4 6"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m4.5 12.4 4.9 5L19.6 6.6"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4.5 12h14.5"/><path d="m13.5 6.5 5.5 5.5-5.5 5.5"/>
+  </symbol>
+  <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8.6"/><path d="M12 11v5.4"/><path d="M12 7.8h.01"/>
+  </symbol>
+  <symbol id="i-consult" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 5.6h9.4v8.2H9l-3 2.6v-2.6H4z"/><path d="M16 9.4h4v7.4h-2v2.2l-2.6-2.2H12"/><path d="M6.6 9.4h4.2"/>
+  </symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3.4" y="5.4" width="17.2" height="15.2"/><path d="M3.4 9.8h17.2"/><path d="M8 3.4v4M16 3.4v4"/><path d="M7.6 13.4h1.4M11.3 13.4h1.4M15 13.4h1.4M7.6 17h1.4M11.3 17h1.4"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8.6"/><path d="M12 7.4V12l3.4 2"/>
+  </symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+    <path d="M8.2 5.4v13.2L19.2 12z"/>
+  </symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2.6" y="6" width="18.8" height="12" rx="3.4"/><path d="M10.4 9.4l4.6 2.6-4.6 2.6z"/>
+  </symbol>
+  <symbol id="i-blog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4.2 20.2l4.2-1 9.4-9.4-3.2-3.2L5.2 16z"/><path d="M14.6 6.6l3.2 3.2"/><path d="M16.4 4.8l1.4-1.4 2.4 2.4-1.4 1.4"/>
+  </symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3.6" y="3.6" width="16.8" height="16.8" rx="4.6"/><circle cx="12" cy="12" r="3.9"/><circle cx="17.1" cy="6.9" r=".9" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M13.6 4.4h6v6"/><path d="M19.6 4.4L11 13"/><path d="M18.2 14.4v4.6a1.4 1.4 0 0 1-1.4 1.4H5.4A1.4 1.4 0 0 1 4 19V7.5a1.4 1.4 0 0 1 1.4-1.4h4.6"/>
+  </symbol>
+  <symbol id="i-swipe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.4 12h17.2"/><path d="M7 8.4L3.4 12 7 15.6"/><path d="M17 8.4l3.6 3.6L17 15.6"/>
+  </symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="8.4" y="8.4" width="11.2" height="11.2"/><path d="M15.6 5.2V4.4H4.4v11.2h.8"/>
+  </symbol>
+  <symbol id="i-parking" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3.4" y="3.4" width="17.2" height="17.2" rx="2.4"/><path d="M9.8 16.6V7.4h3a2.9 2.9 0 0 1 0 5.8H9.8"/>
+  </symbol>
+  <symbol id="i-coffee" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4.4 9.6h11.2v4.6a4.2 4.2 0 0 1-4.2 4.2H8.6a4.2 4.2 0 0 1-4.2-4.2z"/><path d="M15.8 10.8h1.4a2.3 2.3 0 0 1 0 4.6h-1.4"/><path d="M7.8 6.6c.9-.9.9-1.8 0-2.6M11.4 6.6c.9-.9.9-1.8 0-2.6"/><path d="M4.4 21h11.2"/>
+  </symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8.6 13.4V6.6a1.5 1.5 0 0 1 3 0v5.2"/><path d="M11.6 11.8V5.6a1.5 1.5 0 0 1 3 0v6.2"/><path d="M14.6 11.8V8.4a1.5 1.5 0 0 1 3 0v5.6a5.6 5.6 0 0 1-5.6 5.6h-1a4.6 4.6 0 0 1-3.3-1.4l-3.2-3.3a1.5 1.5 0 0 1 2.2-2l1.9 1.9"/>
+  </symbol>
+</svg>
+
+<!-- ============ header ============ -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="하우스링 홈으로">
+      <img src="assets/logo-mark-gold.png" alt="HOUSE RING 로고">
+      <span class="brand-txt"><b>HOUSE RING</b><i>하우스링</i></span>
+    </a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="#showroom">전시장</a>
+      <a href="#properties">주요 현장</a>
+      <a href="#services">사업 분야</a>
+      <a href="#channel">채널</a>
+      <a href="#booking">방문 예약</a>
+      <a href="#contact">상담 문의</a>
+    </nav>
+    <a class="header-phone" href="tel:+821048257879">
+      <svg aria-hidden="true"><use href="#i-phone"/></svg>010-4825-7879
+    </a>
+    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileNav">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#showroom">파주 교하 전시장 <span>SHOWROOM</span></a>
+  <a href="#properties">주요 현장 <span>PROJECTS</span></a>
+  <a href="#services">사업 분야 <span>SERVICE</span></a>
+  <a href="#compare">현장 비교 <span>COMPARE</span></a>
+  <a href="#channel">채널 <span>CHANNEL</span></a>
+  <a href="#booking">방문 예약 <span>VISIT</span></a>
+  <a href="#process">상담 절차 <span>PROCESS</span></a>
+  <a href="#contact">상담 문의 <span>CONTACT</span></a>
+  <a class="btn btn-gold" href="tel:+821048257879">
+    <svg aria-hidden="true"><use href="#i-phone"/></svg>010-4825-7879 전화 상담
+  </a>
+</div>
+
+<!-- ============ hero ============ -->
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">House Ring · 종합 주거 개발</span>
+        <h1>땅에서 집까지,<br><em>한 번의 상담으로</em></h1>
+        <p class="hero-sub">
+          모듈러주택 전시 상담부터 타운하우스 분양, 토지 매매, 건축 인허가까지.
+          <strong>하우스링</strong>이 처음부터 끝까지 함께합니다.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#booking">
+            <svg aria-hidden="true"><use href="#i-calendar"/></svg>방문 예약하기
+          </a>
+          <a class="btn btn-ghost" href="#showroom">
+            <svg aria-hidden="true"><use href="#i-pin"/></svg>파주 교하 전시장 안내
+          </a>
+        </div>
+        <a class="hero-tel" href="tel:+821048257879">
+          <svg aria-hidden="true"><use href="#i-phone"/></svg>전화 상담 <b>010-4825-7879</b>
+        </a>
+        <ul class="hero-facts">
+          <li><b>3,900만원~</b><span>10평 기준<br>모듈러·세컨하우스 시작가</span></li>
+          <li><b>17세대</b><span>용인 고림동<br>텔루체 타운하우스</span></li>
+          <li><b>2026. 12.</b><span>공인중개사 합류<br>중개 업무 확장 예정</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 640 520" role="img" aria-label="모듈러주택 라인 일러스트">
+          <circle class="line faint" cx="335" cy="300" r="198"/>
+          <circle class="line faint" cx="335" cy="300" r="156"/>
+          <!-- dimension -->
+          <path class="line thin" d="M150 160h120M334 160h190"/>
+          <path class="line thin" d="M150 152v16M524 152v16"/>
+          <path class="line thin" d="M157 156l-7 4 7 4M517 156l7 4-7 4"/>
+          <text x="290" y="164">10 – 30 PY</text>
+          <!-- main volume -->
+          <path class="solid" d="M150 236h250v216H150z"/>
+          <path class="line" d="M138 236h274M138 229h274"/>
+          <path class="glass" d="M166 258h80v58h-80z"/>
+          <path class="glass" d="M262 258h56v58h-56z"/>
+          <path class="solid" d="M336 258h46v58h-46z"/>
+          <path class="line thin" d="M206 258v58M290 258v58M359 258v58"/>
+          <path class="solid" d="M166 336h44v116h-44z"/>
+          <path class="line thin" d="M188 336v116"/>
+          <path class="line faint" d="M300 236v216"/>
+          <!-- side volume -->
+          <path class="solid" d="M400 316h124v136h-124"/>
+          <path class="line" d="M400 316h132M400 309h132"/>
+          <path class="line thin" d="M400 292h132"/>
+          <path class="line thin" d="M404 309v-17M424 309v-17M444 309v-17M464 309v-17M484 309v-17M504 309v-17M524 309v-17"/>
+          <path class="glass" d="M416 338h84v48h-84z"/>
+          <path class="line thin" d="M458 338v48"/>
+          <!-- deck -->
+          <path class="line" d="M150 452h260v14H150z"/>
+          <path class="line thin" d="M172 466v8M236 466v8M300 466v8M364 466v8"/>
+          <!-- ground -->
+          <path class="line thin" d="M40 474h560"/>
+          <path class="line faint" d="M40 484h560"/>
+          <!-- trees -->
+          <path class="line" d="M82 474v-16"/>
+          <path class="line" d="M60 458h44L82 424z"/>
+          <path class="line" d="M64 436h36L82 408z"/>
+          <path class="line" d="M68 416h28L82 392z"/>
+          <path class="line" d="M556 474v-12"/>
+          <path class="line" d="M534 462h44L556 428z"/>
+          <path class="line" d="M540 440h32L556 412z"/>
+        </svg>
+        <span class="hero-badge"><i class="dot"></i>부경아리아 파주 교하전시장 · 본사 직영</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ showroom ============ -->
+<section class="section showroom" id="showroom">
+  <div class="wrap">
+    <div class="showroom-grid">
+      <div data-reveal>
+        <span class="eyebrow on-light">Showroom 01 · 파주 교하</span>
+        <h2 class="title">사진과 영상만 보고<br><span class="thin">속지 마세요</span></h2>
+        <p class="lead showroom-lead">
+          넓은 주차장에 편히 주차하시고, 시원하고 따뜻한 커피 한 잔 드시면서
+          <b>직접 보고, 만지고, 느낄 수 있는</b> 파주 교하 전시장으로 초대합니다.
+        </p>
+        <ul class="invite-chips">
+          <li><svg aria-hidden="true"><use href="#i-parking"/></svg>넓은 주차장 완비</li>
+          <li><svg aria-hidden="true"><use href="#i-coffee"/></svg>시원하고 따뜻한 커피</li>
+          <li><svg aria-hidden="true"><use href="#i-hand"/></svg>직접 보고 · 만지고</li>
+        </ul>
+
+        <div class="route-card">
+          <span class="rc-head"><svg aria-hidden="true"><use href="#i-pin"/></svg>오시는 길 · ORIENTATION</span>
+          <p class="rc-addr"><b>경기도 파주시 파주로 725</b> (교하동 70-33)<br>부경아리아 파주 교하전시장 · 본사 직영 쇼룸</p>
+          <div class="route-actions">
+            <a href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%8C%8C%EC%A3%BC%EC%8B%9C%20%ED%8C%8C%EC%A3%BC%EB%A1%9C%20725" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>네이버 지도</a>
+            <a href="https://map.kakao.com/?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%8C%8C%EC%A3%BC%EC%8B%9C%20%ED%8C%8C%EC%A3%BC%EB%A1%9C%20725" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>카카오맵</a>
+            <button type="button" id="copyAddr"><svg aria-hidden="true"><use href="#i-copy"/></svg>주소 복사</button>
+            <span class="copy-ok-inline" id="copyAddrOk" hidden>복사되었습니다</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>10~30평형 모듈러주택</b> · 농촌체류형쉼터 · 세컨하우스 상설 전시</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>AI 설계 · 80% 공장 사전제작</b>으로 공정과 비용을 현장에서 확인</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>토지 답사 · 인허가 · 시공</b>까지 원스톱 상담</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>부경아리아 단지 조성 계획</b> 함께 안내</span></li>
+        </ul>
+
+        <div class="showroom-actions">
+          <a class="btn btn-navy" href="tel:+821048257879"><svg aria-hidden="true"><use href="#i-phone"/></svg>방문 일정 문의하기</a>
+          <a class="btn btn-line" href="#booking" data-booking-interest="파주 교하 전시장 방문 (모듈러주택)"><svg aria-hidden="true"><use href="#i-calendar"/></svg>방문 예약하기</a>
+        </div>
+        <p class="showroom-note"><svg aria-hidden="true"><use href="#i-info"/></svg>방문 전 전화로 일정을 확인하시면 더 편하게 안내받으실 수 있습니다.</p>
+      </div>
+
+      <div data-reveal class="showroom-media">
+        <div class="frame">
+          <div class="frame-inner">
+            <span class="frame-tag">SHOWROOM · 70-33</span>
+            <img class="frame-photo" src="assets/photos/showroom.jpg" width="966" height="447" alt="부경아리아 파주 교하 전시장 전경 — 모듈러 전시동 두 동과 주차 공간">
+          </div>
+          <div class="frame-cap">
+            <b>부경아리아 파주 전시장</b>
+            <span>본사 직영 쇼룸</span>
+          </div>
+        </div>
+
+        <div class="price-band">
+          <span class="pb-label">모듈러 · 세컨하우스 시작가</span>
+          <b>10평 기준 3,900만 원부터</b>
+          <span class="pb-note">평형·옵션·현장 조건에 따라 달라지며, 정확한 금액은 상담으로 안내드립니다.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="models" data-reveal>
+      <div class="models-head">
+        <h3>전시장에서 만나보실 수 있는 모델 3종</h3>
+        <span>부경아리아 전시 모델 · 가격과 준공 일정은 상담으로 확인</span>
+      </div>
+      <div class="model-grid">
+        <article class="model">
+          <div class="m-photo"><img src="assets/photos/cube-10.jpg" alt="CUBE 10 전시 모델 외관" loading="lazy" decoding="async"></div>
+          <span class="m-code">MODEL 01</span>
+          <b>CUBE 10</b>
+          <span class="m-size">큐브 · 10평형</span>
+          <span class="m-price">3,900만 원~</span>
+          <span class="m-note">10평 모듈러 세컨하우스. 가장 많이 찾는 시작 모델입니다.</span>
+        </article>
+        <article class="model">
+          <div class="m-photo"><img src="assets/photos/nest-12.jpg" alt="NEST 12 전시 모델 외관" loading="lazy" decoding="async"></div>
+          <span class="m-code">MODEL 02</span>
+          <b>NEST 12</b>
+          <span class="m-size">네스트 · 12평형</span>
+          <span class="m-price">가격 상담 안내</span>
+          <span class="m-state"><svg aria-hidden="true"><use href="#i-check"/></svg>준공 가능</span>
+        </article>
+        <article class="model">
+          <div class="m-photo"><img src="assets/photos/luna-high-21.jpg" alt="LUNA HIGH 21 전시 모델 외관" loading="lazy" decoding="async"></div>
+          <span class="m-code">MODEL 03</span>
+          <b>LUNA HIGH 21</b>
+          <span class="m-size">루나 하이 · 21평형</span>
+          <span class="m-price">1억 760만 원</span>
+          <span class="m-state"><svg aria-hidden="true"><use href="#i-check"/></svg>준공 가능</span>
+        </article>
+      </div>
+    </div>
+
+    <div class="quote-band" data-reveal>
+      <div class="qb-copy">
+        <span class="qb-eyebrow">Free Visit Estimate · 무료 출장 견적</span>
+        <h3>땅은 있는데, 무엇을 지을지 고민되시나요?</h3>
+        <p>현장 답사부터 인허가, 배치, 견적까지 — 무료 출장 견적으로 한 번에 정리해 드립니다. 지역과 땅 조건만 알려 주시면 됩니다.</p>
+      </div>
+      <div class="qb-actions">
+        <a class="btn btn-gold" href="#booking" data-booking-interest="무료 출장 견적 (현장 답사)"><svg aria-hidden="true"><use href="#i-pin"/></svg>무료 출장 견적 신청</a>
+        <a class="btn btn-ghost" href="tel:+821048257879"><svg aria-hidden="true"><use href="#i-phone"/></svg>010-4825-7879</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ properties ============ -->
+<section class="section properties" id="properties">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div>
+        <span class="eyebrow on-light">Projects</span>
+        <h2 class="title">주요 분양 · 임대 현장</h2>
+        <p class="lead">하우스링이 직접 진행하는 현장입니다. 현장별 조건과 잔여 세대는 상담으로 안내드립니다.</p>
+      </div>
+      <div class="sec-head-actions">
+        <a class="btn btn-line btn-sm" href="#compare"><svg aria-hidden="true"><use href="#i-swipe"/></svg>현장 한눈에 비교</a>
+        <a class="btn btn-line btn-sm" href="#contact">현장 상담 문의</a>
+      </div>
+    </div>
+
+    <div class="prop-grid">
+      <!-- 01 -->
+      <article class="card" data-reveal>
+        <div class="card-visual has-photo">
+          <span class="card-code">YONGIN · 01</span>
+          <span class="badge live">구경하는집 운영 중</span>
+          <img class="photo" src="assets/photos/teluce.jpg" alt="용인 고림동 텔루체 타운하우스 외관" loading="lazy" decoding="async">
+          <span class="card-no">01</span>
+        </div>
+        <div class="card-body">
+          <span class="card-region">경기 용인 · 고림동</span>
+          <h3>텔루체 타운하우스</h3>
+          <p class="place">경기도 용인시 처인구 고림동 458-9<br>보평역 도보권 · 보평3지구</p>
+          <dl class="specs">
+            <div><dt>규모</dt><dd>철근콘크리트 단독형 17세대</dd></div>
+            <div><dt>대지</dt><dd>약 100평대</dd></div>
+            <div><dt>가격</dt><dd>6억대~</dd></div>
+          </dl>
+          <div class="tags"><span>마당</span><span>테라스</span><span>루프탑</span><span>일부 벙커주차</span></div>
+          <div class="card-foot">
+            <a class="card-link" href="#contact" data-interest="용인 고림동 텔루체 타운하우스">이 현장 상담하기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="card" data-reveal>
+        <div class="card-visual has-photo">
+          <span class="card-code">PAJU · 02</span>
+          <span class="badge live">즉시입주</span>
+          <img class="photo" src="assets/photos/greendel.jpg" alt="파주 그린델 타운하우스 2차 외관" loading="lazy" decoding="async">
+          <span class="card-no">02</span>
+        </div>
+        <div class="card-body">
+          <span class="card-region">경기 파주 · 조리읍</span>
+          <h3>그린델 타운하우스 <span style="font-weight:400;color:var(--muted);font-size:15px">2차</span></h3>
+          <p class="place">파주 조리읍 통일로</p>
+          <dl class="specs">
+            <div><dt>규모</dt><dd>22세대 단독형 · 54평형</dd></div>
+            <div><dt>가격</dt><dd>6억대</dd></div>
+            <div><dt>특징</dt><dd>개별 마당 · 텃밭</dd></div>
+          </dl>
+          <div class="tags"><span>2대 벙커주차</span><span>즉시입주</span><span>단독형</span></div>
+          <div class="card-foot">
+            <a class="card-link" href="#contact" data-interest="파주 그린델 타운하우스 2차">이 현장 상담하기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="card" data-reveal>
+        <div class="card-visual has-photo">
+          <span class="card-code">OSAN · 03</span>
+          <span class="badge">10년 민간임대</span>
+          <img class="photo" src="assets/photos/lancity.jpg" alt="서동탄역 랜시티 단지 조감도" loading="lazy" decoding="async">
+          <span class="card-no">03</span>
+        </div>
+        <div class="card-body">
+          <span class="card-region">경기 오산 · 외삼미동</span>
+          <h3>서동탄역 랜시티</h3>
+          <p class="place">오산 외삼미동 228<br>서동탄역 도보권</p>
+          <dl class="specs">
+            <div><dt>유형</dt><dd>10년 민간임대</dd></div>
+            <div><dt>청약</dt><dd>청약통장 불필요</dd></div>
+            <div><dt>위치</dt><dd>서동탄역 도보권</dd></div>
+          </dl>
+          <div class="tags"><span>민간임대</span><span>역세권</span></div>
+          <div class="card-foot">
+            <a class="card-link" href="#contact" data-interest="서동탄역 랜시티">이 현장 상담하기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="card" data-reveal>
+        <div class="card-visual">
+          <span class="card-code">YANGPYEONG · 04</span>
+          <span class="badge">수익형</span>
+          <svg class="ico" aria-hidden="true"><use href="#i-pool"/></svg>
+          <span class="card-no">04</span>
+        </div>
+        <div class="card-body">
+          <span class="card-region">경기 양평 · 서종면</span>
+          <h3>서종 풀바베큐 세컨하우스</h3>
+          <p class="place">양평군 서종면 수능리</p>
+          <dl class="specs">
+            <div><dt>규모</dt><dd>5채</dd></div>
+            <div><dt>시설</dt><dd>수영장 · 개별 바베큐</dd></div>
+            <div><dt>형태</dt><dd>펜션 운영 연계 수익형</dd></div>
+          </dl>
+          <div class="tags"><span>세컨하우스</span><span>수익형</span><span>펜션 연계</span></div>
+          <div class="card-foot">
+            <a class="card-link" href="#contact" data-interest="양평 서종 풀바베큐 세컨하우스">이 현장 상담하기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 -->
+      <article class="card" data-reveal>
+        <div class="card-visual">
+          <span class="card-code">GWANGJU · 05</span>
+          <span class="badge">2026년 준공</span>
+          <svg class="ico" aria-hidden="true"><use href="#i-villa"/></svg>
+          <span class="card-no">05</span>
+        </div>
+        <div class="card-body">
+          <span class="card-region">경기 광주 · 목현동</span>
+          <h3>비에스애비뉴 <span style="font-weight:400;color:var(--muted);font-size:14px">BS애비뉴</span></h3>
+          <p class="place">경기도 광주시 이배재로 338-6<br>성남 · 모란역 생활권</p>
+          <dl class="specs">
+            <div><dt>유형</dt><dd>2026년 준공 신축 빌라</dd></div>
+            <div><dt>가격</dt><dd>3억 후반 ~ 5억 초반대</dd></div>
+          </dl>
+          <div class="tags"><span>신축</span><span>모란역 생활권</span></div>
+          <div class="card-foot">
+            <a class="card-link" href="#contact" data-interest="광주 목현동 비에스애비뉴">이 현장 상담하기 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- cta -->
+      <article class="card cta-card" data-reveal>
+        <span class="eyebrow">Consulting</span>
+        <h3>원하시는 조건이<br>따로 있으신가요?</h3>
+        <p>지역과 예산, 용도를 알려주시면<br>가능한 현장과 방법을 함께 찾아드립니다.</p>
+        <a class="tel-line" href="tel:+821048257879"><svg aria-hidden="true" style="width:18px;height:18px"><use href="#i-phone"/></svg>010-4825-7879</a>
+        <a class="btn btn-gold" href="#contact">상담 문의 남기기</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ compare ============ -->
+<section class="compare" id="compare">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div>
+        <span class="eyebrow on-light">Compare</span>
+        <h2 class="title">현장 한눈에 보기</h2>
+        <p class="lead">지역과 유형, 규모, 가격을 같은 기준으로 비교해 보세요. 표시된 조건은 상담 시점에 따라 달라질 수 있습니다.</p>
+      </div>
+      <a class="btn btn-line btn-sm" href="#booking"><svg aria-hidden="true"><use href="#i-calendar"/></svg>방문 예약하기</a>
+    </div>
+
+    <div class="table-wrap" data-reveal>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th scope="col">구분</th>
+            <th scope="col" class="is-pick">부경아리아 파주 교하전시장<small>모듈러 · 세컨하우스</small></th>
+            <th scope="col">텔루체 타운하우스<small>용인 고림동</small></th>
+            <th scope="col">그린델 타운하우스 2차<small>파주 조리읍</small></th>
+            <th scope="col">서동탄역 랜시티<small>오산 외삼미동</small></th>
+            <th scope="col">서종 풀바베큐 세컨하우스<small>양평 서종면</small></th>
+            <th scope="col">비에스애비뉴<small>광주 목현동</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">지역</th>
+            <td>경기 파주 교하동</td>
+            <td>경기 용인 처인구 고림동</td>
+            <td>경기 파주 조리읍</td>
+            <td>경기 오산 외삼미동</td>
+            <td>경기 양평 서종면 수능리</td>
+            <td>경기 광주 목현동</td>
+          </tr>
+          <tr>
+            <th scope="row">유형</th>
+            <td>모듈러주택 · 농촌체류형쉼터 · 세컨하우스</td>
+            <td>철근콘크리트 단독형</td>
+            <td>단독형 타운하우스</td>
+            <td>10년 민간임대</td>
+            <td>펜션 연계 수익형 세컨하우스</td>
+            <td>신축 빌라 (2026년 준공)</td>
+          </tr>
+          <tr>
+            <th scope="row">규모</th>
+            <td>10~30평형 전시</td>
+            <td>17세대 · 대지 약 100평대</td>
+            <td>22세대 · 54평형</td>
+            <td>10년 민간임대</td>
+            <td>5채</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <th scope="row">가격</th>
+            <td class="price">10평 기준 3,900만 원부터</td>
+            <td class="price">6억대~</td>
+            <td class="price">6억대</td>
+            <td>임대 조건 상담</td>
+            <td>상담 안내</td>
+            <td class="price">3억 후반~5억 초반대</td>
+          </tr>
+          <tr>
+            <th scope="row">특징</th>
+            <td class="tags-cell"><span>본사 직영 쇼룸</span><span>AI 설계</span><span>80% 사전제작</span></td>
+            <td class="tags-cell"><span>마당</span><span>테라스</span><span>루프탑</span><span>구경하는집 운영 중</span></td>
+            <td class="tags-cell"><span>개별 마당</span><span>텃밭</span><span>2대 벙커주차</span><span>즉시입주</span></td>
+            <td class="tags-cell"><span>청약통장 불필요</span><span>역세권</span></td>
+            <td class="tags-cell"><span>수영장</span><span>개별 바베큐</span><span>펜션 운영</span></td>
+            <td class="tags-cell"><span>모란역 생활권</span><span>신축</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="swipe-note"><svg aria-hidden="true"><use href="#i-swipe"/></svg>좌우로 넘겨 전체 현장을 볼 수 있습니다.</p>
+  </div>
+</section>
+
+<!-- ============ services ============ -->
+<section class="section services" id="services">
+  <div class="wrap on-dark">
+    <div class="sec-head" data-reveal>
+      <div>
+        <span class="eyebrow">Service</span>
+        <h2 class="title">하우스링이 하는 일</h2>
+        <p class="lead">집을 짓는 일부터 땅을 고르고 계약하는 일까지, 한 곳에서 상담하실 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc" data-reveal>
+        <span class="num">01</span>
+        <div class="svc-ico"><svg aria-hidden="true"><use href="#i-modular"/></svg></div>
+        <h3>모듈러주택 전시 · 시공 상담</h3>
+        <p>10~30평형 모듈러주택과 농촌체류형쉼터, 세컨하우스를 전시장에서 직접 확인하고 상담합니다. AI 설계와 80% 공장 사전제작 방식으로 진행합니다.</p>
+      </div>
+      <div class="svc" data-reveal>
+        <span class="num">02</span>
+        <div class="svc-ico"><svg aria-hidden="true"><use href="#i-townhouse"/></svg></div>
+        <h3>분양 대행 · 마케팅 컨설팅</h3>
+        <p>타운하우스·전원주택 현장의 분양을 맡아 홍보 전략과 분양 일정, 상담 운영까지 함께 설계합니다.</p>
+      </div>
+      <div class="svc" data-reveal>
+        <span class="num">03</span>
+        <div class="svc-ico"><svg aria-hidden="true"><use href="#i-land"/></svg></div>
+        <h3>토지 매매</h3>
+        <p>건축 가능성과 인허가 조건을 먼저 확인한 뒤 매매를 진행합니다. 용도와 규제를 모른 채 계약하는 일을 줄입니다.</p>
+      </div>
+      <div class="svc" data-reveal>
+        <span class="num">04</span>
+        <div class="svc-ico"><svg aria-hidden="true"><use href="#i-permit"/></svg></div>
+        <h3>건축 · 인허가 상담</h3>
+        <p>농촌체류형쉼터, 지역주택조합, 전원주택 개발 등 인허가 절차와 준비 서류를 안내합니다.</p>
+      </div>
+      <div class="svc" data-reveal>
+        <span class="num">05</span>
+        <div class="svc-ico"><svg aria-hidden="true"><use href="#i-pool"/></svg></div>
+        <h3>세컨하우스 · 수익형 부동산</h3>
+        <p>양평 서종 현장처럼 펜션 운영과 연계한 수익형 세컨하우스 모델을 함께 검토합니다.</p>
+      </div>
+      <div class="svc" data-reveal>
+        <span class="num">06</span>
+        <div class="svc-ico"><svg aria-hidden="true"><use href="#i-key"/></svg></div>
+        <h3>부동산 중개 <span class="soon">2026. 12. 예정</span></h3>
+        <p>공인중개사 합류와 함께 매매·전세·월세 중개 업무를 시작합니다. 개업 시점과 절차는 상담으로 안내드립니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ process ============ -->
+<section class="section process" id="process">
+  <div class="wrap">
+    <div data-reveal>
+      <span class="eyebrow on-light">Process</span>
+      <h2 class="title">상담은 이렇게 진행됩니다</h2>
+      <p class="lead">어디서부터 시작해야 할지 모르셔도 괜찮습니다. 첫 상담에서 조건을 정리하는 것부터 함께합니다.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step" data-reveal>
+        <b class="no">STEP 01</b>
+        <h3>상담</h3>
+        <p>전화 또는 방문 상담으로 지역, 예산, 원하시는 주거 형태를 확인합니다.</p>
+      </div>
+      <div class="step" data-reveal>
+        <b class="no">STEP 02</b>
+        <h3>현장 답사</h3>
+        <p>전시장과 후보지를 직접 방문해 규모와 주변 환경을 확인합니다.</p>
+      </div>
+      <div class="step" data-reveal>
+        <b class="no">STEP 03</b>
+        <h3>설계 · 인허가</h3>
+        <p>설계 방향과 인허가 절차, 필요한 서류를 함께 준비합니다.</p>
+      </div>
+      <div class="step" data-reveal>
+        <b class="no">STEP 04</b>
+        <h3>계약 · 시공</h3>
+        <p>계약 조건을 확인한 뒤 시공과 입주까지 일정을 관리합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ channel ============ -->
+<section class="section channel" id="channel">
+  <div class="wrap on-dark">
+    <div class="sec-head" data-reveal>
+      <div>
+        <span class="eyebrow">Channel</span>
+        <h2 class="title">영상과 기록으로<br><span class="thin">먼저 만나보세요</span></h2>
+        <p class="lead">전시장과 현장의 실제 모습을 유튜브·블로그에 올리고 있습니다. 아래 채널에서 최신 영상과 현장 기록을 확인하실 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="ch-grid">
+      <div class="ch-video" data-reveal>
+        <button class="video-poster" type="button" id="ytPlay" aria-label="하우스링 유튜브 채널 영상 재생">
+          <svg class="vp-art" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <circle class="line thin" cx="330" cy="196" r="150"/>
+            <circle class="line thin" cx="330" cy="196" r="118"/>
+            <path class="line" d="M150 214h210v98H150z"/>
+            <path class="line thin" d="M142 214h226M142 207h226"/>
+            <path class="line thin" d="M170 232h62v34h-62zM246 232h48v34h-48zM308 232h34v34h-34z"/>
+            <path class="line thin" d="M170 284h20v28h-20z"/>
+            <path class="line" d="M372 254h118v58H372"/>
+            <path class="line thin" d="M372 250h126M372 243h126"/>
+            <path class="line thin" d="M390 254v58M446 254v58"/>
+            <path class="line thin" d="M60 312h520M60 322h520"/>
+            <path class="line thin" d="M96 312v-14M78 298h36l-18-26z"/>
+            <path class="line thin" d="M556 312v-12M540 300h32l-16-24z"/>
+          </svg>
+          <span class="play"><svg aria-hidden="true"><use href="#i-play"/></svg></span>
+          <span class="vp-tag">YOUTUBE · 하우스링 모듈러 전원주택</span>
+        </button>
+        <div class="ch-video-cap">
+          <span>메인 채널 · 하우스링 모듈러 전원주택 타운하우스</span>
+          <a href="https://www.youtube.com/channel/UCv1LuKEOIRZm-u71nhofMwA" target="_blank" rel="noopener">유튜브에서 보기</a>
+        </div>
+      </div>
+
+      <div data-reveal>
+        <p class="ch-sub">현장별 유튜브 채널</p>
+        <div class="ch-list">
+          <a class="ch-item" href="https://www.youtube.com/channel/UCGw0eGE1WyVHrMNPFaYJp4Q" target="_blank" rel="noopener">
+            <span class="ci-main">
+              <span class="ci-ico"><svg aria-hidden="true"><use href="#i-youtube"/></svg></span>
+              <span><b>부경아리아 파주전시장</b><small>파주 교하 전시장 · 모듈러주택</small></span>
+            </span>
+            <span class="ci-go">YouTube <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
+          </a>
+          <a class="ch-item" href="https://www.youtube.com/channel/UCKnVgPLCCxq4bYGz_bbiJZg" target="_blank" rel="noopener">
+            <span class="ci-main">
+              <span class="ci-ico"><svg aria-hidden="true"><use href="#i-youtube"/></svg></span>
+              <span><b>텔루체타운하우스</b><small>용인 고림동 타운하우스 현장</small></span>
+            </span>
+            <span class="ci-go">YouTube <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
+          </a>
+          <a class="ch-item" href="https://www.youtube.com/channel/UCK6nJl5qJ906ED_bkiESrlQ" target="_blank" rel="noopener">
+            <span class="ci-main">
+              <span class="ci-ico"><svg aria-hidden="true"><use href="#i-youtube"/></svg></span>
+              <span><b>용인 고림동 텔루체타운하우스</b><small>현장 시공·입주 영상</small></span>
+            </span>
+            <span class="ci-go">YouTube <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
+          </a>
+          <a class="ch-item" href="https://www.youtube.com/channel/UCv0OI5yg0yETDd20zSluVLw" target="_blank" rel="noopener">
+            <span class="ci-main">
+              <span class="ci-ico"><svg aria-hidden="true"><use href="#i-youtube"/></svg></span>
+              <span><b>파주그린델타운하우스</b><small>파주 조리읍 현장</small></span>
+            </span>
+            <span class="ci-go">YouTube <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
+          </a>
+        </div>
+
+        <p class="ch-sub">블로그 · SNS</p>
+        <div class="sns-grid">
+          <a class="sns" href="https://blog.naver.com/yummyapt" target="_blank" rel="noopener">
+            <span class="ci-ico"><svg aria-hidden="true"><use href="#i-blog"/></svg></span>
+            <span><b>네이버 블로그</b><small>세컨하우스·타운하우스 신규분양</small></span>
+          </a>
+          <a class="sns" href="https://blog.naver.com/teluceyongin" target="_blank" rel="noopener">
+            <span class="ci-ico"><svg aria-hidden="true"><use href="#i-blog"/></svg></span>
+            <span><b>네이버 블로그</b><small>용인 텔루체 타운하우스</small></span>
+          </a>
+          <a class="sns" href="https://www.instagram.com/pajucountry_house/" target="_blank" rel="noopener">
+            <span class="ci-ico"><svg aria-hidden="true"><use href="#i-insta"/></svg></span>
+            <span><b>인스타그램</b><small>@pajucountry_house</small></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ booking ============ -->
+<section class="section booking" id="booking">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div>
+        <span class="eyebrow on-light">Visit</span>
+        <h2 class="title">방문 예약 — 날짜만 골라 주세요</h2>
+        <p class="lead">달력에서 방문 희망일과 시간대를 고르고 내용을 확인하시면, 문자로 예약 내용을 보내드립니다. 담당자 확인 후 확정 연락을 드립니다.</p>
+        <p class="lead booking-lead-sub">전시장 방문이 아니라 <b>무료 출장 견적(현장 답사)</b>도 같은 방법으로 신청하실 수 있습니다. 아래 관심 현장에서 선택해 주세요.</p>
+      </div>
+    </div>
+
+    <div class="booking-card" id="bookingCard">
+      <div id="bookFields" style="display:contents">
+        <div class="cal-side">
+          <div class="cal-head">
+            <button type="button" class="cal-nav" id="calPrev" aria-label="이전 달"><svg aria-hidden="true" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+            <b id="calTitle">-</b>
+            <button type="button" class="cal-nav" id="calNext" aria-label="다음 달"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+          <div class="cal-dow" aria-hidden="true"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+          <div class="cal-grid" id="calGrid" role="group" aria-label="방문 희망일 선택"></div>
+          <p class="cal-note"><svg aria-hidden="true"><use href="#i-info"/></svg>지난 날짜는 선택할 수 없습니다. 일요일 방문은 전화로 확인해 주세요.</p>
+          <div class="bk-summary" id="bkSummary">
+            <span class="bs-label">선택한 일정</span>
+            <b id="bsDate">날짜를 선택해 주세요</b>
+            <span id="bsTime">시간대 미선택 · 미선택 시 “시간 협의”로 전달됩니다</span>
+          </div>
+        </div>
+
+        <div class="book-side">
+          <div class="field">
+            <label for="b-date">방문 희망일 <span class="req">*</span></label>
+            <input id="b-date" type="text" readonly placeholder="달력에서 날짜를 선택하세요" aria-describedby="b-date-help">
+          </div>
+          <div class="field">
+            <span class="label-like">희망 시간대</span>
+            <div class="slots" id="slots" role="group" aria-label="희망 시간대 선택">
+              <button type="button" class="slot" data-time="10:00" aria-pressed="false">10:00</button>
+              <button type="button" class="slot" data-time="11:00" aria-pressed="false">11:00</button>
+              <button type="button" class="slot" data-time="12:00" aria-pressed="false">12:00</button>
+              <button type="button" class="slot" data-time="13:00" aria-pressed="false">13:00</button>
+              <button type="button" class="slot" data-time="14:00" aria-pressed="false">14:00</button>
+              <button type="button" class="slot" data-time="15:00" aria-pressed="false">15:00</button>
+              <button type="button" class="slot" data-time="16:00" aria-pressed="false">16:00</button>
+              <button type="button" class="slot" data-time="17:00" aria-pressed="false">17:00</button>
+              <button type="button" class="slot" data-time="18:00" aria-pressed="false">18:00</button>
+            </div>
+            <p class="slot-note">시간대를 고르지 않으면 “시간 협의”로 전달됩니다.</p>
+          </div>
+          <div class="field">
+            <label for="b-site">관심 현장</label>
+            <select id="b-site">
+              <option>파주 교하 전시장 방문 (모듈러주택)</option>
+              <option>무료 출장 견적 (현장 답사)</option>
+              <option>용인 고림동 텔루체 타운하우스</option>
+              <option>파주 그린델 타운하우스 2차</option>
+              <option>서동탄역 랜시티 (민간임대)</option>
+              <option>양평 서종 풀바베큐 세컨하우스</option>
+              <option>광주 목현동 비에스애비뉴</option>
+              <option>토지 매매 · 건축 인허가 상담</option>
+              <option>기타 문의</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="b-name">성함 <span class="req">*</span></label>
+              <input id="b-name" type="text" autocomplete="name" placeholder="홍길동">
+            </div>
+            <div class="field">
+              <label for="b-phone">연락처 <span class="req">*</span></label>
+              <input id="b-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000">
+            </div>
+          </div>
+          <button class="btn btn-gold" type="button" id="bookSubmit" style="width:100%"><svg aria-hidden="true"><use href="#i-calendar"/></svg>예약 내용 확인</button>
+          <p class="form-note" id="b-date-help">확정은 담당자 확인 후 문자·전화로 안내드립니다. 사이트에는 저장되지 않습니다.</p>
+        </div>
+      </div>
+
+      <div class="form-result" id="bookResult" aria-live="polite">
+        <p class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg>아래 내용으로 방문 예약을 보내시겠어요?</p>
+        <pre id="bookText"></pre>
+        <div class="res-btns">
+          <a class="btn btn-gold" id="bookSms" href="#"><svg aria-hidden="true"><use href="#i-sms"/></svg>문자로 예약</a>
+          <a class="btn btn-navy" href="tel:+821048257879"><svg aria-hidden="true"><use href="#i-phone"/></svg>전화로 예약</a>
+        </div>
+        <div class="res-btns sub">
+          <button class="btn btn-line" id="bookCopy" type="button"><svg aria-hidden="true"><use href="#i-copy"/></svg>내용 복사</button>
+          <button class="btn btn-line" id="bookBack" type="button">다시 고르기</button>
+        </div>
+        <p class="copy-ok" id="bookCopyOk">복사되었습니다.</p>
+        <p class="bk-ok-note">문자 앱이 열리면 그대로 전송해 주세요. 문자가 어려우시면 전화로 예약하셔도 됩니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ contact ============ -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-left on-dark" data-reveal>
+        <span class="eyebrow">Contact</span>
+        <h2 class="title">상담은 전화 한 통이면<br><span class="thin">충분합니다</span></h2>
+        <p class="lead">방문 상담을 원하시면 미리 전화 주세요. 전시장 안내와 함께 일정을 잡아드립니다.</p>
+
+        <div class="contact-card">
+          <div class="person"><b>하우스링</b><span>HOUSE RING</span></div>
+          <p class="person-role">부경아리아 교하전시장 (70-33)</p>
+          <a class="tel-big" href="tel:+821048257879"><svg aria-hidden="true"><use href="#i-phone"/></svg>010-4825-7879</a>
+          <div class="contact-lines">
+            <div><svg aria-hidden="true"><use href="#i-pin"/></svg><span>경기도 파주시 파주로 725 (교하동 70-33)<br>부경아리아 파주 교하전시장</span></div>
+            <div><svg aria-hidden="true"><use href="#i-consult"/></svg><span>전문 분야 · 모듈러주택 · 농촌체류형쉼터 · 타운하우스 · 전원주택 개발/분양</span></div>
+          </div>
+          <div class="contact-btns">
+            <a class="btn btn-gold" href="tel:+821048257879"><svg aria-hidden="true"><use href="#i-phone"/></svg>전화 상담</a>
+            <a class="btn btn-ghost" id="quickSms" href="sms:+821048257879?body=%5B%ED%95%98%EC%9A%B0%EC%8A%A4%EB%A7%81%5D%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4."><svg aria-hidden="true"><use href="#i-sms"/></svg>문자 문의</a>
+          </div>
+          <p class="kakao-note"><svg aria-hidden="true"><use href="#i-chat"/></svg>카카오톡 채널 상담은 준비 중입니다 · 전화·문자로 문의해 주세요</p>
+        </div>
+      </div>
+
+      <div data-reveal>
+        <form class="form-box" id="inquiryForm" novalidate>
+          <div id="formFields">
+            <h3>문의 남기기</h3>
+            <p class="hint">남기신 내용을 문자로 보내드립니다. 사이트에는 저장되지 않습니다.</p>
+            <div class="field-row">
+              <div class="field">
+                <label for="f-name">성함 <span class="req">*</span></label>
+                <input id="f-name" name="name" type="text" autocomplete="name" placeholder="홍길동" required>
+              </div>
+              <div class="field">
+                <label for="f-phone">연락처 <span class="req">*</span></label>
+                <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-interest">관심 분야</label>
+              <select id="f-interest" name="interest">
+                <option>파주 교하 전시장 방문 (모듈러주택)</option>
+                <option>무료 출장 견적 (현장 답사)</option>
+                <option>용인 고림동 텔루체 타운하우스</option>
+                <option>파주 그린델 타운하우스 2차</option>
+                <option>서동탄역 랜시티 (민간임대)</option>
+                <option>양평 서종 풀바베큐 세컨하우스</option>
+                <option>광주 목현동 비에스애비뉴</option>
+                <option>토지 매매 · 건축 인허가 상담</option>
+                <option>기타 문의</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-msg">문의 내용</label>
+              <textarea id="f-msg" name="message" placeholder="예) 20평형 모듈러주택을 생각하고 있습니다. 방문 가능한 시간을 알고 싶습니다."></textarea>
+            </div>
+            <button class="btn btn-navy" type="submit"><svg aria-hidden="true"><use href="#i-arrow"/></svg>문의 내용 확인</button>
+            <p class="form-note">문의 내용은 문자 메시지로 보내집니다. 급하신 경우 전화가 가장 빠릅니다.</p>
+          </div>
+
+          <div class="form-result" id="formResult" aria-live="polite">
+            <p class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg>아래 내용으로 문의를 보내시겠어요?</p>
+            <pre id="resultText"></pre>
+            <div class="res-btns">
+              <a class="btn btn-gold" id="sendSms" href="#"><svg aria-hidden="true"><use href="#i-sms"/></svg>문자로 보내기</a>
+              <a class="btn btn-navy" href="tel:+821048257879"><svg aria-hidden="true"><use href="#i-phone"/></svg>전화하기</a>
+            </div>
+            <div class="res-btns sub">
+              <button class="btn btn-line" id="copyBtn" type="button"><svg aria-hidden="true"><use href="#i-chat"/></svg>내용 복사</button>
+              <button class="btn btn-line" id="backBtn" type="button">다시 쓰기</button>
+            </div>
+            <p class="copy-ok" id="copyOk">복사되었습니다.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ footer ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo-full-gold.png" alt="HOUSE RING 하우스링">
+        <p>종합 주거 개발 · 분양 컨설팅 &amp; 스마트 모듈러하우스 전시상담.<br>땅에서 집까지, 하우스링이 함께합니다.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="#showroom">파주 교하 전시장</a></li>
+            <li><a href="#properties">주요 현장</a></li>
+            <li><a href="#compare">현장 한눈에 비교</a></li>
+            <li><a href="#services">사업 분야</a></li>
+            <li><a href="#channel">채널</a></li>
+            <li><a href="#booking">방문 예약</a></li>
+            <li><a href="#contact">상담 문의</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Channel</h4>
+          <ul>
+            <li><a href="https://www.youtube.com/channel/UCv1LuKEOIRZm-u71nhofMwA" target="_blank" rel="noopener">유튜브 · 하우스링</a></li>
+            <li><a href="https://blog.naver.com/yummyapt" target="_blank" rel="noopener">네이버 블로그</a></li>
+            <li><a href="https://blog.naver.com/teluceyongin" target="_blank" rel="noopener">네이버 블로그 · 텔루체</a></li>
+            <li><a href="https://www.instagram.com/pajucountry_house/" target="_blank" rel="noopener">인스타그램</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li class="sm"><svg aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+821048257879">010-4825-7879</a></li>
+            <li class="sm"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>경기도 파주시 파주로 725<br>(교하동 70-33)</span></li>
+            <li class="sm"><svg aria-hidden="true"><use href="#i-consult"/></svg><span>하우스링 HOUSE RING</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 HOUSE RING. All rights reserved.</p>
+      <p class="disc">현장 정보와 조건은 변경될 수 있으며, 일부 이미지는 조감도·전시 모델 이미지로 실제와 다를 수 있습니다. 정확한 조건은 상담 시 확인해 주세요.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ mobile action bar ============ -->
+<div class="mobile-bar">
+  <a class="btn btn-ghost" href="sms:+821048257879?body=%5B%ED%95%98%EC%9A%B0%EC%8A%A4%EB%A7%81%5D%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4."><svg aria-hidden="true"><use href="#i-sms"/></svg>문자 문의</a>
+  <a class="btn btn-gold" href="tel:+821048257879"><svg aria-hidden="true"><use href="#i-phone"/></svg>전화 상담</a>
+</div>
+
+<noscript>
+<style>
+  .mobile-nav{display:none}
+  .nav{display:none}
+  .form-result{display:none !important}
+</style>
+</noscript>
+
+<script>
+(function(){
+  "use strict";
+  var header = document.getElementById('header');
+  var burger = document.getElementById('burger');
+  var mobileNav = document.getElementById('mobileNav');
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+
+  /* header state */
+  var onScroll = function(){
+    if (window.scrollY > 24) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* mobile menu */
+  function closeMenu(){
+    mobileNav.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    burger.setAttribute('aria-label','메뉴 열기');
+    document.body.style.overflow = '';
+  }
+  burger.addEventListener('click', function(){
+    var open = mobileNav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileNav.addEventListener('click', function(e){
+    if (e.target.closest('a')) closeMenu();
+  });
+  window.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+  window.addEventListener('resize', function(){ if (window.innerWidth > 1024) closeMenu(); });
+
+  /* active nav */
+  var sections = ['showroom','properties','compare','services','process','channel','booking','contact'].map(function(id){
+    return document.getElementById(id);
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window && sections.length){
+    var navObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        navLinks.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id);
+        });
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    sections.forEach(function(s){ navObs.observe(s); });
+  }
+
+  /* reveal */
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  if (!reduced && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    revealEls.forEach(function(el, i){
+      el.style.transitionDelay = (Math.min(i % 3, 2) * 70) + 'ms';
+      io.observe(el);
+    });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* interest deep-link from property cards */
+  var interest = document.getElementById('f-interest');
+  var msg = document.getElementById('f-msg');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-interest]'), function(a){
+    a.addEventListener('click', function(){
+      var v = a.getAttribute('data-interest');
+      if (!interest) return;
+      for (var i = 0; i < interest.options.length; i++){
+        if (interest.options[i].text.indexOf(v.slice(0, 8)) === 0 || v.indexOf(interest.options[i].text.slice(0, 8)) === 0){
+          interest.selectedIndex = i; break;
+        }
+      }
+      if (msg && !msg.value) msg.value = v + ' 상담을 문의드립니다.';
+    });
+  });
+
+  /* inquiry form -> sms */
+  var form = document.getElementById('inquiryForm');
+  var fields = document.getElementById('formFields');
+  var result = document.getElementById('formResult');
+  var resultText = document.getElementById('resultText');
+  var sendSms = document.getElementById('sendSms');
+  var copyBtn = document.getElementById('copyBtn');
+  var copyOk = document.getElementById('copyOk');
+  var backBtn = document.getElementById('backBtn');
+  var PHONE = '010-4825-7879';
+  var PHONE_TEL = '+821048257879';
+  var isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+
+  function compose(){
+    var name = (document.getElementById('f-name').value || '').trim();
+    var phone = (document.getElementById('f-phone').value || '').trim();
+    var it = document.getElementById('f-interest').value;
+    var m = (document.getElementById('f-msg').value || '').trim();
+    var lines = ['[하우스링 상담 문의]', '성함: ' + name, '연락처: ' + phone, '관심 분야: ' + it];
+    if (m) lines.push('문의 내용: ' + m);
+    return lines.join('\n');
+  }
+  function markInvalid(el, on){
+    el.style.borderColor = on ? '#B4552F' : '';
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nameEl = document.getElementById('f-name');
+    var phoneEl = document.getElementById('f-phone');
+    var bad = false;
+    if (!nameEl.value.trim()){ markInvalid(nameEl, true); bad = true; } else markInvalid(nameEl, false);
+    if (!/^[0-9+\-\s()]{8,}$/.test(phoneEl.value.trim())){ markInvalid(phoneEl, true); bad = true; } else markInvalid(phoneEl, false);
+    if (bad){
+      (nameEl.value.trim() ? phoneEl : nameEl).focus();
+      return;
+    }
+    var text = compose();
+    resultText.textContent = text;
+    sendSms.setAttribute('href', 'sms:' + PHONE_TEL + (isIOS ? '&' : '?') + 'body=' + encodeURIComponent(text));
+    fields.style.display = 'none';
+    result.classList.add('on');
+    copyOk.classList.remove('on');
+  });
+
+  backBtn.addEventListener('click', function(){
+    result.classList.remove('on');
+    fields.style.display = '';
+  });
+
+  copyBtn.addEventListener('click', function(){
+    var text = resultText.textContent;
+    function done(){
+      copyOk.classList.add('on');
+      setTimeout(function(){ copyOk.classList.remove('on'); }, 2200);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); } catch(err){ alert('복사가 지원되지 않는 환경입니다. 내용을 길게 눌러 복사해 주세요.'); }
+      document.body.removeChild(ta);
+    }
+  });
+
+  /* quick sms link for iOS body delimiter */
+  var quick = document.getElementById('quickSms');
+  if (quick && isIOS){
+    quick.setAttribute('href', 'sms:' + PHONE_TEL + '&body=' + encodeURIComponent('[하우스링] 상담 문의드립니다.'));
+  }
+
+  /* address copy */
+  var copyAddr = document.getElementById('copyAddr');
+  var copyAddrOk = document.getElementById('copyAddrOk');
+  function copyText(text, onDone){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(onDone, fallback);
+    } else fallback();
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); onDone(); } catch(err){}
+      document.body.removeChild(ta);
+    }
+  }
+  if (copyAddr){
+    copyAddr.addEventListener('click', function(){
+      copyText('경기도 파주시 파주로 725 (교하동 70-33) 부경아리아 파주 교하전시장', function(){
+        if (!copyAddrOk) return;
+        copyAddrOk.hidden = false;
+        setTimeout(function(){ copyAddrOk.hidden = true; }, 2200);
+      });
+    });
+  }
+
+  /* booking interest preselection (무료 출장 견적 등) */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-booking-interest]'), function(a){
+    a.addEventListener('click', function(){
+      var v = a.getAttribute('data-booking-interest');
+      var sel = document.getElementById('b-site');
+      if (!sel || !v) return;
+      for (var i = 0; i < sel.options.length; i++){
+        if (sel.options[i].text === v){ sel.selectedIndex = i; break; }
+      }
+    });
+  });
+
+  /* youtube lazy embed */
+  var ytPlay = document.getElementById('ytPlay');
+  var YT_CHANNEL = 'https://www.youtube.com/channel/UCv1LuKEOIRZm-u71nhofMwA';
+  if (ytPlay){
+    ytPlay.addEventListener('click', function(){
+      /* 파일로 바로 열었을 때(file://)는 유튜브 임베드가 동작하지 않으므로 새 창으로 연결 */
+      if (location.protocol === 'file:'){
+        window.open(YT_CHANNEL, '_blank', 'noopener');
+        return;
+      }
+      var frame = document.createElement('div');
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube.com/embed/videoseries?list=UUv1LuKEOIRZm-u71nhofMwA&rel=0';
+      f.title = '하우스링 모듈러 전원주택 타운하우스 유튜브 채널';
+      f.setAttribute('loading', 'lazy');
+      f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      f.setAttribute('allowfullscreen', '');
+      frame.appendChild(f);
+      ytPlay.replaceWith(frame);
+    });
+  }
+
+  /* ===== visit booking calendar ===== */
+  var calGrid = document.getElementById('calGrid');
+  if (calGrid){
+    var calTitle = document.getElementById('calTitle');
+    var calPrev = document.getElementById('calPrev');
+    var calNext = document.getElementById('calNext');
+    var bDate = document.getElementById('b-date');
+    var slotBox = document.getElementById('slots');
+    var siteSel = document.getElementById('b-site');
+    var bName = document.getElementById('b-name');
+    var bPhone = document.getElementById('b-phone');
+    var bookSubmit = document.getElementById('bookSubmit');
+    var bookFields = document.getElementById('bookFields');
+    var bookResult = document.getElementById('bookResult');
+    var bookText = document.getElementById('bookText');
+    var bookSms = document.getElementById('bookSms');
+    var bookCopy = document.getElementById('bookCopy');
+    var bookBack = document.getElementById('bookBack');
+    var bookCopyOk = document.getElementById('bookCopyOk');
+    var bookingCard = document.getElementById('bookingCard');
+    var bkSummary = document.getElementById('bkSummary');
+    var bsDate = document.getElementById('bsDate');
+    var bsTime = document.getElementById('bsTime');
+    var DOW = ['일','월','화','수','목','금','토'];
+    var MONTH_MAX = 3;
+    var now = new Date(); now.setHours(0,0,0,0);
+    var baseY = now.getFullYear(), baseM = now.getMonth();
+    var viewY = baseY, viewM = baseM;
+    var selected = null, chosenTime = '';
+
+    var sameDay = function(a,b){
+      return a && b && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+    };
+    var fmtDate = function(d){
+      return d.getFullYear() + '년 ' + (d.getMonth()+1) + '월 ' + d.getDate() + '일 (' + DOW[d.getDay()] + ')';
+    };
+    function updateSummary(){
+      bsDate.textContent = selected ? fmtDate(selected) : '날짜를 선택해 주세요';
+      bsTime.textContent = chosenTime ? ('시간대 ' + chosenTime) : '시간대 미선택 · 미선택 시 “시간 협의”로 전달됩니다';
+      bkSummary.classList.toggle('is-set', !!selected);
+    }
+
+    function renderCal(){
+      calTitle.textContent = viewY + '년 ' + (viewM+1) + '월';
+      var firstDow = new Date(viewY, viewM, 1).getDay();
+      var lastDay = new Date(viewY, viewM+1, 0).getDate();
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < firstDow; i++){
+        var blank = document.createElement('span');
+        blank.className = 'cal-blank';
+        frag.appendChild(blank);
+      }
+      for (var d = 1; d <= lastDay; d++){
+        var dt = new Date(viewY, viewM, d);
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'cal-day';
+        btn.textContent = d;
+        btn.setAttribute('data-date', dt.getFullYear() + '-' + (dt.getMonth()+1) + '-' + dt.getDate());
+        btn.setAttribute('aria-label', (viewM+1) + '월 ' + d + '일 ' + DOW[dt.getDay()] + '요일');
+        if (dt.getDay() === 0) btn.classList.add('sun');
+        if (sameDay(dt, now)) btn.classList.add('today');
+        if (dt < now) btn.disabled = true;
+        if (selected && sameDay(dt, selected)){
+          btn.classList.add('sel');
+          btn.setAttribute('aria-pressed', 'true');
+        }
+        frag.appendChild(btn);
+      }
+      calGrid.innerHTML = '';
+      calGrid.appendChild(frag);
+      var idx = viewY * 12 + viewM, minIdx = baseY * 12 + baseM, maxIdx = minIdx + MONTH_MAX;
+      calPrev.disabled = idx <= minIdx;
+      calNext.disabled = idx >= maxIdx;
+    }
+
+    calPrev.addEventListener('click', function(){
+      if (viewM === 0){ viewY -= 1; viewM = 11; } else viewM -= 1;
+      renderCal();
+    });
+    calNext.addEventListener('click', function(){
+      if (viewM === 11){ viewY += 1; viewM = 0; } else viewM += 1;
+      renderCal();
+    });
+    calGrid.addEventListener('click', function(e){
+      var btn = e.target.closest('.cal-day');
+      if (!btn || btn.disabled) return;
+      var p = btn.getAttribute('data-date').split('-');
+      selected = new Date(+p[0], +p[1]-1, +p[2]);
+      bDate.value = fmtDate(selected);
+      markInvalid(bDate, false);
+      renderCal();
+      updateSummary();
+    });
+    slotBox.addEventListener('click', function(e){
+      var btn = e.target.closest('.slot');
+      if (!btn) return;
+      var wasOn = btn.getAttribute('aria-pressed') === 'true';
+      Array.prototype.forEach.call(slotBox.querySelectorAll('.slot'), function(x){
+        x.setAttribute('aria-pressed', 'false');
+      });
+      if (wasOn){ chosenTime = ''; }
+      else { btn.setAttribute('aria-pressed', 'true'); chosenTime = btn.getAttribute('data-time'); }
+      updateSummary();
+    });
+
+    bookSubmit.addEventListener('click', function(){
+      var bad = false;
+      if (!selected){ markInvalid(bDate, true); bad = true; } else markInvalid(bDate, false);
+      if (!bName.value.trim()){ markInvalid(bName, true); bad = true; } else markInvalid(bName, false);
+      if (!/^[0-9+\-\s()]{8,}$/.test(bPhone.value.trim())){ markInvalid(bPhone, true); bad = true; } else markInvalid(bPhone, false);
+      if (bad){
+        if (!selected) calGrid.scrollIntoView({block:'center', behavior:'smooth'});
+        else if (!bName.value.trim()) bName.focus();
+        else bPhone.focus();
+        return;
+      }
+      var text = [
+        '[하우스링 방문 예약 문의]',
+        '방문 희망일: ' + fmtDate(selected),
+        '희망 시간대: ' + (chosenTime || '시간 협의'),
+        '관심 현장: ' + siteSel.value,
+        '성함: ' + bName.value.trim(),
+        '연락처: ' + bPhone.value.trim()
+      ].join('\n');
+      bookText.textContent = text;
+      bookSms.setAttribute('href', 'sms:' + PHONE_TEL + (isIOS ? '&' : '?') + 'body=' + encodeURIComponent(text));
+      bookFields.style.display = 'none';
+      bookingCard.classList.add('is-result');
+      bookResult.classList.add('on');
+      bookCopyOk.classList.remove('on');
+    });
+
+    bookBack.addEventListener('click', function(){
+      bookResult.classList.remove('on');
+      bookFields.style.display = 'contents';
+      bookingCard.classList.remove('is-result');
+    });
+
+    bookCopy.addEventListener('click', function(){
+      copyText(bookText.textContent, function(){
+        bookCopyOk.classList.add('on');
+        setTimeout(function(){ bookCopyOk.classList.remove('on'); }, 2200);
+      });
+    });
+
+    renderCal();
+  }
+})();
+</script>
+</body>
+</html>
