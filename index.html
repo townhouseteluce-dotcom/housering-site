@@ -2144,7 +2144,8 @@ html.js [data-reveal].in{opacity:1;transform:none}
     };
 
     function embedUrl(list){
-      return 'https://www.youtube.com/embed/videoseries?list=' + list + '&rel=0';
+      /* 자동재생은 소리 없이(뮤트) 시작해야 브라우저가 허용합니다. 플레이어에서 소리를 켤 수 있습니다. */
+      return 'https://www.youtube.com/embed/videoseries?list=' + list + '&rel=0&autoplay=1&mute=1&playsinline=1';
     }
 
     function paintPlayer(){
