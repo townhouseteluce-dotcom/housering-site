@@ -129,6 +129,9 @@ h2.title{
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft);transform:translateY(-2px)}
 .btn-line{background:transparent;color:var(--navy);border-color:rgba(20,33,61,.22)}
 .btn-line:hover{border-color:var(--gold);color:#8E6C36;background:#fff;transform:translateY(-2px)}
+.btn-talk{background:#03C75A;color:#fff;border-color:#03C75A;box-shadow:0 12px 26px -16px rgba(3,199,90,.95)}
+.btn-talk:hover{background:#02B552;border-color:#02B552;transform:translateY(-2px);box-shadow:0 16px 30px -16px rgba(3,199,90,1)}
+.btn-talk svg{fill:currentColor;stroke:none}
 .btn-sm{min-height:44px;padding:0 18px;font-size:14px}
 
 /* ============ header ============ */
@@ -586,7 +589,8 @@ h2.title{
   padding:8px 10px calc(8px + env(safe-area-inset-bottom));
   gap:8px;backdrop-filter:blur(10px);
 }
-.mobile-bar .btn{flex:1;min-height:48px;font-size:14.5px}
+.mobile-bar .btn{flex:1;min-height:48px;font-size:14px;padding:0 9px;gap:6px;white-space:nowrap}
+@media(max-width:390px){.mobile-bar .btn{font-size:12.5px;padding:0 5px;gap:5px}.mobile-bar .btn svg{width:15px;height:15px}}
 
 /* ============ hero tel link ============ */
 .hero-tel{
@@ -1170,6 +1174,9 @@ html.js [data-reveal].in{opacity:1;transform:none}
   <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
     <path d="M4 4.8h16v11.2h-8.2L7.6 20v-4H4z"/><path d="M7.8 9h8.4M7.8 12.4h5.2"/>
   </symbol>
+  <symbol id="i-talk" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+    <path d="M12 3.2c-4.9 0-8.8 3.1-8.8 6.9 0 2.2 1.3 4.2 3.4 5.4l-.9 3.2 3.6-2a10 10 0 0 0 2.7.3c4.9 0 8.8-3.1 8.8-6.9S16.9 3.2 12 3.2Z"/>
+  </symbol>
   <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
     <path d="M6.4 3.4h3.1l1.5 4-2.1 1.5a12.4 12.4 0 0 0 6.2 6.2l1.5-2.1 4 1.5v3.1a2 2 0 0 1-2.2 2A17.6 17.6 0 0 1 4.4 5.6a2 2 0 0 1 2-2.2z"/>
   </symbol>
@@ -1331,6 +1338,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
               </div>
       <div class="hero-actions">
         <a class="btn btn-gold" href="#booking"><svg aria-hidden="true"><use href="#i-calendar"/></svg>방문 예약하기</a>
+        <a class="btn btn-talk" href="https://talk.naver.com/ct/wfuyhez" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-talk"/></svg>네이버 톡톡 상담</a>
         <a class="btn btn-ghost" href="#estimate"><svg aria-hidden="true"><use href="#i-consult"/></svg>간편 가견적 계산기</a>
         <a class="btn btn-ghost" href="#showroom"><svg aria-hidden="true"><use href="#i-pin"/></svg>파주 교하 전시장 안내</a>
         <a class="btn btn-ghost" href="https://www.youtube.com/channel/UCv1LuKEOIRZm-u71nhofMwA" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-youtube"/></svg>유튜브 채널</a>
@@ -2120,9 +2128,10 @@ html.js [data-reveal].in{opacity:1;transform:none}
           </div>
           <div class="contact-btns">
             <a class="btn btn-gold" href="tel:+821048257879"><svg aria-hidden="true"><use href="#i-phone"/></svg>전화 상담</a>
+            <a class="btn btn-talk" href="https://talk.naver.com/ct/wfuyhez" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-talk"/></svg>네이버 톡톡 상담</a>
             <a class="btn btn-ghost" id="quickSms" href="sms:+821048257879?body=%5B%ED%95%98%EC%9A%B0%EC%8A%A4%EB%A7%81%5D%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4."><svg aria-hidden="true"><use href="#i-sms"/></svg>문자 문의</a>
           </div>
-          <p class="kakao-note"><svg aria-hidden="true"><use href="#i-chat"/></svg>카카오톡 채널 상담은 준비 중입니다 · 전화·문자로 문의해 주세요</p>
+          <p class="kakao-note"><svg aria-hidden="true"><use href="#i-talk"/></svg>네이버 톡톡 · 전화 · 문자 모두 상담 가능합니다 (카카오톡 채널은 준비 중)</p>
         </div>
       </div>
 
@@ -2217,6 +2226,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
           <h4>Contact</h4>
           <ul>
             <li class="sm"><svg aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+821048257879">010-4825-7879</a></li>
+            <li class="sm"><svg aria-hidden="true"><use href="#i-talk"/></svg><a href="https://talk.naver.com/ct/wfuyhez" target="_blank" rel="noopener">네이버 톡톡 상담</a></li>
             <li class="sm"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>경기도 파주시 파주로 725<br>(교하동 70-33)</span></li>
             <li class="sm"><svg aria-hidden="true"><use href="#i-consult"/></svg><span>하우스링 HOUSE RING</span></li>
           </ul>
@@ -2233,6 +2243,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
 <!-- ============ mobile action bar ============ -->
 <div class="mobile-bar">
   <a class="btn btn-ghost" href="sms:+821048257879?body=%5B%ED%95%98%EC%9A%B0%EC%8A%A4%EB%A7%81%5D%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4."><svg aria-hidden="true"><use href="#i-sms"/></svg>문자 문의</a>
+  <a class="btn btn-talk" href="https://talk.naver.com/ct/wfuyhez" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-talk"/></svg>톡톡 상담</a>
   <a class="btn btn-gold" href="tel:+821048257879"><svg aria-hidden="true"><use href="#i-phone"/></svg>전화 상담</a>
 </div>
 
