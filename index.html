@@ -193,39 +193,77 @@ h2.title{
 .mobile-nav a span{color:var(--gold-soft);font-size:12px;letter-spacing:.16em;font-family:var(--ff-serif)}
 .mobile-nav a.btn{margin-top:18px;justify-content:center;border-bottom:0;padding:0 18px;gap:9px}
 
-/* ============ hero · v3 photo showcase ============ */
-.hero{
-  position:relative;isolation:isolate;overflow:hidden;color:#fff;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  min-height:max(700px,100svh);
-  padding-top:calc(var(--header-h) + clamp(34px,4.6vw,58px));
-  padding-bottom:clamp(22px,2.6vw,30px);
-  background:#0A1329;
-}
+/* ============ hero · 상단 영상/사진 + 아래 글자 (2026-11-19) ============ */
+.hero{position:relative;color:#fff;background:#0A1329;padding:0}
 .hero::after{
   content:"";position:absolute;left:0;right:0;bottom:0;height:1px;z-index:3;
   background:linear-gradient(90deg,transparent,var(--line-gold),transparent);
 }
-/* slides */
-.hero-slides{position:absolute;inset:0;z-index:-2;overflow:hidden;background:#0A1329}
-.hero-slides .hs{position:absolute;inset:0;opacity:0;transition:opacity 1.15s ease}
+/* ---------- 상단 미디어 (글자 없이 먼저) ---------- */
+.hero-top{position:relative;width:100%;height:clamp(360px,56vh,620px);overflow:hidden;background:#0A1329;isolation:isolate}
+.hero-slides{position:absolute;inset:0;z-index:0;overflow:hidden;background:#0A1329}
+.hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.hero-video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;
+  z-index:1;opacity:0;transition:opacity 1.1s ease;background:transparent;
+}
+.hero-video.is-playing{opacity:1}
+.hero-slides .hs{position:absolute;inset:0;z-index:2;opacity:0;transition:opacity 1.15s ease}
 .hero-slides .hs img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.04);will-change:transform}
 .hero-slides .hs.is-on{opacity:1}
 .hero-slides .hs.is-on img{animation:hsKB 8.6s ease-out forwards}
-.hero-slides .hs:nth-child(2).is-on img,
-.hero-slides .hs:nth-child(4).is-on img{animation-name:hsKB2}
+.hero-slides .hs:nth-of-type(even).is-on img{animation-name:hsKB2}
 @keyframes hsKB{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.15) translate3d(-1.6%,-1.2%,0)}}
 @keyframes hsKB2{from{transform:scale(1.15) translate3d(1.4%,1%,0)}to{transform:scale(1.04) translate3d(0,0,0)}}
-/* scrim keeps the navy + gold tone and the copy readable over every photo */
+/* 영상 위에는 글자를 얹지 않는다 — 헤더 가독용 상단 veil + 아래로 페이지 바탕색 */
 .hero-scrim{
-  position:absolute;inset:0;z-index:-1;pointer-events:none;
+  position:absolute;inset:0;z-index:3;pointer-events:none;
   background:
-    linear-gradient(96deg,rgba(6,12,26,.96) 0%,rgba(6,12,26,.9) 32%,rgba(6,12,26,.7) 56%,rgba(6,12,26,.44) 100%),
-    linear-gradient(0deg,rgba(6,12,26,.94) 0%,rgba(6,12,26,.4) 30%,rgba(6,12,26,0) 62%),
-    linear-gradient(180deg,rgba(6,12,26,.74) 0%,rgba(6,12,26,0) 24%);
+    linear-gradient(180deg,rgba(6,12,26,.88) 0%,rgba(6,12,26,.46) 10%,rgba(6,12,26,.06) 24%,rgba(6,12,26,0) 38%),
+    linear-gradient(0deg,#0A1329 0%,rgba(10,19,41,.9) 8%,rgba(10,19,41,0) 34%);
 }
-.hero > .wrap{position:relative;z-index:1;width:100%}
-.hero-copy{max-width:min(620px,94%)}
+/* 영상 위 하단 캡션·컨트롤 */
+.hero-ui{
+  position:absolute;left:0;right:0;bottom:0;z-index:4;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
+  width:100%;max-width:var(--max);margin:0 auto;
+  padding:0 clamp(20px,5vw,40px) clamp(12px,1.8vw,18px);
+}
+.hs-caption{display:flex;align-items:center;gap:12px;min-width:0}
+.hs-count{
+  flex:none;display:inline-flex;align-items:center;gap:4px;padding:5px 9px;
+  border:1px solid var(--line-gold);background:rgba(8,16,34,.72);backdrop-filter:blur(4px);
+  font-family:var(--ff-serif);font-size:10.5px;letter-spacing:.16em;color:rgba(255,255,255,.62);
+}
+.hs-count b{color:#fff;font-weight:600}
+.hs-label{
+  font-size:13px;color:#fff;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  text-shadow:0 1px 14px rgba(0,0,0,.75);
+}
+.hs-controls{flex:none;display:flex;align-items:center;gap:12px}
+.hs-arrow{
+  width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(220,196,155,.5);background:rgba(8,16,34,.72);backdrop-filter:blur(4px);
+  color:var(--gold-pale);cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease;
+}
+.hs-arrow:hover{background:var(--gold);border-color:var(--gold);color:#1A140A}
+.hs-arrow svg{width:16px;height:16px}
+#hsPrev svg{transform:rotate(180deg)}
+.hs-dots{display:flex;align-items:center;gap:7px}
+.hs-dots button{
+  width:7px;height:7px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;
+  transition:width .3s ease,background .3s ease,border-radius .3s ease;
+}
+.hs-dots button:hover{background:rgba(255,255,255,.78)}
+.hs-dots button.is-on{width:26px;border-radius:3px;background:var(--gold)}
+.hs-dots button.is-on:hover{background:var(--gold)}
+
+/* ---------- 영상 아래 글자 ---------- */
+.hero-body{
+  position:relative;z-index:1;width:100%;max-width:var(--max);margin:0 auto;
+  padding:clamp(24px,3vw,42px) clamp(20px,5vw,40px) clamp(24px,3.2vw,38px);
+}
+.hero-copy{max-width:min(820px,100%)}
 .hero h1{
   font-size:clamp(31px,4.9vw,58px);line-height:1.24;font-weight:700;letter-spacing:-.045em;
   margin:0 0 22px;
@@ -235,13 +273,13 @@ h2.title{
 }
 .hero-sub{
   font-size:clamp(15px,1.7vw,17.5px);line-height:1.85;color:rgba(255,255,255,.76);
-  max-width:44ch;margin-bottom:34px;
+  max-width:52ch;margin-bottom:26px;
 }
 .hero-sub strong{color:#fff;font-weight:600}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px}
 .hero-facts{
   display:grid;grid-template-columns:repeat(3,1fr);gap:0;
-  margin-top:clamp(26px,3.4vw,38px);border-top:1px solid rgba(255,255,255,.14);padding-top:20px;
+  margin-top:clamp(24px,3vw,34px);border-top:1px solid rgba(255,255,255,.14);padding-top:20px;
 }
 .hero-facts li{padding-right:18px;position:relative}
 .hero-facts li+li{padding-left:22px;border-left:1px solid rgba(255,255,255,.12)}
@@ -259,39 +297,11 @@ h2.title{
   backdrop-filter:blur(6px);font-size:11.5px;letter-spacing:.02em;color:var(--gold-pale);
 }
 .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(201,160,99,.2)}
-/* slide caption + controls */
-.hero-ui{
-  display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
-  margin-top:clamp(20px,2.6vw,32px);
+@media (prefers-reduced-motion:reduce){
+  .hero-slides .hs{transition:opacity .25s linear}
+  .hero-slides .hs.is-on img{animation:none;transform:none}
 }
-.hs-caption{display:flex;align-items:center;gap:12px;min-width:0}
-.hs-count{
-  flex:none;display:inline-flex;align-items:center;gap:4px;padding:5px 9px;
-  border:1px solid var(--line-gold);background:rgba(8,16,34,.55);backdrop-filter:blur(4px);
-  font-family:var(--ff-serif);font-size:10.5px;letter-spacing:.16em;color:rgba(255,255,255,.55);
-}
-.hs-count b{color:#fff;font-weight:600}
-.hs-label{
-  font-size:13px;color:#fff;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  text-shadow:0 1px 14px rgba(0,0,0,.6);
-}
-.hs-controls{flex:none;display:flex;align-items:center;gap:12px}
-.hs-arrow{
-  width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  border:1px solid rgba(220,196,155,.5);background:rgba(8,16,34,.55);backdrop-filter:blur(4px);
-  color:var(--gold-pale);cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease;
-}
-.hs-arrow:hover{background:var(--gold);border-color:var(--gold);color:#1A140A}
-.hs-arrow svg{width:16px;height:16px}
-#hsPrev svg{transform:rotate(180deg)}
-.hs-dots{display:flex;align-items:center;gap:7px}
-.hs-dots button{
-  width:7px;height:7px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.34);cursor:pointer;
-  transition:width .3s ease,background .3s ease,border-radius .3s ease;
-}
-.hs-dots button:hover{background:rgba(255,255,255,.72)}
-.hs-dots button.is-on{width:26px;border-radius:3px;background:var(--gold)}
-.hs-dots button.is-on:hover{background:var(--gold)}
+
 /* ============ showroom ============ */
 .showroom{background:var(--cream);border-bottom:1px solid var(--line)}
 .showroom-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:start}
@@ -894,14 +904,14 @@ html.js [data-reveal].in{opacity:1;transform:none}
   .brand img{height:34px}
   .brand-txt b{font-size:13px;letter-spacing:.2em}
   .brand-txt i{font-size:10px}
-  .hero{padding-top:calc(var(--header-h) + 46px);min-height:auto;padding-bottom:28px}
-  .hero-ui{flex-direction:column;align-items:stretch;gap:14px;margin-top:26px}
+  .hero-top{height:clamp(300px,46vh,420px)}
+  .hero-ui{flex-direction:column;align-items:stretch;gap:10px}
   .hs-controls{justify-content:space-between}
   .hs-dots{flex:1;justify-content:center}
   .hero h1{font-size:clamp(29px,8.4vw,40px);line-height:1.26}
-  .hero-sub{font-size:15px;margin-bottom:28px}
-  .hero-actions{flex-direction:column}
-  .hero-actions .btn{width:100%}
+  .hero-sub{font-size:15px;margin-bottom:22px}
+  .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .hero-actions .btn{width:100%;padding:0 12px;font-size:14px}
   .showroom-actions{flex-direction:column}
   .showroom-actions .btn{width:100%}
   .map-links a{flex:1;text-align:center}
@@ -913,10 +923,10 @@ html.js [data-reveal].in{opacity:1;transform:none}
   .hero-facts span{margin-top:5px;font-size:10.5px;line-height:1.45}
   .video-poster .vp-hint{display:none}
   .hero-scrim{background:
-    linear-gradient(96deg,rgba(6,12,26,.94) 0%,rgba(6,12,26,.82) 40%,rgba(6,12,26,.58) 72%,rgba(6,12,26,.46) 100%),
-    linear-gradient(0deg,rgba(6,12,26,.9) 0%,rgba(6,12,26,.3) 34%,rgba(6,12,26,0) 64%),
-    linear-gradient(180deg,rgba(6,12,26,.66) 0%,rgba(6,12,26,0) 22%);
+    linear-gradient(180deg,rgba(6,12,26,.9) 0%,rgba(6,12,26,.5) 10%,rgba(6,12,26,.08) 24%,rgba(6,12,26,0) 38%),
+    linear-gradient(0deg,#0A1329 0%,rgba(10,19,41,.92) 9%,rgba(10,19,41,0) 36%);
   }
+  .hs-label{font-size:12px}
   .hero-badge{position:relative;margin:16px 0 0;display:inline-flex}
     .prop-grid{grid-template-columns:1fr}
   .card-visual.has-photo{height:clamp(190px,52vw,230px)}
@@ -942,6 +952,10 @@ html.js [data-reveal].in{opacity:1;transform:none}
   .footer-bottom{flex-direction:column}
   .mobile-bar{display:flex}
   .section{padding:clamp(48px,11vw,64px) 0}
+}
+@media(max-width:620px){
+  .hero-top{height:auto;aspect-ratio:4/5;max-height:64svh}
+  .hero-body{padding-bottom:28px}
 }
 @media(max-width:390px){
   .hero h1{font-size:27px}
@@ -1095,7 +1109,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
   .quickbar{display:block}
   .header,.header.is-scrolled{height:var(--header-h)}
   .mobile-nav{max-height:calc(100svh - var(--header-h) - var(--quick-h));overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:28px}
-  .hero{padding-top:calc(var(--header-h) + var(--quick-h) + clamp(30px,4.6vw,58px))}
+  .hero-top{margin-top:calc(var(--header-h) + var(--quick-h))}
   .est-card{grid-template-columns:1fr}
   .est-out{border-left:0;border-top:1px solid rgba(220,196,155,.28)}
 }
@@ -1103,7 +1117,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
   :root{--quick-h:55px}
   body.menu-open .mobile-bar{display:none}
   body.menu-open{padding-bottom:0}
-  .hero{padding-top:calc(var(--header-h) + var(--quick-h) + 30px)}
+  .hero-body{padding-top:20px}
   .est-models{gap:7px}
   .est-model{padding:11px 11px}
   .est-model b{font-size:12.5px}
@@ -1273,59 +1287,63 @@ html.js [data-reveal].in{opacity:1;transform:none}
 <!-- ============ hero ============ -->
 <main id="top">
 <section class="hero" id="hero" aria-label="하우스링 주요 현장 쇼케이스">
-  <div class="hero-slides" aria-hidden="true">
-    <div class="hs is-on"><img src="assets/photos/hero-showroom.jpg" alt="" fetchpriority="high" decoding="async"></div>
-    <div class="hs"><img src="assets/photos/hero-cube10.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="hs"><img src="assets/photos/hero-teluce.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="hs"><img src="assets/photos/hero-greendel.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="hs"><img src="assets/photos/hero-lancity.jpg" alt="" loading="lazy" decoding="async"></div>
-  </div>
-  <div class="hero-scrim" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="hero-copy">
-        <span class="eyebrow">House Ring · 종합 주거 개발</span>
-        <h1>주택의 모든 것,<br><em>하우스링(HOUSE RING)</em></h1>
-        <p class="hero-sub">
-          10평대 모듈러·농촌체류형쉼터 <strong>3,900만 원~</strong>부터 주말 세컨하우스,
-          내 인생의 보금자리 프리미엄 타운하우스까지 — 설계 · 전시장 체험 ·
-          <strong>시행사 직영 분양</strong>을 한곳에서.
-        </p>
-        <div class="hero-cats">
-          <a href="#lineup"><i>01</i>모듈러 · 농촌체류형쉼터</a>
-          <a href="#properties"><i>02</i>세컨하우스</a>
-          <a href="#properties"><i>03</i>타운하우스 분양</a>
-          <a href="#services"><i>04</i>토지 · 건축 인허가</a>
-        </div>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="#booking">
-            <svg aria-hidden="true"><use href="#i-calendar"/></svg>방문 예약하기
-          </a>
-          <a class="btn btn-ghost" href="#showroom">
-            <svg aria-hidden="true"><use href="#i-pin"/></svg>파주 교하 전시장 안내
-          </a>
-        </div>
-        <a class="hero-tel" href="tel:+821048257879">
-          <svg aria-hidden="true"><use href="#i-phone"/></svg>전화 상담 <b>010-4825-7879</b>
-        </a>
-        <br>
-        <span class="hero-badge"><i class="dot"></i>부경아리아 파주 교하전시장 · 본사 직영</span>
-        <ul class="hero-facts">
-          <li><a href="#estimate"><b>3,900만원~</b><span>10평 기준<br>모듈러·세컨하우스 시작가</span></a></li>
-          <li><a href="#properties"><b>17세대</b><span>용인 고림동<br>텔루체 타운하우스</span></a></li>
-          <li><a href="#services"><b>2026. 12.</b><span>공인중개사 합류<br>중개 업무 확장 예정</span></a></li>
-        </ul>
+  <div class="hero-top">
+    <div class="hero-slides" aria-hidden="true">
+      <img class="hero-poster" src="assets/photos/hero-video-poster.jpg?v=20261119a" alt="" fetchpriority="high" decoding="async">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto"
+             poster="assets/photos/hero-video-poster.jpg?v=20261119a" tabindex="-1" disablepictureinpicture>
+        <source src="assets/photos/hero-video.mp4?v=20261119a" type="video/mp4">
+      </video>
+      <div class="hs is-on"><img src="assets/photos/hero-showroom.jpg" alt="" fetchpriority="high" decoding="async"></div>
+      <div class="hs"><img src="assets/photos/hero-cube10.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="hs"><img src="assets/photos/hero-teluce.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="hs"><img src="assets/photos/hero-greendel.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="hs"><img src="assets/photos/hero-lancity.jpg" alt="" loading="lazy" decoding="async"></div>
     </div>
-
+    <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-ui">
       <div class="hs-caption">
-        <span class="hs-count"><b id="hsNum">01</b> / 05</span>
-        <span class="hs-label" id="hsLabel">부경아리아 파주 전시장</span>
+        <span class="hs-count"><b id="hsNum">01</b> / 06</span>
+        <span class="hs-label" id="hsLabel">부경아리아 파주 전시장 · 현장 영상</span>
       </div>
       <div class="hs-controls">
-        <button class="hs-arrow" type="button" id="hsPrev" aria-label="이전 사진"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
-        <div class="hs-dots" id="hsDots" role="tablist" aria-label="쇼케이스 사진 선택"></div>
-        <button class="hs-arrow" type="button" id="hsNext" aria-label="다음 사진"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <button class="hs-arrow" type="button" id="hsPrev" aria-label="이전 장면"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <div class="hs-dots" id="hsDots" role="tablist" aria-label="쇼케이스 선택"></div>
+        <button class="hs-arrow" type="button" id="hsNext" aria-label="다음 장면"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
       </div>
+    </div>
+  </div>
+  <div class="hero-body">
+    <div class="hero-copy">
+      <span class="eyebrow">House Ring · 종합 주거 개발</span>
+      <h1>주택의 모든 것,<br><em>하우스링(HOUSE RING)</em></h1>
+      <p class="hero-sub">
+                10평대 모듈러·농촌체류형쉼터 <strong>3,900만 원~</strong>부터 주말 세컨하우스,
+                내 인생의 보금자리 프리미엄 타운하우스까지 — 설계 · 전시장 체험 ·
+                <strong>시행사 직영 분양</strong>을 한곳에서.
+              </p>
+      <div class="hero-cats">
+                <a href="#lineup"><i>01</i>모듈러 · 농촌체류형쉼터</a>
+                <a href="#properties"><i>02</i>세컨하우스</a>
+                <a href="#properties"><i>03</i>타운하우스 분양</a>
+                <a href="#services"><i>04</i>토지 · 건축 인허가</a>
+              </div>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#booking"><svg aria-hidden="true"><use href="#i-calendar"/></svg>방문 예약하기</a>
+        <a class="btn btn-ghost" href="#estimate"><svg aria-hidden="true"><use href="#i-consult"/></svg>간편 가견적 계산기</a>
+        <a class="btn btn-ghost" href="#showroom"><svg aria-hidden="true"><use href="#i-pin"/></svg>파주 교하 전시장 안내</a>
+        <a class="btn btn-ghost" href="https://www.youtube.com/channel/UCv1LuKEOIRZm-u71nhofMwA" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-youtube"/></svg>유튜브 채널</a>
+        <a class="btn btn-ghost" href="https://blog.naver.com/yummyapt" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-blog"/></svg>네이버 블로그</a>
+      </div>
+      <a class="hero-tel" href="tel:+821048257879">
+        <svg aria-hidden="true"><use href="#i-phone"/></svg>전화 상담 <b>010-4825-7879</b>
+      </a>
+      <span class="hero-badge"><i class="dot"></i>부경아리아 파주 교하전시장 · 본사 직영</span>
+      <ul class="hero-facts">
+                <li><a href="#estimate"><b>3,900만원~</b><span>10평 기준<br>모듈러·세컨하우스 시작가</span></a></li>
+                <li><a href="#properties"><b>17세대</b><span>용인 고림동<br>텔루체 타운하우스</span></a></li>
+                <li><a href="#services"><b>2026. 12.</b><span>공인중개사 합류<br>중개 업무 확장 예정</span></a></li>
+              </ul>
     </div>
   </div>
 </section>
@@ -2688,33 +2706,42 @@ html.js [data-reveal].in{opacity:1;transform:none}
     if (mParam && EST[mParam.toLowerCase()]) pickModel(mParam.toLowerCase());
   }
 
-  /* ===== hero showcase slider ===== */
+  /* ===== hero showcase slider (현장 영상 + 실사 사진 5컷) ===== */
   var hero = document.getElementById('hero');
   if (hero){
     var slides = Array.prototype.slice.call(hero.querySelectorAll('.hero-slides .hs'));
+    var heroVideo = document.getElementById('heroVideo');
     var dotsBox = document.getElementById('hsDots');
     var numEl = document.getElementById('hsNum');
     var labelEl = document.getElementById('hsLabel');
     var prevBtn = document.getElementById('hsPrev');
     var nextBtn = document.getElementById('hsNext');
     var LABELS = [
+      '부경아리아 파주 전시장 · 현장 영상',
       '부경아리아 파주 전시장',
       'CUBE 10 · 모듈러 10평',
       '용인 고림동 텔루체 타운하우스',
       '파주 그린델 타운하우스 2차',
       '서동탄역 랜시티'
     ];
+    var total = LABELS.length;
     var dots = [];
     var curIdx = 0;
     var timer = null;
     var inView = true;
+
+    if (heroVideo){
+      heroVideo.addEventListener('error', function(){ heroVideo.style.display = 'none'; }, true);
+      heroVideo.addEventListener('playing', function(){ heroVideo.classList.add('is-playing'); });
+      if (heroVideo.readyState > 2 && !heroVideo.paused) heroVideo.classList.add('is-playing');
+    }
 
     if (dotsBox){
       LABELS.forEach(function(t, i){
         var b = document.createElement('button');
         b.type = 'button';
         b.setAttribute('role','tab');
-        b.setAttribute('aria-label', (i + 1) + '번째 사진 · ' + t);
+        b.setAttribute('aria-label', (i + 1) + '번째 장면 · ' + t);
         b.addEventListener('click', function(){ go(i, true); });
         dotsBox.appendChild(b);
         dots.push(b);
@@ -2722,29 +2749,39 @@ html.js [data-reveal].in{opacity:1;transform:none}
     }
 
     function paintSlide(){
-      slides.forEach(function(s, i){ s.classList.toggle('is-on', i === curIdx); });
+      slides.forEach(function(s, i){ s.classList.toggle('is-on', i + 1 === curIdx); });
       dots.forEach(function(d, i){
         d.classList.toggle('is-on', i === curIdx);
         d.setAttribute('aria-selected', i === curIdx ? 'true' : 'false');
       });
-      if (numEl) numEl.textContent = ('0' + (curIdx + 1));
+      if (numEl) numEl.textContent = ('0' + (curIdx + 1)).slice(-2);
       if (labelEl) labelEl.textContent = LABELS[curIdx];
+      if (heroVideo && heroVideo.style.display !== 'none'){
+        if (curIdx === 0 && !reduced && !document.hidden && inView){
+          var pr = heroVideo.play();
+          if (pr && pr.catch) pr.catch(function(){});
+        } else {
+          heroVideo.pause();
+        }
+      }
     }
 
     function go(i, fromUser){
-      curIdx = (i + slides.length) % slides.length;
+      curIdx = (i + total) % total;
       paintSlide();
       if (fromUser) restart();
     }
 
-    function stop(){ if (timer){ clearInterval(timer); timer = null; } }
+    function stop(){ if (timer){ clearTimeout(timer); timer = null; } }
     function restart(){
       stop();
-      if (reduced || slides.length < 2) return;
-      timer = setInterval(function(){
-        if (!inView || document.hidden) return;
+      if (reduced) return;
+      var dur = curIdx === 0 ? 12000 : 6500;
+      timer = setTimeout(function(){
+        if (!inView || document.hidden){ restart(); return; }
         go(curIdx + 1, false);
-      }, 6500);
+        restart();
+      }, dur);
     }
 
     if (prevBtn) prevBtn.addEventListener('click', function(){ go(curIdx - 1, true); });
@@ -2765,6 +2802,7 @@ html.js [data-reveal].in{opacity:1;transform:none}
     if ('IntersectionObserver' in window){
       new IntersectionObserver(function(entries){
         inView = entries[0].isIntersecting;
+        if (!inView && heroVideo) heroVideo.pause();
       }, {threshold:0.15}).observe(hero);
     }
     document.addEventListener('visibilitychange', function(){ if (!document.hidden) restart(); });
