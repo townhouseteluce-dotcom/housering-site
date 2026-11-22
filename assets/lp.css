@@ -149,9 +149,9 @@ table.lp .is-key{background:rgba(201,160,99,.1)}
 /* ---------- type cards ---------- */
 .type-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .type-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 16px;text-align:center}
-.type-card .t-name{font-family:var(--ff-serif);font-size:15px;letter-spacing:.06em;color:var(--navy);font-weight:700}
-.type-card .t-area{margin-top:6px;font-size:12.5px;color:var(--muted)}
-.type-card .t-count{margin-top:10px;font-size:19px;font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.type-card .t-name{display:block;font-family:var(--ff-serif);font-size:15px;letter-spacing:.06em;color:var(--navy);font-weight:700}
+.type-card .t-area{display:block;margin-top:6px;font-size:12.5px;color:var(--muted)}
+.type-card .t-count{display:block;margin-top:10px;font-size:19px;font-weight:800;color:var(--navy);letter-spacing:-.02em}
 .type-card .t-count span{font-size:12px;font-weight:600;color:var(--muted);margin-left:2px}
 .type-card.is-key{border-color:var(--line-gold);background:linear-gradient(180deg,#FFFDF8,#FBF5E9)}
 .type-card.is-key .t-count{color:#8E6C36}
