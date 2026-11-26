@@ -180,6 +180,11 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
 .hero-tel svg{width:15px;height:15px;color:var(--gold)}
 .hero-tel b{color:var(--gold-pale);font-weight:600;letter-spacing:.02em}
 .hero-tel:hover b{color:#fff}
+.hero-visit{display:flex;gap:8px;align-items:flex-start;margin-top:14px;padding:10px 13px;border-left:2px solid var(--gold);background:rgba(8,9,12,.55);font-size:12.5px;line-height:1.65;color:rgba(255,255,255,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);max-width:52ch}
+.hero-visit svg{width:15px;height:15px;flex:none;margin-top:2px;color:var(--gold)}
+.hero-visit b{color:#fff;font-weight:700}
+.hero-visit a{color:var(--gold-pale);font-weight:700;border-bottom:1px solid rgba(220,196,155,.45);white-space:nowrap}
+@media (max-width:640px){.hero-visit{font-size:12px}}
 .bk-phone{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.7}
 .bk-phone a{color:var(--navy);font-weight:600;border-bottom:1px solid var(--line-gold);padding-bottom:1px}
 .sm-tag{font-size:11px;color:rgba(255,255,255,.42)}
@@ -339,6 +344,9 @@ h2.title{font-size:clamp(24px,3.4vw,36px);line-height:1.36;font-weight:700;lette
 .addr-box .ab-head{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2);font-weight:600;margin-bottom:8px}
 .addr-box .ab-head svg{width:15px;height:15px;color:var(--gold)}
 .addr-box p{font-size:14px;color:var(--ink-2);line-height:1.75}
+.addr-box .way-note{margin-top:10px;padding:10px 12px;border-left:2px solid var(--gold);background:rgba(212,175,55,.09);line-height:1.8}
+.addr-box .way-note b{font-weight:700;color:var(--ink)}
+.addr-box .way-note a{color:#8E6C36;font-weight:700;border-bottom:1px solid rgba(142,108,54,.45);white-space:nowrap}
 .map-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .map-links a{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:8px 12px;border:1px solid rgba(20,33,61,.16);background:#fff;color:var(--ink-2);transition:.2s}
 .map-links a:hover{border-color:var(--gold);color:#8E6C36;transform:translateY(-1px)}
@@ -772,6 +780,7 @@ button.price-figure:hover img{transform:scale(1.015)}
         <a class="btn btn-ghost" href="https://talk.naver.com/ct/wfuyhez" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>네이버 톡톡</a>
       </div>
       <a class="hero-tel" href="tel:+821062356914"><svg aria-hidden="true"><use href="#i-phone"/></svg>분양 상담 담당 실장 <b>010-6235-6914</b></a>
+      <p class="hero-visit"><svg aria-hidden="true"><use href="#i-pin"/></svg><span><b>방문은 ‘임원로 114-5’ 직영 모델하우스로 바로</b> — 내비게이션에 ‘텔루체 타운하우스 분양사무실’로 검색하면 입구 컨테이너(분양대행사)로 안내됩니다. 주소 <b>‘경기도 용인시 처인구 임원로 114-5’</b>를 찍고 오세요. 방문 전 <a href="tel:+821048257879">010-4825-7879</a>로 전화 주시면 1:1 전문 상담으로 안내해 드립니다.</span></p>
     </div>
     <div class="hero-bar" id="heroBar">
       <div class="hero-cap">
@@ -1035,11 +1044,12 @@ button.price-figure:hover img{transform:scale(1.015)}
         <h2 class="title">보평역이 가깝고,<br><span class="thin">앞은 경안천이 열립니다</span></h2>
         <p class="lead">주변 2만 세대 아파트의 생활 인프라를 옆에 두면서, 집 앞에서는 들판과 수변공원이 이어집니다. 아이 학교와 출퇴근, 주말 산책까지 한 생활권에서 해결됩니다.</p>
         <div class="addr-box">
-          <div class="ab-head"><svg aria-hidden="true"><use href="#i-pin"/></svg>현장 주소</div>
-          <p>경기도 용인시 처인구 고림동 458-9 일원<br>보평역 도보권 · 보평3지구 인접</p>
+          <div class="ab-head"><svg aria-hidden="true"><use href="#i-pin"/></svg>방문 주소 · 직영 모델하우스</div>
+          <p><b>경기도 용인시 처인구 임원로 114-5</b> (구경하는 집)<br>단지 주소는 고림동 458-9 일원 · 보평역 도보권 · 보평3지구 인접</p>
+          <p class="way-note"><b>오시는 길</b> · 내비게이션에 <b>‘텔루체 타운하우스 분양사무실’</b>로 검색하면 <b>입구 컨테이너(분양대행사)</b>로 안내됩니다. 검색 대신 주소 <b>‘경기도 용인시 처인구 임원로 114-5’</b>를 찍고 <b>직영 모델하우스(구경하는 집)</b>로 바로 오세요. 방문 전 <a href="tel:+821048257879">010-4825-7879</a>로 전화 주시면 1:1 전문 상담으로 안내해 드립니다.</p>
           <div class="map-links">
-            <a href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9A%A9%EC%9D%B8%EC%8B%9C%20%EC%B2%98%EC%9D%B8%EA%B5%AC%20%EA%B3%A0%EB%A6%BC%EB%8F%99%20458-9" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>네이버 지도</a>
-            <a href="https://map.kakao.com/?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9A%A9%EC%9D%B8%EC%8B%9C%20%EC%B2%98%EC%9D%B8%EA%B5%AC%20%EA%B3%A0%EB%A6%BC%EB%8F%99%20458-9" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>카카오맵</a>
+            <a href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9A%A9%EC%9D%B8%EC%8B%9C%20%EC%B2%98%EC%9D%B8%EA%B5%AC%20%EC%9E%84%EC%9B%90%EB%A1%9C%20114-5" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>네이버 지도 (임원로 114-5)</a>
+            <a href="https://map.kakao.com/?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9A%A9%EC%9D%B8%EC%8B%9C%20%EC%B2%98%EC%9D%B8%EA%B5%AC%20%EC%9E%84%EC%9B%90%EB%A1%9C%20114-5" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>카카오맵 (임원로 114-5)</a>
           </div>
         </div>
         <div class="dev-note">
@@ -1318,6 +1328,7 @@ button.price-figure:hover img{transform:scale(1.015)}
       <h2 class="title">방문 예약 — 날짜만 골라 주세요</h2>
       <p class="lead">텔루체는 100% 사전 예약제로 운영됩니다. 달력에서 방문 희망일과 시간대를 고르고 내용을 확인하시면 문자로 예약 내용을 보내드립니다. 담당자 확인 후 확정 연락을 드립니다.</p>
       <p class="lead booking-lead-sub"><b>신규 모델하우스(구경하는 집)</b> 관람도 같은 방법으로 신청하실 수 있습니다.</p>
+      <p class="lead booking-lead-sub"><b>오시는 길</b> — 내비게이션에 ‘텔루체 타운하우스 분양사무실’로 검색하면 입구 컨테이너(분양대행사)로 안내됩니다. 주소 <b>‘경기도 용인시 처인구 임원로 114-5’</b>를 찍고 오시면 <b>직영 모델하우스(구경하는 집)</b>입니다.</p>
       <p class="lead booking-lead-sub"><b>방문 상담 예약 시 소정의 사은품(기프트)을 드립니다.</b> 예약 후 방문하시면 현장에서 바로 전달드립니다.</p>
       <p class="talk-note"><svg aria-hidden="true"><use href="#i-chat"/></svg><span>전화가 어려우시면 네이버 톡톡 1:1 채팅으로도 예약·잔여 세대 확인이 가능합니다. <a href="https://talk.naver.com/ct/wfuyhez" target="_blank" rel="noopener"><b>톡톡으로 상담하기</b></a></span></p>
     </div>
@@ -1435,7 +1446,8 @@ button.price-figure:hover img{transform:scale(1.015)}
           <p class="cc-role">용인 고림동 텔루체 타운하우스 분양 상담 · 담당 실장</p>
           <a class="tel-big" href="tel:+821062356914"><svg aria-hidden="true"><use href="#i-phone"/></svg>010-6235-6914</a>
           <div class="contact-lines">
-            <div><svg aria-hidden="true"><use href="#i-pin"/></svg><span>경기도 용인시 처인구 고림동 458-9 일원</span></div>
+            <div><svg aria-hidden="true"><use href="#i-pin"/></svg><span>경기도 용인시 처인구 임원로 114-5 (직영 모델하우스·구경하는 집)</span></div>
+            <div><svg aria-hidden="true"><use href="#i-arrow"/></svg><span>오시는 길 — 내비게이션은 ‘텔루체 타운하우스 분양사무실’이 아니라 주소 ‘경기도 용인시 처인구 임원로 114-5’로 찍어 주세요.</span></div>
             <div><svg aria-hidden="true"><use href="#i-calendar"/></svg><span>방문 100% 사전 예약제 · 신규 모델하우스(구경하는 집) 운영 중</span></div>
             <div><svg aria-hidden="true"><use href="#i-check"/></svg><span>방문 상담 예약 시 소정의 사은품(기프트) 증정</span></div>
           </div>
@@ -1502,7 +1514,7 @@ button.price-figure:hover img{transform:scale(1.015)}
             <li class="sm"><svg aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+821062356914">010-6235-6914</a> <span class="sm-tag">담당 실장</span></li>
             <li class="sm"><svg aria-hidden="true"><use href="#i-sms"/></svg><a href="sms:+821062356914">문자로 방문 예약</a></li>
             <li class="sm"><svg aria-hidden="true"><use href="#i-chat"/></svg><a href="https://talk.naver.com/ct/wfuyhez" target="_blank" rel="noopener">네이버 톡톡 상담</a></li>
-            <li class="sm"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>경기도 용인시 처인구<br>고림동 458-9 일원</span></li>
+            <li class="sm"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>경기도 용인시 처인구<br>임원로 114-5 (직영 모델하우스)</span></li>
             <li class="sm"><svg aria-hidden="true"><use href="#i-home"/></svg><span>하우스링 HOUSE RING</span></li>
           </ul>
         </div>
